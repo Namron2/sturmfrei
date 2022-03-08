@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1691303335774734335
+--- !u!114 &-5564340401170616473
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +141,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
     - _AlphaClip: 0
     - _AmbientOcclusion: 1
@@ -197,5 +196,5 @@ Material:
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _Movement: {r: 0, g: 0, b: 0, a: 0}
     - _ScatteringColor: {r: 1, g: 1, b: 1, a: 0}
-    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
