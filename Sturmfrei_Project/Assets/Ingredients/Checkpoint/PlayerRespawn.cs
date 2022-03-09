@@ -5,7 +5,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     private PlayerMovement playMove;
 
-    private Vector3 respawnPoint;
+    public Vector3 respawnPoint;
     private GameObject deathZone;
 
     //Start is called before the first frame update

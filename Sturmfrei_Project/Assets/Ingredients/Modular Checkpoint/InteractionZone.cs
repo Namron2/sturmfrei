@@ -18,17 +18,19 @@ public class InteractionZone : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         CPDetectionPointObject = GameObject.Find("/"+player.name.ToString() + "/Bird_Centre/FloorCheck");
         CPDetectionPoint = CPDetectionPointObject.transform;
+        spawnPoint = this.gameObject.transform;
     }
     private void Update()
     {
-        if (DetectCheckPointZone())
+        /*if (DetectCheckPointZone())
         {
             if (InteractInput())
             {
+                Vector3 SpawnPoint = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 1, spawnPoint.position.z);
                 Debug.Log("A crystal appears");
-                Instantiate(crystalToSpawn, spawnPoint.position, spawnPoint.rotation);
+                Instantiate(crystalToSpawn, SpawnPoint, spawnPoint.rotation);
             }
-        }
+        }*/
     }
 
     bool InteractInput()
@@ -36,7 +38,7 @@ public class InteractionZone : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Q);
     }
 
-    bool DetectCheckPointZone()
+    /*bool DetectCheckPointZone()
     {
         Vector3 Pos = CPDetectionPoint.position;
         Collider[] hitColliders = Physics.OverlapSphere(Pos, detectionRadius, checkPointZone);
@@ -47,5 +49,20 @@ public class InteractionZone : MonoBehaviour
 
         return false;
 
+    }*/
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.transform.gameObject.tag == "Player")
+        {
+            if (InteractInput())
+            {
+                Vector3 SpawnPoint = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 1, spawnPoint.position.z);
+                Debug.Log("A crystal appears");
+                Instantiate(crystalToSpawn, SpawnPoint, spawnPoint.rotation);
+            }
+        }
     }
+
+
 }

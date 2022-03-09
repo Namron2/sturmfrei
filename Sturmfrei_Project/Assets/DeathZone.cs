@@ -9,6 +9,8 @@ public class DeathZone : MonoBehaviour
     {
         if (other.transform.gameObject.tag == "Player")
         {
+            respawnPoint = other.GetComponent<PlayerCollisionSphere>().PlayerMov.gameObject.GetComponent<PlayerRespawn>().respawnPoint;
+
             other.transform.position = respawnPoint;
         }
     }
