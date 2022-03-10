@@ -107,8 +107,8 @@ public class PlayerMovement : MonoBehaviour
     public int frontDashSpeed = 50;
     public int upwardDashSpeed = 50;
     public int secondStaminaCooldown = 5;
-    private bool canDashFront=true;
-    private bool canDashUp=true;
+    public bool canDashFront=true;
+    public bool canDashUp=true;
     public Slider coolSlider;
     private float elapsedTime = 0;
     private float progress = 0;
@@ -994,26 +994,36 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    public float progressTempo;
     private IEnumerator DashCountdown()
     {
         while(progress <= 1) 
         {
             elapsedTime += Time.unscaledDeltaTime;
             progress = elapsedTime / secondStaminaCooldown;
-            float progressDash = elapsedTime / dashTime;
-            if (!canDashFront && progressDash<=1)
+            float progressDash = progress * secondStaminaCooldown;
+            progressTempo = progressDash;
+            if (progressDash<dashTime)
             {
-                //speed relative to previous speed
-                //ActSpeed = tempoFixedSpeed;
+                if(!canDashUp)
                 isDashing = true;
-                //Fixed speed
-                ActSpeed = frontDashSpeed;
+                if (!canDashFront)
+                {
+                    isDashing = true;
+                    ActSpeed = frontDashSpeed;
+                }
             }
-            else if (!canDashFront && progressDash>1)
+
+            if (!canDashUp && progressDash > 1)// le 1 represente le temps que le joueur dash vers le haut, soit environ 1 sec
             {
                 isDashing = false;
             }
+            if (!canDashFront && progressDash > dashTime)
+            {
+                isDashing = false;
+            }
+
+
             yield return null;
         }
         canDashFront = true;
@@ -1023,7 +1033,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator DashResetSpeed()
     {
         
-        yield return new WaitForSeconds(dashTime);//1sec
+        yield return new WaitForSeconds(dashTime);//0.5sec
             //The player just dash frontward 
 
             // this dash dgives speed when goind up, returning to 20 does not feel good.
@@ -1050,6 +1060,10 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("Got polluted !");
         isTainted = true;
         RedLineOverStamina.SetActive(true);
+       /* if(!canDashFront || !canDashUp)
+        {
+
+        }*/
         canDashFront = false;
         canDashUp = false;
         StartCoroutine(NotTainted());

@@ -10,10 +10,16 @@ public class brisable : MonoBehaviour
     public PlayerCollisionSphere playMov;
     public GameObject tempo;
 
+    public GameObject colliderTransparent;
+    public GameObject colliderOpaque;
+    public BoxCollider boxColliderParent;
+
     private void Start()
     {
         particule.SetActive(false);
         bedingbedang = GetComponent<AudioSource>();
+        colliderTransparent = GetComponentInParent<IAmInTheWay>().transparentBody;
+        colliderOpaque = GetComponentInParent<IAmInTheWay>().solidBody;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,8 +42,9 @@ public class brisable : MonoBehaviour
     {
         bedingbedang.Play();
         particule.SetActive(true);
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
+        colliderOpaque.SetActive(false);
+        colliderTransparent.SetActive(false);
+        boxColliderParent.enabled = false;
         yield return new WaitForSeconds(1.3f);
         Destroy(transform.parent.gameObject);
         Destroy(particule);

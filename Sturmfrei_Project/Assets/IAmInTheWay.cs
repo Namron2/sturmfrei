@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class IAmInTheWay : MonoBehaviour
 {
-    [SerializeField] private GameObject solidBody;
-    [SerializeField] private GameObject transparentBody;
+    [SerializeField] public GameObject solidBody;
+    [SerializeField] public GameObject transparentBody;
     // Start is called before the first frame update
     void Start()
     {
