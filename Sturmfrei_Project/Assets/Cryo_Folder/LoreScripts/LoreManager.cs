@@ -63,7 +63,7 @@ public class LoreManager : MonoBehaviour
 
     }
 
-    void EndLore()
+    public void EndLore()
     {
         //Debug.Log("End of lore");
         animator.SetBool("IsOpen", false);

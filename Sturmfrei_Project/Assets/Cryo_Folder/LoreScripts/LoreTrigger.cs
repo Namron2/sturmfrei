@@ -7,12 +7,20 @@ public class LoreTrigger : MonoBehaviour
 
     public Lore lore;
     public bool Readable =false;
+    private LoreManager loreManager;
+    private bool pressedDialogInput;
 
+    private void Start()
+    {
+        loreManager = FindObjectOfType<LoreManager>();
+        pressedDialogInput = false;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             Readable = true;
+            Debug.Log("Press F on keyboard or X on controller");
         }
     }
 
@@ -21,24 +29,23 @@ public class LoreTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             Readable = false;
+            loreManager.EndLore();
+            pressedDialogInput = false;
         }
     }
 
 
-    public void TriggerDialogue()
-    {
- 
-
-        
-            FindObjectOfType<LoreManager>().StartLore(lore);
-        
-    }
-
     private void Update()
     {
-        if (Readable == true && Input.GetKeyDown(KeyCode.Tab) )
+        if (Readable && Input.GetButtonDown("ReadLore") && !pressedDialogInput)
         {
-            TriggerDialogue();
+            loreManager.StartLore(lore);
+            pressedDialogInput = true;
+        }
+        else if (Readable && Input.GetButtonDown("ReadLore") && pressedDialogInput)
+        {
+            loreManager.EndLore();
+            pressedDialogInput = false;
         }
     }
 }
