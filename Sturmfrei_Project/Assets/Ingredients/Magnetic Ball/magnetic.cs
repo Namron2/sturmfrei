@@ -13,6 +13,7 @@ public class magnetic : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Press Left-Mouse or X on controller");
         playerRigid = other.GetComponent<PlayerCollisionSphere>();
         playa = playerRigid.PlayerMov;
         grappleScript = playa.gameObject.GetComponent<grapple_gun>();
@@ -32,11 +33,11 @@ public class magnetic : MonoBehaviour
     {
         if (isInsideMe)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetButtonDown("Grapple"))
             {
                 grappleScript.StartGrapple();
             }
-            else if (Input.GetMouseButtonUp(0))
+            else if (Input.GetButtonUp("Grapple"))
             {
                 grappleScript.StopGrapple();
             }
