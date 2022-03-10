@@ -11,58 +11,57 @@ public class InteractionZone : MonoBehaviour
     public Transform spawnPoint;
     public GameObject crystalToSpawn;
     public GameObject player;
-
+    public bool pressingLore;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         CPDetectionPointObject = GameObject.Find("/"+player.name.ToString() + "/Bird_Centre/FloorCheck");
-        CPDetectionPoint = CPDetectionPointObject.transform;
-        spawnPoint = this.gameObject.transform;
+        CPDetectionPoint = CPDetectionPointObject.transform;     
     }
-    private void Update()
+    /*private void Update()
+     {
+         if (DetectCheckPointZone())
+         {
+             if (InteractInput())
+             {
+                 Vector3 SpawnPoint = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 1, spawnPoint.position.z);
+                 Debug.Log("A crystal appears");
+                 Instantiate(crystalToSpawn, SpawnPoint, spawnPoint.rotation);
+             }
+         }
+     }
+
+     bool DetectCheckPointZone()
+     {
+         Vector3 Pos = CPDetectionPoint.position;
+         Collider[] hitColliders = Physics.OverlapSphere(Pos, detectionRadius, checkPointZone);
+         if (hitColliders.Length > 0)
+         {
+             return true;
+         }
+
+         return false;
+
+     }*/
+    public void Update()
     {
-        /*if (DetectCheckPointZone())
-        {
-            if (InteractInput())
-            {
-                Vector3 SpawnPoint = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 1, spawnPoint.position.z);
-                Debug.Log("A crystal appears");
-                Instantiate(crystalToSpawn, SpawnPoint, spawnPoint.rotation);
-            }
-        }*/
+        pressingLore = Input.GetButton("ReadLore");
     }
-
-    bool InteractInput()
-    {
-        return Input.GetKeyDown(KeyCode.Q);
-    }
-
-    /*bool DetectCheckPointZone()
-    {
-        Vector3 Pos = CPDetectionPoint.position;
-        Collider[] hitColliders = Physics.OverlapSphere(Pos, detectionRadius, checkPointZone);
-        if (hitColliders.Length > 0)
-        {
-            return true;
-        }
-
-        return false;
-
-    }*/
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
-            if (InteractInput())
+            Debug.Log("Press F on keyboard or X on controller");
+            if (pressingLore)
             {
-                Vector3 SpawnPoint = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 1, spawnPoint.position.z);
                 Debug.Log("A crystal appears");
-                Instantiate(crystalToSpawn, SpawnPoint, spawnPoint.rotation);
+               Instantiate(crystalToSpawn, spawnPoint.position, spawnPoint.rotation);
             }
         }
     }
+
 
 
 }

@@ -11,7 +11,7 @@ public class PlayerRespawn : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
-        deathZone = GameObject.Find("/DeathZone");
+        //deathZone = GameObject.Find("/DeathZone");
         playMove = GetComponent<PlayerMovement>();
         respawnPoint = transform.position;
 
@@ -20,7 +20,7 @@ public class PlayerRespawn : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        deathZone.transform.position = new Vector3(transform.position.x, deathZone.transform.position.y, transform.position.z);
+        //deathZone.transform.position = new Vector3(transform.position.x, deathZone.transform.position.y, transform.position.z);
     }
 
     private void OnTriggerEnter(Collider fallingCollision)
