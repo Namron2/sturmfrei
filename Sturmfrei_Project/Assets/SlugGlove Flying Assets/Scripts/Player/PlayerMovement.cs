@@ -13,7 +13,9 @@ public class PlayerMovement : MonoBehaviour
         Static,
         Grappling, 
     }
-    
+
+    public ParticleSystem aether;
+
     //[HideInInspector]
     public WorldState States;
     private Transform Cam; //reference to our camera
@@ -973,6 +975,7 @@ public class PlayerMovement : MonoBehaviour
             canDashFront = false;
             elapsedTime = 0;
             progress = 0;
+            CreateAether();
             StartCoroutine(DashCountdown());
             StartCoroutine(DashResetSpeed());
         }
@@ -990,6 +993,7 @@ public class PlayerMovement : MonoBehaviour
             canDashUp = false;
             elapsedTime = 0;
             progress = 0;
+            CreateAether();
             StartCoroutine(DashCountdown());
         }
     }
@@ -1123,4 +1127,9 @@ public class PlayerMovement : MonoBehaviour
         TaintedTimer = 5;
         secondStaminaCooldown = 5;
 }
+    void CreateAether()
+    {
+        aether.Play();
+    }
+
 }
