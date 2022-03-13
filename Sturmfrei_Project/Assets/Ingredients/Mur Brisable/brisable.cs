@@ -5,7 +5,7 @@ using UnityEngine;
 public class brisable : MonoBehaviour
 {
     public bool isDashing;
-    public GameObject particule;
+    public ParticleSystem particule;
     public AudioSource bedingbedang;
     public PlayerCollisionSphere playMov;
     public GameObject tempo;
@@ -16,7 +16,7 @@ public class brisable : MonoBehaviour
 
     private void Start()
     {
-        particule.SetActive(false);
+        particule.Stop();
         bedingbedang = GetComponent<AudioSource>();
         colliderTransparent = GetComponentInParent<IAmInTheWay>().transparentBody;
         colliderOpaque = GetComponentInParent<IAmInTheWay>().solidBody;
@@ -41,7 +41,7 @@ public class brisable : MonoBehaviour
     IEnumerator Brise()
     {
         bedingbedang.Play();
-        particule.SetActive(true);
+        particule.Play();
         colliderOpaque.SetActive(false);
         colliderTransparent.SetActive(false);
         boxColliderParent.enabled = false;
