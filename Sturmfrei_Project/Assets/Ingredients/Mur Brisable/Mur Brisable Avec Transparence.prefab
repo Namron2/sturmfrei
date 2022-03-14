@@ -4866,12 +4866,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDashing: 0
-  particule: {fileID: 829462198429412294}
-  bedingbedang: {fileID: 0}
+  particule: {fileID: 829462198429412293}
+  bedingbedang: {fileID: 829462198463572989}
   playMov: {fileID: 0}
   tempo: {fileID: 0}
-  colliderTransparent: {fileID: 0}
-  colliderOpaque: {fileID: 0}
+  colliderTransparent: {fileID: 5336489605907057637}
+  colliderOpaque: {fileID: 5336489605210586191}
   boxColliderParent: {fileID: 829462200030678764}
 --- !u!82 &829462198463572989
 AudioSource:

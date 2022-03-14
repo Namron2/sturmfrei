@@ -13,28 +13,50 @@ public class grapple_gun : MonoBehaviour
         private SpringJoint joint;
         public PlayerCollisionSphere playerRigid;
         private Rigidbody tempoRigid;
-    public GameObject magneticBall;
+        public GameObject magneticBall;
+        private float enterSpeed;
+        private PlayerMovement playMov;
+        public  CameraFollow camFol;
+    private bool LerpDistance;
+    float elapsedTime;
 
-        void Awake()
+    void Awake()
         {
             lr = GetComponent<LineRenderer>();
         tempoRigid = playerRigid.GetComponent<Rigidbody>();
         player = this.gameObject.transform;
-        }
+        playMov = player.GetComponent<PlayerMovement>();
+        //camFol = player.GetComponentInChildren<CameraFollow>();
+        LerpDistance = false;
+    }
 
         void Update()
         {
-            /*if (Input.GetMouseButtonDown(0))
-            {
-                StartGrapple();
-            player.GetComponent<PlayerMovement>().SetGrappling();
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                StopGrapple();
-            player.GetComponent<PlayerMovement>().SetFlying();
+        /*if (Input.GetMouseButtonDown(0))
+        {
+            StartGrapple();
+        player.GetComponent<PlayerMovement>().SetGrappling();
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            StopGrapple();
+        player.GetComponent<PlayerMovement>().SetFlying();
 
-        }*/
+    }*/
+
+        if (LerpDistance)
+        {
+            if (elapsedTime < 100)
+            {
+                elapsedTime += Time.deltaTime;
+                camFol.DistanceFromPlayer = Mathf.Lerp(camFol.DistanceFromPlayer, 9, elapsedTime / 100);
+            }
+            else
+            {
+                LerpDistance = false;
+            }
+
+        }
     }
 
         //Called after Update
@@ -73,8 +95,10 @@ public class grapple_gun : MonoBehaviour
         }*/
         if (magneticBall !=null)
         {
-            player.GetComponent<PlayerMovement>().SetGrappling();
-
+            PlayerMovement playMov = player.GetComponent<PlayerMovement>();
+            playMov.SetGrappling();
+            camFol.DistanceFromPlayer = 20;
+            enterSpeed = playMov.ActSpeed;
             grapplePoint = magneticBall.transform.position; // doit etre le centre de l'element magnetic
             joint = tempoRigid.gameObject.AddComponent<SpringJoint>();
             //tempoRigid = player.gameObject.GetComponent<Rigidbody>();
@@ -107,6 +131,10 @@ public class grapple_gun : MonoBehaviour
         player.GetComponent<PlayerMovement>().SetFlying();
         lr.positionCount = 0;
             Destroy(joint);
+
+        //camFol.DistanceFromPlayer = Mathf.Lerp(camFol.DistanceFromPlayer, 9, 0.5f);
+        LerpDistance = true;
+        playMov.ActSpeed = enterSpeed+5;
         //Destroy(tempoRigid);
         }
 
@@ -132,6 +160,7 @@ public class grapple_gun : MonoBehaviour
         {
             return grapplePoint;
         }
+
 
     IEnumerator LacheTuSeul()
     {
