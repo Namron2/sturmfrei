@@ -1126,6 +1126,7 @@ public class PlayerMovement : MonoBehaviour
         isTainted = false;
         TaintedTimer = 5;
         secondStaminaCooldown = 5;
+        dashTime = 0.5f;
 }
     void CreateAether()
     {
