@@ -495,6 +495,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4687354532319789972, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687354532319789972, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687354532319789972, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.maxCurve.m_Curve.Array.data[1].time
+      value: 0.23744202
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687354532319789972, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.maxCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5401864734109634369, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: aether
       value: 
