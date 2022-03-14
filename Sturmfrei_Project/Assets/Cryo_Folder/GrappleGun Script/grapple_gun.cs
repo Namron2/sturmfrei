@@ -95,6 +95,7 @@ public class grapple_gun : MonoBehaviour
         }*/
         if (magneticBall !=null)
         {
+            LerpDistance = false;
             PlayerMovement playMov = player.GetComponent<PlayerMovement>();
             playMov.SetGrappling();
             camFol.DistanceFromPlayer = 20;

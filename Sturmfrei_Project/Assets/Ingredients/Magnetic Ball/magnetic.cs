@@ -19,12 +19,12 @@ public class magnetic : MonoBehaviour
         grappleScript = playa.gameObject.GetComponent<grapple_gun>();
         grappleScript.magneticBall = this.gameObject.transform.parent.gameObject;
         //sturm = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PonchoColourChange>();
-        sturm.GoldPoncho();
+        if (sturm != null) sturm.GoldPoncho();
         isInsideMe = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        sturm.NoMoreGold();
+        if(sturm!=null) sturm.NoMoreGold();
         isInsideMe = false;
         grappleScript.StopGrapple(); // devrait être impossible
     }
