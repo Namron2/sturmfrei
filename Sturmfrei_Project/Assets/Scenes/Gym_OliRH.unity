@@ -6878,6 +6878,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerRigid: {fileID: 8520448188935385306}
   magneticBall: {fileID: 0}
+  camFol: {fileID: 0}
 --- !u!4 &1920363525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5113036025768419635, guid: c532cbc7fccbe72488ffbcc11d88c924, type: 3}
