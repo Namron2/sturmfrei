@@ -46,10 +46,10 @@ public class grapple_gun : MonoBehaviour
 
         if (LerpDistance)
         {
-            if (elapsedTime < 100)
+            if (elapsedTime < 1)
             {
                 elapsedTime += Time.deltaTime;
-                camFol.DistanceFromPlayer = Mathf.Lerp(camFol.DistanceFromPlayer, 9, elapsedTime / 100);
+                camFol.DistanceFromPlayer = Mathf.Lerp(camFol.DistanceFromPlayer, 9, 1);
             }
             else
             {
