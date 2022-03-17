@@ -186,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (InputHand.Jump)
             {
+                //if(InputHand.Dashing) UpwardDash();
                 //if the player can jump, isnt attacking and isnt using an item
                 if (!HasJumped)
                 {                   
@@ -201,9 +202,13 @@ public class PlayerMovement : MonoBehaviour
 
                     StopCoroutine(JumpUp(JumpAmt + AddAmt));
                     StartCoroutine(JumpUp(JumpAmt + AddAmt));
-
                     return;
                 }
+            }
+
+            if (HasJumped)
+            {
+                if (InputHand.Dashing) UpwardDash();
             }
             isFalling = false;
 
@@ -226,8 +231,8 @@ public class PlayerMovement : MonoBehaviour
                 //Vector3 eulerRotation = transform.rotation.eulerAngles;
                 //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(160, eulerRotation.y, eulerRotation.z), Time.deltaTime*2);
             }
-
-            UpwardDash();
+            if (InputHand.Dashing) UpwardDash();
+            // UpwardDash();
         }
         else if(States == WorldState.Flying)
         {
@@ -984,10 +989,8 @@ public class PlayerMovement : MonoBehaviour
     private void UpwardDash()
     {
 
-        if (Input.GetButtonDown("Dashing") && canDashUp)
+        if (canDashUp)
         {
-            Debug.Log("Dashing upward");
-            //Rigid.velocity = new Vector3(Rigid.velocity.x, 0, Rigid.velocity.z);
             Rigid.velocity = new Vector3(0, 0, 0);
             Rigid.AddForce((Vector3.up * upwardDashSpeed), ForceMode.Impulse);
             canDashUp = false;

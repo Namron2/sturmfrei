@@ -14,6 +14,8 @@ public class InputHandle : MonoBehaviour
 
     public bool Accelerate;
 
+    public bool Dashing;
+
     //public bool LB;
     //public bool RB;
 
@@ -31,6 +33,7 @@ public class InputHandle : MonoBehaviour
         Vertical = Input.GetAxis("Vertical");
 
         Jump = Input.GetButtonDown("Jump");
+        Dashing = Input.GetButtonDown("Dashing");
         //JumpHold = Input.GetButton("Jump");
         //Fly = JumpHold; 
 
