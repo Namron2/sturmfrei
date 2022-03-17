@@ -31,6 +31,10 @@ public class PlayerVisuals : MonoBehaviour
     public float WindLerpAmt;
     public float WindLerpSpeed;
 
+    GameObject TempoJump;
+    GameObject TempoLand;
+    GameObject TempoBirdJumpAudio;
+
     void Start()
     {
         TimeBtwFallingEffects = 1.8f;
@@ -48,17 +52,20 @@ public class PlayerVisuals : MonoBehaviour
     public void Jump()
     {
         if (JumpFx)
-            Instantiate(JumpFx, transform.position, MovementMesh.transform.rotation);
+             TempoJump = Instantiate(JumpFx, transform.position, MovementMesh.transform.rotation);
+        Destroy(TempoJump, 1);
 
         if (JumpAudio)
-            Instantiate(JumpAudio, transform.position, Quaternion.identity).GetComponent<PlayAudio>();
+            TempoBirdJumpAudio = Instantiate(JumpAudio, transform.position, Quaternion.identity);
+        TempoBirdJumpAudio.GetComponent<PlayAudio>();
+        Destroy(TempoBirdJumpAudio, 1);
     }
     public void Landing()
     {
         if (LandingFx)
         {
-            Instantiate(LandingFx, transform.position, MovementMesh.transform.rotation);
-
+            TempoLand = Instantiate(LandingFx, transform.position, MovementMesh.transform.rotation);
+            Destroy(TempoLand, 1);
         }
     }
 

@@ -19,6 +19,7 @@ public class grapple_gun : MonoBehaviour
         public  CameraFollow camFol;
     private bool LerpDistance;
     float elapsedTime;
+    public float GrappleTime;
 
     void Awake()
         {
@@ -28,6 +29,7 @@ public class grapple_gun : MonoBehaviour
         playMov = player.GetComponent<PlayerMovement>();
         //camFol = player.GetComponentInChildren<CameraFollow>();
         LerpDistance = false;
+        GrappleTime = 4;
     }
 
         void Update()
@@ -119,8 +121,12 @@ public class grapple_gun : MonoBehaviour
 
             lr.positionCount = 2;
             currentGrapplePosition = gunTip.position;
+
+            camFol.isGrappled = true;
+
             StartCoroutine(LacheTuSeul());
         }
+
     }
 
 
@@ -137,9 +143,10 @@ public class grapple_gun : MonoBehaviour
         LerpDistance = true;
         playMov.ActSpeed = enterSpeed+5;
         //Destroy(tempoRigid);
+        camFol.isGrappled = false;
         }
 
-        private Vector3 currentGrapplePosition;
+    private Vector3 currentGrapplePosition;
 
         void DrawRope()
         {
@@ -165,7 +172,7 @@ public class grapple_gun : MonoBehaviour
 
     IEnumerator LacheTuSeul()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(GrappleTime);
         StopGrapple();
     }
 

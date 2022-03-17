@@ -9,6 +9,8 @@ public class CameraFollow : MonoBehaviour
     public float GravityFollowSpeed = 0.1f;
     private Vector3 LookDirection;
 
+    public Transform camPos;
+
     public enum WorldState
     {
         Grounded, //on ground
@@ -59,6 +61,8 @@ public class CameraFollow : MonoBehaviour
     public float MaxVelocity;
     private float FovLerp;
 
+    public bool isGrappled;
+
     //setup objects
     void Awake()
     {
@@ -87,8 +91,18 @@ public class CameraFollow : MonoBehaviour
         {
             return;
         }
-        Tick(delta);
+
+            Tick(delta); 
+
     }
+
+    /*private void Update()
+    {
+        if (isGrappled)
+        {
+            GrappleCam();
+        }
+    }*/
 
     public void Tick(float d)
     {
@@ -136,7 +150,12 @@ public class CameraFollow : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, CorSpd * d);
         }
         else
+        {
             AutoXInput -= d;
+            //Stabilise camera 
+            //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 1.5f);
+        }
     }
 
     public void HandleFov(float d, float Velocity)
@@ -199,6 +218,14 @@ public class CameraFollow : MonoBehaviour
         {
             States = WorldState.Dead;
         }
+    }
+    
+    public void GrappleCam()
+    {
+        Debug.Log("Moved");
+        camTransform = camPos;
+        LookAtPos = target.position;
+
     }
 
 }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4729651813296599212}
   - component: {fileID: 4729651813296599213}
   - component: {fileID: 4729651813296599214}
-  m_Layer: 0
-  m_Name: Player Jump
+  m_Layer: 7
+  m_Name: Bird Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,8 +42,7 @@ AudioSource:
   m_GameObject: {fileID: 4729651813296599210}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -3042635464907698546, guid: dc8ae349f0bba2b41a5cc466a74e5a6b,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: -3042635464907698546, guid: dc8ae349f0bba2b41a5cc466a74e5a6b, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -158,10 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778a20b66bf9c7c4ca64c00c54b1d302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroySound: {fileID: 0}
   delay: 1
   destroyChildren: 1
-  pushChildAmount: 0
   DetatchFromParent: 0
   shrink: 0
   ShrinkSpeed: 4

@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canDashUp=true;
     public Slider coolSlider;
     private float elapsedTime = 0;
-    private float progress = 0;
+    public float progress = 0;
     public float dashTime = 0.5f;
     private float tempoSpeed;
     private float tempoFixedSpeed;
@@ -127,6 +127,8 @@ public class PlayerMovement : MonoBehaviour
     public float TaintedTimer;
     private grapple_gun grappleGunz;
 
+    private float timeElapsedDashZoom;
+    private float lerpDuration;
 
     // Start is called before the first frame update
     void Awake()
@@ -154,6 +156,9 @@ public class PlayerMovement : MonoBehaviour
         wingON = false;
         wingSwitchCooldown = true;
         grappleGunz = this.GetComponent<grapple_gun>();
+
+        timeElapsedDashZoom = 0;
+        lerpDuration = 10;
     }
 
     private void Update()   //inputs and animation
@@ -188,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //if(InputHand.Dashing) UpwardDash();
                 //if the player can jump, isnt attacking and isnt using an item
+                SetInAir();
                 if (!HasJumped)
                 {                   
                     if(Anim)
@@ -205,17 +211,15 @@ public class PlayerMovement : MonoBehaviour
                     return;
                 }
             }
-
-            if (HasJumped)
-            {
-                if (InputHand.Dashing) UpwardDash();
-            }
             isFalling = false;
-
         }
         else if (States == WorldState.InAir)
         {
-
+            if (InputHand.Dashing)
+            {
+                Debug.Log("Basic_v_yes");
+                UpwardDash();
+            }
             //check for ground
             bool Ground = Colli.CheckGround();
 
@@ -231,7 +235,7 @@ public class PlayerMovement : MonoBehaviour
                 //Vector3 eulerRotation = transform.rotation.eulerAngles;
                 //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(160, eulerRotation.y, eulerRotation.z), Time.deltaTime*2);
             }
-            if (InputHand.Dashing) UpwardDash();
+            
             // UpwardDash();
         }
         else if(States == WorldState.Flying)
@@ -268,7 +272,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            FrontalDash();
+            if (InputHand.Dashing)
+            {
+                FrontalDash();
+            }
             //Fixed speed while in 1 sec dash
             isFalling = false;
         }
@@ -281,6 +288,17 @@ public class PlayerMovement : MonoBehaviour
 
 // Wing switch controls
         WingSwitch();
+        //Zoom in Camera when dashing, does not feel good
+        /*if (!isDashing && CamFol.DistanceFromPlayer != 9)
+        {
+
+            if (timeElapsedDashZoom < lerpDuration)
+            {
+                CamFol.DistanceFromPlayer = Mathf.Lerp(CamFol.DistanceFromPlayer, 9, timeElapsedDashZoom / lerpDuration);
+                timeElapsedDashZoom += Time.deltaTime;
+            }
+            if (CamFol.DistanceFromPlayer >= 8.99) CamFol.DistanceFromPlayer = 9;
+        }*/
 
     }
 
@@ -366,7 +384,7 @@ public class PlayerMovement : MonoBehaviour
 
             //control our character when falling
             // modified by PB, need feedback
-            FallingCtrl(delta, ActSpeed, AirAcceleration, moveDirection); 
+            FallingCtrl2(delta, ActSpeed, AirAcceleration, moveDirection); 
             //FlyingCtrl(delta, ActSpeed, _xMov, _zMov);
         }
         else if (States == WorldState.Flying)
@@ -404,7 +422,7 @@ public class PlayerMovement : MonoBehaviour
                 //Debug.Log("Stabilizing");
                 //Quaternion TiltReset = new Quaternion( transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
                 Vector3 eulerRotation = transform.rotation.eulerAngles;
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0), Time.deltaTime * 1);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0), Time.deltaTime * 1.5f);
             }
 
 
@@ -544,10 +562,10 @@ public class PlayerMovement : MonoBehaviour
         //turn off gravity
         Rigid.useGravity = true;
 
-        if (!coroutRunning)
+        /*if (!coroutRunning)
         {
             StartCoroutine(TetePremiere());
-        }
+        }*/
     }
     //for when we start to fly
     public void SetFlying()
@@ -638,6 +656,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator JumpUp(float UpwardsAmt)
     {
+        
         HasJumped = true;
         //kill velocity
         Rigid.velocity = Vector3.zero;
@@ -774,13 +793,12 @@ public class PlayerMovement : MonoBehaviour
             LerpDirection = Vector3.up;
             FallDirSpd = FallDirSpd * -(Rigid.velocity.y * 0.2f);
         }         
-
+        
         DownwardDirection = Vector3.Lerp(DownwardDirection, LerpDirection, FallDirSpd * d);
 
         //lerp mesh slower when not on ground
         RotateSelf(DownwardDirection, d, 8f);
         RotateMesh(d, transform.forward, turnSpeedInAir);
-
         //move character
         float Spd = Speed;
         Vector3 curVelocity = Rigid.velocity;
@@ -797,9 +815,10 @@ public class PlayerMovement : MonoBehaviour
     void FallingCtrl2(float d, float Speed, float Accel, Vector3 moveDirection)
     {
         //Best value of control for now
-
-         //move character
-         float Spd = Speed;
+        Vector3 eulerRotation = transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 2f);
+        //move character
+        float Spd = Speed;
          Vector3 curVelocity = Rigid.velocity;
 
          Vector3 targetVelocity = targetDir * Spd;
@@ -971,10 +990,12 @@ public class PlayerMovement : MonoBehaviour
     private void FrontalDash()
     {
         //dash would need to have fixed speed ?
-        if (Input.GetButtonDown("Dashing") && canDashFront) 
+        if (canDashUp && canDashFront) 
         {
             Debug.Log("Dashing forward");
             tempoSpeed = ActSpeed;
+            //Tempo zoom in 
+            //CamFol.DistanceFromPlayer = 3;
             //SpeedBoost(frontDashSpeed);
             //tempoFixedSpeed = ActSpeed;
             canDashFront = false;
@@ -988,10 +1009,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpwardDash()
     {
-
-        if (canDashUp)
+        if (canDashUp && canDashFront)
         {
             Rigid.velocity = new Vector3(0, 0, 0);
+            ActSpeed = 0;
             Rigid.AddForce((Vector3.up * upwardDashSpeed), ForceMode.Impulse);
             canDashUp = false;
             elapsedTime = 0;
@@ -1035,6 +1056,7 @@ public class PlayerMovement : MonoBehaviour
         }
         canDashFront = true;
         canDashUp = true;
+        timeElapsedDashZoom = 0;
         isDashing = false;
     }
     private IEnumerator DashResetSpeed()
