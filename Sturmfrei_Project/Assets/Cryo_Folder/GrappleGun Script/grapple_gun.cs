@@ -17,9 +17,12 @@ public class grapple_gun : MonoBehaviour
         private float enterSpeed;
         private PlayerMovement playMov;
         public  CameraFollow camFol;
+    public CameraFollowTarget camFolTarg;
     private bool LerpDistance;
     float elapsedTime;
     public float GrappleTime;
+
+    public magnetic magnetic_script;
 
     void Awake()
         {
@@ -123,6 +126,9 @@ public class grapple_gun : MonoBehaviour
             currentGrapplePosition = gunTip.position;
 
             camFol.isGrappled = true;
+            camFolTarg.isGrappledFollow = true;
+            camFolTarg.camPos = magnetic_script.Camera_Magnetic.gameObject;
+
 
             StartCoroutine(LacheTuSeul());
         }
@@ -144,7 +150,8 @@ public class grapple_gun : MonoBehaviour
         playMov.ActSpeed = enterSpeed+5;
         //Destroy(tempoRigid);
         camFol.isGrappled = false;
-        }
+        camFolTarg.isGrappledFollow = false;
+    }
 
     private Vector3 currentGrapplePosition;
 

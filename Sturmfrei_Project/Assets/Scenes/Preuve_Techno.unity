@@ -735,10 +735,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4380297262392692885, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: camFolTarg
+      value: 
+      objectReference: {fileID: 1973534629}
     - target: {fileID: 5401864733957739456, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: camPos
       value: 
       objectReference: {fileID: 1550750229}
+    - target: {fileID: 5401864733957739471, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: camPos
+      value: 
+      objectReference: {fileID: 1550750228}
     - target: {fileID: 5401864734109634368, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: bottomOffset
       value: 0.1
@@ -933,6 +941,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1867481874, guid: 2d5b4fb9a16a38a408c25455f0fe8a2d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867481874, guid: 2d5b4fb9a16a38a408c25455f0fe8a2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 33.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7112331742940493940, guid: 2d5b4fb9a16a38a408c25455f0fe8a2d, type: 3}
       propertyPath: m_Name
       value: Graplebale
@@ -943,7 +959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7112331742940493944, guid: 2d5b4fb9a16a38a408c25455f0fe8a2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.073906
+      value: -34.9
       objectReference: {fileID: 0}
     - target: {fileID: 7112331742940493944, guid: 2d5b4fb9a16a38a408c25455f0fe8a2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -951,7 +967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7112331742940493944, guid: 2d5b4fb9a16a38a408c25455f0fe8a2d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 95.49561
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7112331742940493944, guid: 2d5b4fb9a16a38a408c25455f0fe8a2d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3472,6 +3488,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6fe0596b729b95498e20c7d1d2a0733, type: 3}
+--- !u!114 &1973534629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5401864733957739471, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+  m_PrefabInstance: {fileID: 293766592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5f8e4e4a757cd48a92d24b6d7d6bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1974281855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,6 +3755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sturm: {fileID: 660975643}
   isInsideMe: 0
+  Camera_Magnetic: {fileID: 0}
 --- !u!33 &736479216123015579
 MeshFilter:
   m_ObjectHideFlags: 0

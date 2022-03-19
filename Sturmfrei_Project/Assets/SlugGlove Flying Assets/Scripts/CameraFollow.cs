@@ -9,7 +9,6 @@ public class CameraFollow : MonoBehaviour
     public float GravityFollowSpeed = 0.1f;
     private Vector3 LookDirection;
 
-    public Transform camPos;
 
     public enum WorldState
     {
@@ -92,8 +91,16 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-            Tick(delta); 
-
+        if (!isGrappled)
+        {
+            Tick(delta);
+        }
+        else
+        {
+            //LookAtPos = target.position;
+            this.transform.LookAt(target.position);
+                
+        }
     }
 
     /*private void Update()
@@ -220,12 +227,6 @@ public class CameraFollow : MonoBehaviour
         }
     }
     
-    public void GrappleCam()
-    {
-        Debug.Log("Moved");
-        camTransform = camPos;
-        LookAtPos = target.position;
 
-    }
 
 }
