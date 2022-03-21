@@ -26,6 +26,8 @@ public class PonchoCooldown : MonoBehaviour
 
     //particules
     public GameObject aether;
+    public GameObject aetherBurst;
+    public bool dashFull;
 
     private void Start()
     {
@@ -41,6 +43,7 @@ public class PonchoCooldown : MonoBehaviour
         player = poncho.transform.root.gameObject;
 
         aether = poncho.transform.GetChild(0).gameObject;
+        aetherBurst = poncho.transform.GetChild(1).gameObject;
         
         // // //besoin de changer la valeur de base de progress dans playermovement a 1 pour le debut
     }
@@ -55,17 +58,30 @@ public class PonchoCooldown : MonoBehaviour
         couleurPoncho = gradientPoncho.Evaluate(t);
 
         //intensity est affecte par cooldown : devient invisible a utilisation
-        intensity = recharge * 1.0f + 0.2f;
+        intensity = recharge * 1.0f + 0.0f;
         ponchoMaterial.SetColor("_EmissionColor", couleurPoncho * intensity);
 
         if (recharge >= 1.00f)
         {
-            aether.GetComponent<ParticleSystem>().Play();
+            dashFull = true;
+            ParticleDash();
         }
+
         if (recharge < 0.99f)
         {
             aether.GetComponent<ParticleSystem>().Pause();
         }
     }
    
+   void ParticleDash()
+    {
+        if (dashFull == true)
+        {
+            aether.GetComponent<ParticleSystem>().Play();
+            aetherBurst.GetComponent<ParticleSystem>().Play();
+            dashFull = false;
+            aetherBurst.GetComponent<ParticleSystem>().Stop();
+
+        }
+    }
 }
