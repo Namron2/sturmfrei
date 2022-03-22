@@ -10722,14 +10722,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomOffset: 0.1
   frontOffset: 0.5
-  collisionRadiusFloor: 0.5
+  collisionRadiusFloor: 0.4
   collisionRadiusWall: 1
   GroundLayer:
     serializedVersion: 2
     m_Bits: 1025
   WallLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 9
   WallDistance: 1
 --- !u!114 &5401864734109634383
 MonoBehaviour:
