@@ -7,7 +7,6 @@ public class magnetic : MonoBehaviour
     private PlayerCollisionSphere playerRigid;
     private PlayerMovement playa;
     private grapple_gun grappleScript;
-    public PonchoColourChange sturm;
     public bool isInsideMe = false;
     public GameObject Camera_Magnetic;
     private GameObject parent;
@@ -32,18 +31,14 @@ public class magnetic : MonoBehaviour
         grappleScript = playa.gameObject.GetComponent<grapple_gun>();
         grappleScript.magnetic_script = this;
         grappleScript.magneticBall = parent;
-        //sturm = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PonchoColourChange>();
-        if (sturm != null) sturm.GoldPoncho();
         isInsideMe = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        if(sturm!=null) sturm.NoMoreGold();
         isInsideMe = false;
-        grappleScript.StopGrapple(); // devrait etre impossible
+        if(playa.States == PlayerMovement.WorldState.Grappling)grappleScript.StopGrapple(); 
     }
 
-    //this does not work
 
 
     private void Update()

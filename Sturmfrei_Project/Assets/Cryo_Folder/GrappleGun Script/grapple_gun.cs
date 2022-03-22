@@ -49,7 +49,7 @@ public class grapple_gun : MonoBehaviour
 
     }*/
 
-        if (LerpDistance)
+        /*if (LerpDistance)
         {
             if (elapsedTime < 1)
             {
@@ -61,7 +61,7 @@ public class grapple_gun : MonoBehaviour
                 LerpDistance = false;
             }
 
-        }
+        }*/
     }
 
         //Called after Update
@@ -100,10 +100,10 @@ public class grapple_gun : MonoBehaviour
         }*/
         if (magneticBall !=null)
         {
-            LerpDistance = false;
+            //LerpDistance = false;
             PlayerMovement playMov = player.GetComponent<PlayerMovement>();
             playMov.SetGrappling();
-            camFol.DistanceFromPlayer = 20;
+            //camFol.DistanceFromPlayer = 20;
             enterSpeed = playMov.ActSpeed;
             grapplePoint = magneticBall.transform.position; // doit etre le centre de l'element magnetic
             joint = tempoRigid.gameObject.AddComponent<SpringJoint>();

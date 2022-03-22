@@ -10720,13 +10720,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f6b7bd8d8b1ae47a1982ae914eef04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomOffset: 0.2
+  bottomOffset: 0.1
   frontOffset: 0.5
   collisionRadiusFloor: 0.5
   collisionRadiusWall: 1
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 1281
+    m_Bits: 1025
+  WallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   WallDistance: 1
 --- !u!114 &5401864734109634383
 MonoBehaviour:
@@ -10891,7 +10894,7 @@ MonoBehaviour:
   playerRigid: {fileID: 5401864732132039080}
   magneticBall: {fileID: 0}
   camFol: {fileID: 5401864733957739456}
-  camFolTarg: {fileID: 0}
+  camFolTarg: {fileID: 5401864733957739471}
   GrappleTime: 0
   magnetic_script: {fileID: 0}
 --- !u!114 &7045777193086347245

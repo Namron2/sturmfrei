@@ -11,11 +11,13 @@ public class DetectCollision : MonoBehaviour
     public float collisionRadiusFloor;
     public float collisionRadiusWall;
     public LayerMask GroundLayer;
+    public LayerMask WallLayer;
     public float WallDistance;
     private PlayerMovement playMove;
 
     public void Start()
     {
+       
         playMove = GetComponent<PlayerMovement>();
     }
 
@@ -37,7 +39,7 @@ public class DetectCollision : MonoBehaviour
     public bool CheckWall()
     {
         Vector3 Pos2 = transform.position + (transform.forward * frontOffset);
-        Collider[] hitColliders = Physics.OverlapSphere(Pos2, collisionRadiusWall, GroundLayer);
+        Collider[] hitColliders = Physics.OverlapSphere(Pos2, collisionRadiusWall, WallLayer);
 
         if (hitColliders.Length > 0 && !playMove.isDashing)
         {
