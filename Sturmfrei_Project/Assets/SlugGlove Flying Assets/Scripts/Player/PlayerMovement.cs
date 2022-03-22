@@ -159,6 +159,8 @@ public class PlayerMovement : MonoBehaviour
 
         timeElapsedDashZoom = 0;
         lerpDuration = 10;
+
+        progress = 1;
     }
 
     private void Update()   //inputs and animation
