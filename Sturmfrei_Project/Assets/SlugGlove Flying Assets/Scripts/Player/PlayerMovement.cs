@@ -401,8 +401,9 @@ public class PlayerMovement : MonoBehaviour
 
             //control our character when falling
             // modified by PB, need feedback
-            FallingCtrl2(delta, ActSpeed, AirAcceleration, moveDirection); 
+            FallingCtrl(delta, 2f, AirAcceleration, moveDirection);
             //FlyingCtrl(delta, ActSpeed, _xMov, _zMov);
+            //MoveSelf(delta, 5, MovementAcceleration, moveDirection);
         }
         else if (States == WorldState.Flying)
         {
@@ -801,6 +802,18 @@ public class PlayerMovement : MonoBehaviour
             targetDir = moveDirection;
         }
 
+        //turn ctrl
+        Quaternion lookDir = Quaternion.LookRotation(targetDir);
+        //turn speed after flown is reduced
+        if (FlownAdjustmentLerp < 1)
+            FlownAdjustmentLerp += delta * 2f;
+        //set our turn speed
+        float TurnSpd = (WalkTurnSpeed + (ActSpeed * 0.1f)) * FlownAdjustmentLerp;
+        TurnSpd = Mathf.Clamp(TurnSpd, 0, 6);
+        //lerp mesh slower when not on ground
+        //RotateSelf(DownwardDirection, d, 8f);
+        RotateMesh(d, targetDir, TurnSpd);
+        /*
         //rotate towards the rigid body velocity 
         Vector3 LerpDirection = DownwardDirection;
         float FallDirSpd = FallingDirectionSpeed;
@@ -815,7 +828,12 @@ public class PlayerMovement : MonoBehaviour
 
         //lerp mesh slower when not on ground
         RotateSelf(DownwardDirection, d, 8f);
-        RotateMesh(d, transform.forward, turnSpeedInAir);
+        RotateMesh(d, transform.forward, turnSpeedInAir);*/
+
+        //Best value of control for now
+        Vector3 eulerRotation = transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 4f);
+
         //move character
         float Spd = Speed;
         Vector3 curVelocity = Rigid.velocity;
@@ -831,6 +849,14 @@ public class PlayerMovement : MonoBehaviour
     }
     void FallingCtrl2(float d, float Speed, float Accel, Vector3 moveDirection)
     {
+        /*if (moveDirection == Vector3.zero)
+        {
+            targetDir = transform.forward;
+        }
+        else
+        {
+            targetDir = moveDirection;
+        }*/
         //Best value of control for now
         Vector3 eulerRotation = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 2f);
@@ -1062,6 +1088,7 @@ public class PlayerMovement : MonoBehaviour
             if (!canDashUp && progressDash > 1)// le 1 represente le temps que le joueur dash vers le haut, soit environ 1 sec
             {
                 isDashing = false;
+                //stop the upward dash animation
             }
             if (!canDashFront && progressDash > dashTime)
             {

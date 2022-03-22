@@ -10690,7 +10690,7 @@ MonoBehaviour:
   GlideTime: 2
   JumpAmt: 50
   GroundedTimerBeforeJump: 0.2
-  SpeedLimitBeforeCrash: 18
+  SpeedLimitBeforeCrash: 5
   StunPushBack: 50
   StunnedTime: 0.25
   frontDashSpeed: 30
@@ -10720,13 +10720,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f6b7bd8d8b1ae47a1982ae914eef04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomOffset: 0.1
+  bottomOffset: 0.15
   frontOffset: 0.5
   collisionRadiusFloor: 0.4
   collisionRadiusWall: 1
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 1033
   WallLayer:
     serializedVersion: 2
     m_Bits: 9
