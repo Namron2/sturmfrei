@@ -281,9 +281,24 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(States == WorldState.Grappling)
         {
-             Vector3 testingForward = (this.transform.position - grappleGunz.magneticBall.transform.position);
+            if (grappleGunz.magnetic_script.horizontalGrapple)
+            {
+                this.transform.position = new Vector3(this.transform.position.x, grappleGunz.magneticBall.transform.position.y, this.transform.position.z);
+            }
+            else if (grappleGunz.magnetic_script.verticalGrappleZ)
+            {
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, grappleGunz.magneticBall.transform.position.z);
+            }
+            else if (grappleGunz.magnetic_script.verticalGrappleX)
+            {
+                this.transform.position = new Vector3(grappleGunz.magneticBall.transform.position.x, this.transform.position.y, this.transform.position.z);
+            }
+            Rigid.transform.position = this.transform.position;
+            Vector3 testingForward = (this.transform.position - grappleGunz.magneticBall.transform.position);
+
             //Forward = opposé de magnetic
             this.transform.forward = new Vector3 (testingForward.x, testingForward.y, testingForward.z);
+
         }
 
 // Wing switch controls

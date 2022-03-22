@@ -11,6 +11,11 @@ public class magnetic : MonoBehaviour
     public bool isInsideMe = false;
     public GameObject Camera_Magnetic;
     private GameObject parent;
+    public Transform playaTransform;
+    public bool verticalGrappleZ;
+    public bool verticalGrappleX;
+    public bool horizontalGrapple;
+
 
     private void Awake()
     {
@@ -23,6 +28,7 @@ public class magnetic : MonoBehaviour
         Debug.Log("Press Left-Mouse or X on controller");
         playerRigid = other.GetComponent<PlayerCollisionSphere>();
         playa = playerRigid.PlayerMov;
+        playaTransform = playa.transform;
         grappleScript = playa.gameObject.GetComponent<grapple_gun>();
         grappleScript.magnetic_script = this;
         grappleScript.magneticBall = parent;
@@ -34,15 +40,20 @@ public class magnetic : MonoBehaviour
     {
         if(sturm!=null) sturm.NoMoreGold();
         isInsideMe = false;
-        grappleScript.StopGrapple(); // devrait �tre impossible
+        grappleScript.StopGrapple(); // devrait etre impossible
     }
+
+    //this does not work
+
 
     private void Update()
     {
+
         if (isInsideMe)
         {
             if (Input.GetButtonDown("Grapple"))
             {
+                //playa.gameObject.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z);
                 grappleScript.StartGrapple();
             }
             else if (Input.GetButtonUp("Grapple"))
@@ -50,6 +61,7 @@ public class magnetic : MonoBehaviour
                 grappleScript.StopGrapple();
             }
         }
+
 
     }
 }
