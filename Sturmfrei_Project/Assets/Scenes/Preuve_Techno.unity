@@ -835,29 +835,21 @@ PrefabInstance:
       propertyPath: camPos
       value: 
       objectReference: {fileID: 1550750228}
-    - target: {fileID: 5401864734109634368, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
-      propertyPath: bottomOffset
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5401864734109634368, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
-      propertyPath: GroundLayer.m_Bits
-      value: 1033
-      objectReference: {fileID: 0}
-    - target: {fileID: 5401864734109634368, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
-      propertyPath: collisionRadiusFloor
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 5401864734109634369, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: coolSlider
       value: 
       objectReference: {fileID: 327335185}
+    - target: {fileID: 5401864734109634369, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: frontDashSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5401864734109634369, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: RedLineOverStamina
       value: 
       objectReference: {fileID: 2059697434}
     - target: {fileID: 5401864734109634369, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: SpeedLimitBeforeCrash
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5401864734109634372, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: m_RootOrder

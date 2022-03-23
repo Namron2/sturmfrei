@@ -251,15 +251,20 @@ public class PlayerMovement : MonoBehaviour
             bool WallHit = Colli.CheckWall();
 
             //if we have hit a wall
-            if (WallHit && !isDashing)
+            if (WallHit /*&& !isDashing*/)
             {
-                //if we are going fast enough to crash into a wall
-                if(ActSpeed > SpeedLimitBeforeCrash && !isDashing)
+                if(ActSpeed < SpeedLimitBeforeCrash)
+                {
+                    SetInAir();
+                }
+                if(ActSpeed > SpeedLimitBeforeCrash /*&& !isDashing*/)
                 {
                     //stun character
+                    Debug.Log("Wabam");
                     Stunned(-transform.forward);
                     return;
                 }
+  
             }
 
             //check for ground if we are not holding the flying button
