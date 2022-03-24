@@ -666,7 +666,7 @@ public class PlayerMovement : MonoBehaviour
         //if (!InputHand.Fly)
           //  Fly = false;
 
-        Anim.SetBool("Flying", flyTest);
+        //Anim.SetBool("Flying", flyTest);
     }
 
     void FixedAnimCtrl(float D) //animations involving a timer
@@ -878,7 +878,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //input direction 
         float InvertX = -1;
-        float InvertY = 1;
+        float InvertY = -1;
 
         XMove = XMove * InvertX; //horizontal inputs
         ZMove = ZMove * InvertY; //vertical inputs
@@ -1015,7 +1015,8 @@ public class PlayerMovement : MonoBehaviour
                 wingSwitchCooldown = false;
                 StartCoroutine(Countdown());
                 SetFlying();
-                flyTest = true;
+                //flyTest = true;
+                Anim.SetBool("Flying", true);
                 AnimCtrl();
                 wingON = false;
 
@@ -1028,7 +1029,8 @@ public class PlayerMovement : MonoBehaviour
                 wingSwitchCooldown = false;
                 StartCoroutine(Countdown());
                 SetInAir();
-                flyTest = false;
+                //flyTest = false;
+                Anim.SetBool("Flying", false);
                 AnimCtrl();
                 wingON = true;
             }
@@ -1040,6 +1042,7 @@ public class PlayerMovement : MonoBehaviour
         //dash would need to have fixed speed ?
         if (canDashUp && canDashFront) 
         {
+            Anim.SetTrigger("isDashing");
             Debug.Log("Dashing forward");
             tempoSpeed = ActSpeed;
             //Tempo zoom in 
@@ -1059,6 +1062,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canDashUp && canDashFront)
         {
+            Anim.SetTrigger("isDashing");
             Rigid.velocity = new Vector3(0, 0, 0);
             ActSpeed = 0;
             Rigid.AddForce((Vector3.up * upwardDashSpeed), ForceMode.Impulse);
