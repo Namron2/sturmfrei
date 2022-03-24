@@ -878,7 +878,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //input direction 
         float InvertX = -1;
-        float InvertY = -1;
+        float InvertY = 1;
 
         XMove = XMove * InvertX; //horizontal inputs
         ZMove = ZMove * InvertY; //vertical inputs
