@@ -122,6 +122,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isFalling;
     private bool coroutRunning;
     public bool purificationAbility;
+    public bool upwardDashAbility;
+    public bool frontDashAbility;
     private bool isTainted;
     public GameObject RedLineOverStamina;
     public float TaintedTimer;
@@ -1040,7 +1042,7 @@ public class PlayerMovement : MonoBehaviour
     private void FrontalDash()
     {
         //dash would need to have fixed speed ?
-        if (canDashUp && canDashFront) 
+        if (canDashUp && canDashFront && frontDashAbility) 
         {
             Anim.SetTrigger("isDashing");
             Debug.Log("Dashing forward");
@@ -1060,7 +1062,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpwardDash()
     {
-        if (canDashUp && canDashFront)
+        if (canDashUp && canDashFront && upwardDashAbility)
         {
             Anim.SetTrigger("isDashing");
             Rigid.velocity = new Vector3(0, 0, 0);
@@ -1201,7 +1203,9 @@ public class PlayerMovement : MonoBehaviour
         isFalling = false;
         coroutRunning = false;
         purificationAbility = false;
-        isTainted = false;
+        upwardDashAbility = true;
+        frontDashAbility = true;
+    isTainted = false;
         TaintedTimer = 5;
         secondStaminaCooldown = 5;
         dashTime = 0.5f;
