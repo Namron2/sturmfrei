@@ -11,6 +11,14 @@ public class DustDevilAscenseur : MonoBehaviour
     private Rigidbody quiMonteRigid;
     private GameObject colliderPlayer;
     private PlayerMovement player;
+    public Animator anim;
+    public GameObject pono;
+
+    private void Start()
+    {
+        pono = GameObject.Find("PonoPrefab#03");
+        anim = pono.GetComponentInChildren<Animator>();
+    }
 
     //donne une velocite verticale
     private void OnTriggerEnter(Collider other)
@@ -18,10 +26,11 @@ public class DustDevilAscenseur : MonoBehaviour
         colliderPlayer = other.gameObject;
         if (colliderPlayer.tag == "Player")
         {
-            quiMonte = other.GetComponent<PlayerCollisionSphere>();
+            quiMonte = colliderPlayer.GetComponent<PlayerCollisionSphere>();
             quiMonteRigid = quiMonte.GetComponent<Rigidbody>();
             quiMonteRigid.velocity = Vector3.up * 8f;
             player = quiMonte.PlayerMov;
+            anim.SetBool("InDustDevil", true);
         }
     }
 
@@ -49,6 +58,7 @@ public class DustDevilAscenseur : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             quiMonteRigid.useGravity = true;
+            anim.SetBool("InDustDevil", false);
         }
     }
 }

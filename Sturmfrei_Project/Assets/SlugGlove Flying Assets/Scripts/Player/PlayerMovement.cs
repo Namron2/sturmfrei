@@ -204,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         MirrorAnim = !MirrorAnim;
                         Anim.SetBool("Mirror", MirrorAnim);
+                        Anim.SetTrigger("Jump");
                     }
 
                     Visuals.Jump();
