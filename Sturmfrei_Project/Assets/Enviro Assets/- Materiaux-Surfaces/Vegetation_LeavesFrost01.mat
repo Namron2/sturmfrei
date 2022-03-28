@@ -10,7 +10,7 @@ Material:
   m_Name: Vegetation_LeavesFrost01
   m_Shader: {fileID: 4800000, guid: 93d9b7571a854bf45ac17ca38fca34e3, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -67,17 +67,21 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
+    - _AlphaCutoff: 0.5
     - _BendPower: 2
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 0
+    - _GlossMapScale1: 0
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _LayerOffset: 0.18
     - _Metallic: 0
+    - _Metallic1: 0
     - _MetalnessPower1: 0
     - _Mode: 0
     - _OcclusionStrength: 1
