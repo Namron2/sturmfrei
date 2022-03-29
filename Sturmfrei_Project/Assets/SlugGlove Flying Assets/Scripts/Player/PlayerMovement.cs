@@ -132,6 +132,9 @@ public class PlayerMovement : MonoBehaviour
     private float timeElapsedDashZoom;
     private float lerpDuration;
 
+    //ajout Oli
+    public bool dashLock = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -1048,7 +1051,7 @@ public class PlayerMovement : MonoBehaviour
     private void FrontalDash()
     {
         //dash would need to have fixed speed ?
-        if (canDashUp && canDashFront && frontDashAbility) 
+        if (canDashUp && canDashFront && frontDashAbility && dashLock == false) 
         {
             Anim.SetTrigger("isDashing");
             Debug.Log("Dashing forward");
@@ -1068,7 +1071,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpwardDash()
     {
-        if (canDashUp && canDashFront && upwardDashAbility)
+        if (canDashUp && canDashFront && upwardDashAbility && dashLock == false)
         {
             Anim.SetTrigger("isDashing");
             Rigid.velocity = new Vector3(0, 0, 0);
@@ -1149,6 +1152,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.Log("Got polluted !");
         isTainted = true;
+        dashLock = true;
         //RedLineOverStamina.SetActive(true);
        /* if(!canDashFront || !canDashUp)
         {
@@ -1169,6 +1173,7 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(TaintedTimer);
         isTainted = false;
+        dashLock = false;
         //RedLineOverStamina.SetActive(false);
         canDashFront = true;
         canDashUp = true;

@@ -14,7 +14,7 @@ public class WingAstrale : MonoBehaviour
     public Color coulIni;
     public Color coulPollution;
     public bool dansPollution;
-    public float timerPollution;
+    //public float timerPollution;
 
     private void Awake()
     {
@@ -44,7 +44,11 @@ public class WingAstrale : MonoBehaviour
 
         if (dansPollution == true)
         {
-            StartCoroutine(PollutionSortie());
+            astral.SetColor("_EmissionColor", coulPollution * 2f);
+        }
+        else
+        {
+            astral.SetColor("_EmissionColor", coulIni * 2f);
         }
     }
 
@@ -59,7 +63,7 @@ public class WingAstrale : MonoBehaviour
             
     }*/
 
-
+    /*
     IEnumerator PollutionSortie()
     {
         timerPollution = playerMovement.TaintedTimer;
@@ -70,5 +74,5 @@ public class WingAstrale : MonoBehaviour
             yield return new WaitForSeconds(timerPollution);
             astral.SetColor("_EmissionColor", coulIni * 2f);
         }
-    }
+    }*/
 }
