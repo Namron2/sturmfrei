@@ -412,7 +412,7 @@ public class PlayerMovement : MonoBehaviour
 
             //control our character when falling
             // modified by PB, need feedback
-            FallingCtrl(delta, 5f, AirAcceleration, moveDirection);
+            FallingCtrl(delta, ActSpeed, AirAcceleration, moveDirection);
             //FlyingCtrl(delta, ActSpeed, _xMov, _zMov);
             //MoveSelf(delta, 5, MovementAcceleration, moveDirection);
         }
