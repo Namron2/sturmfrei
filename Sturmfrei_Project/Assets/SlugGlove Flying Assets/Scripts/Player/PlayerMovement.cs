@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     public bool purificationAbility;
     public bool upwardDashAbility;
     public bool frontDashAbility;
-    private bool isTainted;
+    public bool isTainted;
     public GameObject RedLineOverStamina;
     public float TaintedTimer;
     private grapple_gun grappleGunz;
@@ -1149,7 +1149,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.Log("Got polluted !");
         isTainted = true;
-        RedLineOverStamina.SetActive(true);
+        //RedLineOverStamina.SetActive(true);
        /* if(!canDashFront || !canDashUp)
         {
 
@@ -1163,7 +1163,7 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(TaintedTimer);
         isTainted = false;
-        RedLineOverStamina.SetActive(false);
+        //RedLineOverStamina.SetActive(false);
         canDashFront = true;
         canDashUp = true;
     }

@@ -11,18 +11,25 @@ public class WingAstrale : MonoBehaviour
     public string state;
     PlayerMovement playerMovement;
     public bool isFlying;
+    public Color coulIni;
+    public Color coulPollution;
+    public bool dansPollution;
+    public float timerPollution;
 
     private void Awake()
     {
+        pono = this.gameObject.transform.root.gameObject;
         playerMovement = pono.GetComponent<PlayerMovement>();
         astral = this.gameObject.GetComponent<Renderer>().material;
     }
+
 
     private void Update()
     {
         astral.color = coulAstral;
         coulAstral.a = alpha;
         state = playerMovement.States.ToString();
+        dansPollution = playerMovement.isTainted;
 
         if (state == "Flying" /*&& isFlying == true*/)
         {
@@ -33,6 +40,11 @@ public class WingAstrale : MonoBehaviour
         {
             alpha = 0;
             //StartCoroutine(FadeTo(0.0f, 0.2f));
+        }
+
+        if (dansPollution == true)
+        {
+            StartCoroutine(PollutionSortie());
         }
     }
 
@@ -46,4 +58,17 @@ public class WingAstrale : MonoBehaviour
         }
             
     }*/
+
+
+    IEnumerator PollutionSortie()
+    {
+        timerPollution = playerMovement.TaintedTimer;
+        astral.SetColor("_EmissionColor", coulPollution * 2f);
+
+        if (dansPollution == false)
+        {
+            yield return new WaitForSeconds(timerPollution);
+            astral.SetColor("_EmissionColor", coulIni * 2f);
+        }
+    }
 }
