@@ -624,6 +624,8 @@ public class PlayerMovement : MonoBehaviour
             Anim.SetBool("Stunned", true);
 
         StunTimer = StunnedTime;
+        Anim.SetBool("Flying", false);
+
 
         //set physics
         ActSpeed = 0f;
