@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     //[HideInInspector]
     public WorldState States;
+    public WorldState PreviousState;
     private Transform Cam; //reference to our camera
     private Transform CamY; //reference to our camera axis
     private CameraFollow CamFol; //reference to our camera script
@@ -412,7 +413,16 @@ public class PlayerMovement : MonoBehaviour
 
             //control our character when falling
             // modified by PB, need feedback
-            FallingCtrl(delta, ActSpeed, AirAcceleration, moveDirection);
+            float speedValueTempo;
+            if(moveDirection == Vector3.zero)
+            {
+                speedValueTempo = (PreviousState== WorldState.Flying)?5f:0;
+            }
+            else
+            {
+                speedValueTempo= 5f;
+            }
+            FallingCtrl(delta, speedValueTempo, AirAcceleration, moveDirection);
             //FlyingCtrl(delta, ActSpeed, _xMov, _zMov);
             //MoveSelf(delta, 5, MovementAcceleration, moveDirection);
         }
@@ -548,6 +558,7 @@ public class PlayerMovement : MonoBehaviour
     //for when we return to the ground
     public void SetGrounded()
     {
+        
         CamFol.MouseSpeed = 7;
         CamFol.minAngle = -10;
         CamFol.maxAngle = 75;
@@ -563,6 +574,7 @@ public class PlayerMovement : MonoBehaviour
 
         //reset physics and jumps
         DownwardDirection = Vector3.up;
+        PreviousState = States;
         States = WorldState.Grounded; //on ground
         OnGround = true;
 
@@ -582,7 +594,7 @@ public class PlayerMovement : MonoBehaviour
         OnGround = false;
         FloorTimer = GroundedTimerBeforeJump;
         //ActionAirTimer = 0.2f;
-
+        PreviousState = States;
         States = WorldState.InAir;
 
         //camera reset flying state
@@ -604,7 +616,7 @@ public class PlayerMovement : MonoBehaviour
         CamFol.maxAngle = 45;
         //PB added
         //OnGround = false;
-
+        PreviousState = States;
         States = WorldState.Flying;
 
         //set animation 
@@ -635,6 +647,7 @@ public class PlayerMovement : MonoBehaviour
         Rigid.velocity = Vector3.zero;
         Rigid.AddForce(PushDirection * StunPushBack, ForceMode.Impulse);
         DownwardDirection = Vector3.up;
+        PreviousState = States;
         States = WorldState.Stunned;
 
         //turn on gravity
@@ -642,6 +655,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SetGrappling()
     {
+        PreviousState = States;
         States = WorldState.Grappling;
         //turn on gravity
         Rigid.useGravity = false;
@@ -869,9 +883,18 @@ public class PlayerMovement : MonoBehaviour
         }
         //Spd = (moveDirection == Vector3.zero) ? 0 : Speed; // this fix jump forward
         Vector3 curVelocity = Rigid.velocity;
-
-        Vector3 targetVelocity = targetDir * Spd;// this here makes the jump go forward
-
+        //this part is weird
+        Vector3 targetVelocity;
+        targetVelocity = targetDir * Spd;
+        /*if(moveDirection == Vector3.zero) // no input
+        {
+            targetVelocity = targetDir*0;
+            
+        }
+        else
+        {
+            targetVelocity = targetDir * Spd;
+        }*/
         //lerp our acceleration
         ActAccel = Mathf.Lerp(ActAccel, Accel, HandleReturnSpeed * d);
         //set rigid direction
@@ -1247,6 +1270,12 @@ public class PlayerMovement : MonoBehaviour
     void CreateAether()
     {
         aether.Play();
+    }
+
+    public void ResetPlayer()
+    {
+
+
     }
 
 }
