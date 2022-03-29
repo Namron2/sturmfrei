@@ -1156,6 +1156,12 @@ public class PlayerMovement : MonoBehaviour
         }*/
         canDashFront = false;
         canDashUp = false;
+        //StartCoroutine(NotTainted());
+    }
+
+    //ajout Oli pour que player reste tainted tant que pono est dans toxic
+    public void Detox()
+    {
         StartCoroutine(NotTainted());
     }
 
