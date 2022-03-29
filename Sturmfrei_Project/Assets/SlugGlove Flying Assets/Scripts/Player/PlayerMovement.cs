@@ -132,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
     private float timeElapsedDashZoom;
     private float lerpDuration;
 
+    public bool inDustDevil;
     //ajout Oli
     public bool dashLock = false;
 
@@ -851,7 +852,22 @@ public class PlayerMovement : MonoBehaviour
 
         //move character
         float Spd = Speed;
-        Spd = (moveDirection == Vector3.zero) ? 0 : Speed; // this fix jump forward
+        if (inDustDevil) // weird fix
+        {
+            if (moveDirection == Vector3.zero)
+            {
+                Spd = 0;
+            }
+            else
+            {
+                Spd = Speed;
+            }
+        }
+        else
+        {
+            Spd = Speed;
+        }
+        //Spd = (moveDirection == Vector3.zero) ? 0 : Speed; // this fix jump forward
         Vector3 curVelocity = Rigid.velocity;
 
         Vector3 targetVelocity = targetDir * Spd;// this here makes the jump go forward
@@ -1226,6 +1242,7 @@ public class PlayerMovement : MonoBehaviour
         TaintedTimer = 5;
         secondStaminaCooldown = 5;
         dashTime = 0.5f;
+        inDustDevil = false;
 }
     void CreateAether()
     {

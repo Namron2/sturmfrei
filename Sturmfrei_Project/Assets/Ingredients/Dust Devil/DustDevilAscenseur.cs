@@ -30,6 +30,7 @@ public class DustDevilAscenseur : MonoBehaviour
             quiMonteRigid = quiMonte.GetComponent<Rigidbody>();
             quiMonteRigid.velocity = Vector3.up * 8f;
             player = quiMonte.PlayerMov;
+            player.inDustDevil = true;
             anim.SetBool("InDustDevil", true);
         }
     }
@@ -58,6 +59,7 @@ public class DustDevilAscenseur : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             quiMonteRigid.useGravity = true;
+            player.inDustDevil = false;
             anim.SetBool("InDustDevil", false);
         }
     }
