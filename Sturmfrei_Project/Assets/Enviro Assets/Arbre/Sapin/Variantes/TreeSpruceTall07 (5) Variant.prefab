@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8534458337662305804
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.570152
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.1862946
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.166687
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.63958055
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.76872414
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 100.479
+      objectReference: {fileID: 0}
+    - target: {fileID: 276898731580646723, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 620490976694026233, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_Name
+      value: TreeSpruceTall07 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289253909723157504, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e71da9f813ca8746afd5d726fddb4cb, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db25e8ea117b6f74987b14de4f64a158, type: 3}
