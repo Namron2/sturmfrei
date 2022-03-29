@@ -137,6 +137,12 @@ public class PlayerMovement : MonoBehaviour
     //ajout Oli
     public bool dashLock = false;
 
+    public float downTime, upTime, pressTime = 0;
+    public float countDown = 2.0f;
+    public bool ready = false;
+    private PlayerRespawn playerResp;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -152,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
         Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         CamY = Cam.transform.parent.parent.transform;
         CamFol = Cam.GetComponentInParent<CameraFollow>();
-
+        playerResp = GetComponent<PlayerRespawn>();
         CheckPointPos = transform.position;
 
         //setup this characters stats
@@ -329,6 +335,23 @@ public class PlayerMovement : MonoBehaviour
             if (CamFol.DistanceFromPlayer >= 8.99) CamFol.DistanceFromPlayer = 9;
         }*/
 
+
+        // Reset mecanic
+        if (Input.GetButtonDown("Save") && ready == false)
+        {
+            downTime = Time.time;
+            pressTime = downTime + countDown;
+            ready = true;
+        }
+        if (Input.GetButtonUp("Save"))
+        {
+            ready = false;
+        }
+        if (Time.time >= pressTime && ready == true)
+        {
+            ready = false;
+            ResetPlayer();
+        }
     }
 
     // Update is called once per frame
@@ -1274,8 +1297,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetPlayer()
     {
-
-
+        Debug.Log("Reset the player");
+        Rigid.transform.position = playerResp.respawnPoint;
+        ActSpeed = 0;
+        SetGrounded();
     }
 
 }
