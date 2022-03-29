@@ -10752,6 +10752,7 @@ MonoBehaviour:
   purificationAbility: 0
   upwardDashAbility: 0
   frontDashAbility: 0
+  isTainted: 0
   RedLineOverStamina: {fileID: 0}
   TaintedTimer: 0
   progressTempo: 0
@@ -14316,9 +14317,13 @@ MonoBehaviour:
   astral: {fileID: 0}
   coulAstral: {r: 0, g: 0, b: 0, a: 0}
   alpha: 0
-  pono: {fileID: 5401864734109634382}
+  pono: {fileID: 0}
   state: 
   isFlying: 0
+  coulIni: {r: 1, g: 1, b: 1, a: 0}
+  coulPollution: {r: 0.49019608, g: 0.023529412, b: 1, a: 0}
+  dansPollution: 0
+  timerPollution: 0
 --- !u!1001 &8442326332733089828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14412,6 +14417,10 @@ MonoBehaviour:
   astral: {fileID: 0}
   coulAstral: {r: 0, g: 0, b: 0, a: 0}
   alpha: 0
-  pono: {fileID: 5401864734109634382}
+  pono: {fileID: 0}
   state: 
   isFlying: 0
+  coulIni: {r: 1, g: 1, b: 1, a: 0}
+  coulPollution: {r: 0.49021325, g: 0.023584902, b: 1, a: 0}
+  dansPollution: 0
+  timerPollution: 0
