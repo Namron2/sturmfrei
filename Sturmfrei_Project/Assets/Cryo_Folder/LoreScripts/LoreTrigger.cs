@@ -20,7 +20,7 @@ public class LoreTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             Readable = true;
-            Debug.Log("Press F on keyboard or X on controller");
+            Debug.Log("Press E on keyboard or B on controller");
         }
     }
 
@@ -37,12 +37,12 @@ public class LoreTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Readable && Input.GetButtonDown("ReadLore") && !pressedDialogInput)
+        if (Readable && Input.GetButtonDown("Grapple") && !pressedDialogInput)
         {
             loreManager.StartLore(lore);
             pressedDialogInput = true;
         }
-        else if (Readable && Input.GetButtonDown("ReadLore") && pressedDialogInput)
+        else if (Readable && Input.GetButtonDown("Grapple") && pressedDialogInput)
         {
             loreManager.EndLore();
             pressedDialogInput = false;

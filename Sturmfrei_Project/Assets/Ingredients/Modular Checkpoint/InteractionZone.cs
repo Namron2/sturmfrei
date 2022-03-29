@@ -46,14 +46,14 @@ public class InteractionZone : MonoBehaviour
      }*/
     public void Update()
     {
-        pressingLore = Input.GetButton("ReadLore");
+        pressingLore = Input.GetButton("Save");
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Press F on keyboard or X on controller");
+            Debug.Log("Press F on keyboard or Y on controller");
             if (pressingLore)
             {
                 Debug.Log("A crystal appears");
