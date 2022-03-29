@@ -222,7 +222,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (InputHand.Dashing)
             {
-                Debug.Log("Basic_v_yes");
                 UpwardDash();
             }
             //check for ground
@@ -525,7 +524,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //Update
+        //FixedUpdate
         if (canDashFront && canDashUp)
         {
             coolSlider.value = 1;
@@ -805,10 +804,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveDirection == Vector3.zero)
         {
+            Debug.Log("Vector 0");
             targetDir = transform.forward;
+            //targetDir = moveDirection;
         }
         else
         {
+            Debug.Log("Vector is something");
             targetDir = moveDirection;
         }
 
@@ -846,9 +848,10 @@ public class PlayerMovement : MonoBehaviour
 
         //move character
         float Spd = Speed;
+        Spd = (moveDirection == Vector3.zero) ? 0 : Speed; // this fix jump forward
         Vector3 curVelocity = Rigid.velocity;
 
-        Vector3 targetVelocity = targetDir * Spd;
+        Vector3 targetVelocity = targetDir * Spd;// this here makes the jump go forward
 
         //lerp our acceleration
         ActAccel = Mathf.Lerp(ActAccel, Accel, HandleReturnSpeed * d);
