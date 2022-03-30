@@ -1254,7 +1254,7 @@ public class PlayerMovement : MonoBehaviour
         WalkAcceleration = 3f;
         MovementAcceleration = 20f;
         WalkSlowDownAcceleration = 4f;
-        WalkTurnSpeed = 5f;
+        WalkTurnSpeed = 50f;
         FlownAdjustmentLerp = 1;
         FlyingDirectionSpeed = 2f; 
         FlyingRotationSpeed = 6f; 
@@ -1289,6 +1289,7 @@ public class PlayerMovement : MonoBehaviour
         secondStaminaCooldown = 5;
         dashTime = 0.5f;
         inDustDevil = false;
+        StunPushBack = 5;
 }
     void CreateAether()
     {
