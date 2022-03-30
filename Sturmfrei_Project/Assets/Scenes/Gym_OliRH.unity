@@ -30394,6 +30394,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 616393927199984006, guid: e59eb0e9a3880864089a02804d299be6, type: 3}
   m_PrefabInstance: {fileID: 2120108615}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &2126221924 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 777547649153284195, guid: 9b77c476b64d1444cb2a71a79643655c, type: 3}
+  m_PrefabInstance: {fileID: 1142984447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2129490437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30781,6 +30786,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 468639477, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: ShapeModule.m_MeshRenderer
+      value: 
+      objectReference: {fileID: 2126221924}
+    - target: {fileID: 1377269828, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: ShapeModule.m_MeshRenderer
+      value: 
+      objectReference: {fileID: 2126221924}
     - target: {fileID: 5401864734109634372, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -14,15 +14,16 @@ public class WingAstrale : MonoBehaviour
     public Color coulIni;
     public Color coulPollution;
     public bool dansPollution;
-    //public float timerPollution;
+    public GameObject particuleCloud;
+    public bool toxicCheck;
 
     private void Awake()
     {
+        particuleCloud = this.gameObject.transform.GetChild(0).gameObject;
         pono = this.gameObject.transform.root.gameObject;
         playerMovement = pono.GetComponent<PlayerMovement>();
         astral = this.gameObject.GetComponent<Renderer>().material;
     }
-
 
     private void Update()
     {
@@ -42,14 +43,25 @@ public class WingAstrale : MonoBehaviour
             //StartCoroutine(FadeTo(0.0f, 0.2f));
         }
 
-        if (dansPollution == true)
+        if (dansPollution == true && toxicCheck == false)
         {
-            astral.SetColor("_EmissionColor", coulPollution * 2f);
+            toxicCheck = true;
+            astral.SetColor("_EmissionColor", Color.Lerp(coulIni, coulPollution, 0.8f) * 2f);
+            particuleCloud.GetComponent<ParticleSystem>().Play();
         }
-        else
+        if (dansPollution == false && toxicCheck == true)
         {
-            astral.SetColor("_EmissionColor", coulIni * 2f);
+            toxicCheck = false;
+            astral.SetColor("_EmissionColor", Color.Lerp(coulPollution, coulIni, 0.5f) * 2f);
+            particuleCloud.GetComponent<ParticleSystem>().Pause();
+            StartCoroutine(ColorSwitch());
         }
+    }
+
+    IEnumerator ColorSwitch()
+    {
+        yield return new WaitForSeconds(2.5f);
+        astral.SetColor("_EmissionColor", coulIni * 2f);
     }
 
     /*IEnumerator FadeTo(float aValue, float aTime)
