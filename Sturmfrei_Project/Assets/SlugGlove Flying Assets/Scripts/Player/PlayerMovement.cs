@@ -543,6 +543,14 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             
+            // Pour ne pas rester coincer dans un dust devil
+            if(inDustDevil)
+            {
+                if (Anim)
+                    Anim.SetBool("Stunned", false);
+                SetInAir();
+            }
+
             //lerp mesh slower when not on ground
             RotateSelf(DownwardDirection, delta, 8f);
             RotateMesh(delta, transform.forward, WalkTurnSpeed);
