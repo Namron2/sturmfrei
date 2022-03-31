@@ -425,10 +425,10 @@ public class PlayerMovement : MonoBehaviour
                 ActionAirTimer -= delta;
 
             //falling effect
-            //Visuals.FallEffectCheck(delta);
+            Visuals.FallEffectCheck(delta);
 
             //falling audio
-            //Visuals.WindAudioSetting(delta, Rigid.velocity.magnitude);
+            Visuals.WindAudioSetting(delta, Rigid.velocity.magnitude);
 
             //slow our flying control if we were not (PB not sure what is this)
             if (FlyingAdjustmentLerp > -.1)
@@ -473,10 +473,10 @@ public class PlayerMovement : MonoBehaviour
             //    ActionAirTimer -= delta;
 
             //falling effect
-            // Visuals.FallEffectCheck(delta);
+            Visuals.FallEffectCheck(delta);
 
             //falling audio
-            //Visuals.WindAudioSetting(delta, Rigid.velocity.magnitude);
+            Visuals.WindAudioSetting(delta, Rigid.velocity.magnitude);
 
             //Philippe was here and it took me 2h -_-
             if (InputHand.Horizontal == 0 && transform.rotation.z !=0 )
@@ -1130,6 +1130,10 @@ public class PlayerMovement : MonoBehaviour
             //CamFol.DistanceFromPlayer = 3;
             //SpeedBoost(frontDashSpeed);
             //tempoFixedSpeed = ActSpeed;
+
+            //Smaller collider test
+            Rigid.GetComponent<SphereCollider>().radius = 0.3f;
+
             canDashFront = false;
             elapsedTime = 0;
             progress = 0;
@@ -1197,12 +1201,15 @@ public class PlayerMovement : MonoBehaviour
     {
         
         yield return new WaitForSeconds(dashTime);//0.5sec
-            //The player just dash frontward 
+                                                  //The player just dash frontward 
 
-            // this dash dgives speed when goind up, returning to 20 does not feel good.
-            //ActSpeed = 20;
+        // this dash dgives speed when goind up, returning to 20 does not feel good.
+        //ActSpeed = 20;
 
-            ActSpeed = tempoSpeed;
+        //Normal size collider
+        Rigid.GetComponent<SphereCollider>().radius = 0.7f;
+
+        ActSpeed = tempoSpeed;
     }
 
     private void MinimalChangeSpeed()
