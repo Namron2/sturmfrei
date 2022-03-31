@@ -41,14 +41,15 @@ public class DustDevilAscenseur : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             quiMonteRigid.useGravity = false;
-            if (player.GetComponent<PlayerMovement>().States == PlayerMovement.WorldState.InAir)
+            if (player.States == PlayerMovement.WorldState.InAir)
             {
                 quiMonteRigid.AddForce(transform.up * 2f);
             }
-            else if (player.GetComponent<PlayerMovement>().States == PlayerMovement.WorldState.Flying)
+            else if (player.States == PlayerMovement.WorldState.Flying)
             {
                 //quiMonteRigid.AddForce(transform.up * 2000f);
-                quiMonteRigid.AddForce((Vector3.up * 50f),ForceMode.Impulse);
+                //Remove effect when flying trough dust devil
+                //quiMonteRigid.AddForce((Vector3.up * 50f),ForceMode.Impulse);
 
             }
         }

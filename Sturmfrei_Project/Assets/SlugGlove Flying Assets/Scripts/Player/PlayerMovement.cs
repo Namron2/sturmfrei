@@ -273,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
                 if(ActSpeed > SpeedLimitBeforeCrash /*&& !isDashing*/)
                 {
                     //stun character
-                    Debug.Log("Wabam");
+                    //Debug.Log("Wabam");
                     Stunned(-transform.forward);
                     return;
                 }
@@ -550,7 +550,7 @@ public class PlayerMovement : MonoBehaviour
                     Anim.SetBool("Stunned", false);
                 SetInAir();
             }
-
+            
             //lerp mesh slower when not on ground
             RotateSelf(DownwardDirection, delta, 8f);
             RotateMesh(delta, transform.forward, WalkTurnSpeed);
@@ -853,13 +853,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveDirection == Vector3.zero)
         {
-            Debug.Log("Vector 0");
+            //Debug.Log("Vector 0");
             targetDir = transform.forward;
             //targetDir = moveDirection;
         }
         else
         {
-            Debug.Log("Vector is something");
+            //Debug.Log("Vector is something");
             targetDir = moveDirection;
         }
 
@@ -1124,7 +1124,7 @@ public class PlayerMovement : MonoBehaviour
         if (canDashUp && canDashFront && frontDashAbility && dashLock == false) 
         {
             Anim.SetTrigger("isDashing");
-            Debug.Log("Dashing forward");
+            //Debug.Log("Dashing forward");
             tempoSpeed = ActSpeed;
             //Tempo zoom in 
             //CamFol.DistanceFromPlayer = 3;
@@ -1306,9 +1306,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetPlayer()
     {
-        Debug.Log("Reset the player");
+        //Debug.Log("Reset the player");
         Rigid.transform.position = playerResp.respawnPoint;
         ActSpeed = 0;
+        if (Anim)
+            Anim.SetBool("Stunned", false);
         SetGrounded();
     }
 

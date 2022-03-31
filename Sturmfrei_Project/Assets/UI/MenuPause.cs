@@ -13,6 +13,10 @@ public class MenuPause : MonoBehaviour
 
     public GameObject pauseFirstButton;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     void Update()
     {
        if (Input.GetButtonDown("Pause"))
