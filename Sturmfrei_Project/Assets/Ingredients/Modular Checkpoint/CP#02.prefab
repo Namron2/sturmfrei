@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3393187194895866716}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.49, z: 0}
+  m_LocalPosition: {x: -0.87, y: 0.49, z: 0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5737511660546828271}
@@ -5050,7 +5050,7 @@ MonoBehaviour:
   player: {fileID: 0}
   pressingLore: 0
   shrine: {fileID: 2005299505954420388}
-  crystalToSpawn: {fileID: 3513341586770345981, guid: 6cd843cfaa5ba23498016c6e560087c9, type: 3}
+  crystalToSpawn: {fileID: 3513341586770345981, guid: 4f51ad0e53d33fb48b7f907dc8d31d0b, type: 3}
   aetherFX: {fileID: 1078335635284825093}
 --- !u!1001 &125626270706638385
 PrefabInstance:
@@ -5077,7 +5077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3908621660879891196, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.78
+      value: -2.12
       objectReference: {fileID: 0}
     - target: {fileID: 3908621660879891196, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5085,7 +5085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3908621660879891196, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.99
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 3908621660879891196, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5373,15 +5373,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 393093576547289702, guid: 5f043b057d32b7943b49d70ae7df2919, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 393093576547289702, guid: 5f043b057d32b7943b49d70ae7df2919, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22000027
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 393093576547289702, guid: 5f043b057d32b7943b49d70ae7df2919, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.05
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 393093576547289702, guid: 5f043b057d32b7943b49d70ae7df2919, type: 3}
       propertyPath: m_LocalRotation.w
