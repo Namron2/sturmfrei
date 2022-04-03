@@ -7735,8 +7735,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 1, g: 0, b: 0.72502184, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0.98039216}
+        key2: {r: 1, g: 0, b: 0.72502184, a: 0.98039216}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -17854,7 +17854,6 @@ Transform:
   m_LocalPosition: {x: -572, y: -39, z: 505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 9018032890839014988}
   - {fileID: 166702208553201177}
   - {fileID: 166702209373054846}
   - {fileID: 166702209297469941}
@@ -17864,6 +17863,7 @@ Transform:
   - {fileID: 166702209471245129}
   - {fileID: 166702208577662745}
   - {fileID: 166702209851216711}
+  - {fileID: 9018032890839014988}
   - {fileID: 677524522}
   - {fileID: 308953496}
   - {fileID: 1486606189}
@@ -21430,8 +21430,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 1, g: 0, b: 0.72502184, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0.98039216}
+        key2: {r: 1, g: 0, b: 0.72502184, a: 0.98039216}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -44669,8 +44669,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 1, g: 0, b: 0.72502184, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0.98039216}
+        key2: {r: 1, g: 0, b: 0.72502184, a: 0.98039216}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -63256,7 +63256,7 @@ Transform:
   - {fileID: 816566528}
   - {fileID: 1929608379}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166702208553201178
 GameObject:
@@ -63449,7 +63449,7 @@ Transform:
   - {fileID: 1704121763}
   - {fileID: 1411489913}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166702208577662746
 GameObject:
@@ -64534,7 +64534,7 @@ Transform:
   - {fileID: 1534055367}
   - {fileID: 1914866074}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166702209026645427
 GameObject:
@@ -65376,7 +65376,7 @@ Transform:
   - {fileID: 246347406}
   - {fileID: 1188481418}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166702209297469942
 GameObject:
@@ -65569,7 +65569,7 @@ Transform:
   - {fileID: 1165460695}
   - {fileID: 1789904736}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &166702209376574009
 PrefabInstance:
@@ -66038,7 +66038,7 @@ Transform:
   - {fileID: 82044996}
   - {fileID: 2074033642}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166702209471245130
 GameObject:
@@ -66955,7 +66955,7 @@ Transform:
   - {fileID: 2073197755}
   - {fileID: 137759654}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166702209794609955
 GameObject:
@@ -67165,7 +67165,7 @@ Transform:
   - {fileID: 1242075465}
   - {fileID: 126744494}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &166702209864168994
 PrefabInstance:
@@ -67973,7 +67973,7 @@ Transform:
   - {fileID: 1221982314}
   - {fileID: 1145922312}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &166702210225293518
 PrefabInstance:
@@ -118379,7 +118379,7 @@ Transform:
   m_Children:
   - {fileID: 1440491790188814871}
   m_Father: {fileID: 546438854}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &9018032890839014989
 ParticleSystem:
@@ -119654,8 +119654,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 1, g: 0, b: 0.72502184, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0.98039216}
+        key2: {r: 1, g: 0, b: 0.72502184, a: 0.98039216}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
