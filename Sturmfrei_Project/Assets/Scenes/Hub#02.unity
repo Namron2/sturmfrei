@@ -69726,26 +69726,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1197836460818803742, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 1197836460818803742, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 1197836460818803742, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 3999309566025774285, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3999309566025774285, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.35
-      objectReference: {fileID: 0}
     - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -69794,10 +69774,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CP#02
       objectReference: {fileID: 0}
-    - target: {fileID: 5737511660546828279, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
-      propertyPath: crystalToSpawn
-      value: 
-      objectReference: {fileID: 3513341586770345981, guid: 4f51ad0e53d33fb48b7f907dc8d31d0b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
 --- !u!4 &2630093084321097857

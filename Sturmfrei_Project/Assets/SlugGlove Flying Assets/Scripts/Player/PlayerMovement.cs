@@ -1100,7 +1100,7 @@ public class PlayerMovement : MonoBehaviour
                 Anim.SetBool("Flying", true);
                 AnimCtrl();
                 wingON = false;
-
+                this.gameObject.GetComponent<WingSwitch>().Switch();
             }
         }
         if (Input.GetButtonDown("SwitchWingOn") && wingSwitchCooldown)
@@ -1114,6 +1114,8 @@ public class PlayerMovement : MonoBehaviour
                 Anim.SetBool("Flying", false);
                 AnimCtrl();
                 wingON = true;
+                this.gameObject.GetComponent<WingSwitch>().Switch();
+
             }
         }
     }
