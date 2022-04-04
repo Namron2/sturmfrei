@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Vegetation_LeavesFrost01
+  m_Name: Vegetation_LeavesFrost 03
   m_Shader: {fileID: 4800000, guid: 93d9b7571a854bf45ac17ca38fca34e3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
@@ -79,7 +79,7 @@ Material:
     - _GlossMapScale1: 0
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _LayerOffset: 0.18
+    - _LayerOffset: 0.23
     - _Metallic: 0
     - _Metallic1: 0
     - _MetalnessPower1: 0
@@ -118,12 +118,12 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 0.40303773, g: 0.5849056, b: 0.24554992, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0.891, g: 0.75275445, b: 0.398277, a: 1}
     - _ColorInner: {r: 0, g: 0, b: 0, a: 0}
     - _ColorOuter: {r: 0, g: 0.62264144, b: 0.12524784, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LayerColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LayerColor: {r: 0.2784314, g: 0.3921569, b: 0.18431373, a: 1}
     - _WindDirection: {r: 0.1, g: 0.1, b: 0.1, a: 0}
     - _WindDirection1: {r: 0.1, g: 0, b: 0.1, a: 0}
     - _WindStrengthDirectionMultiplier: {r: -0.1, g: -0.1, b: -0.1, a: 0}
