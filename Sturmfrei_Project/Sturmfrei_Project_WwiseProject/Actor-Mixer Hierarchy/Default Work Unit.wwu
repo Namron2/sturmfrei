@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{916F91C2-C878-413A-8918-76E9E5F3DC89}" SchemaVersion="103">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{916F91C2-C878-413A-8918-76E9E5F3DC89}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Test" ID="{0EEAB79B-294F-4DCF-9628-891B96D8C77E}" ShortID="383050858">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9FDA9D7-2829-4506-A992-7D5E6325408E}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{ABA9240F-06DF-4E50-8566-08752CD179AE}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Alma(piano)" ID="{FB81D6DA-34EC-463D-B88A-EF62A4B01CBE}">
+							<PropertyList>
+								<Property Name="LoopBegin" Type="Real64" Value="1.64364953588408"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="1.64364953588408"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Alma(piano).wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="591509253"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Alma(piano)" ID="{FB81D6DA-34EC-463D-B88A-EF62A4B01CBE}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
