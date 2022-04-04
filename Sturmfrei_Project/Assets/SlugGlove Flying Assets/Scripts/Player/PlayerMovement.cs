@@ -856,6 +856,7 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Vector 0");
             targetDir = transform.forward;
             //targetDir = moveDirection;
+
         }
         else
         {
@@ -954,7 +955,82 @@ public class PlayerMovement : MonoBehaviour
          //lerp our acceleration
          ActAccel = Mathf.Lerp(ActAccel, Accel, HandleReturnSpeed * d);
     }
+    void FallingCtrl_Plonge(float d, float Speed, float Accel, Vector3 moveDirection)
+    {
+       /* if (moveDirection == Vector3.zero)
+        {
+            targetDir = transform.forward;
+        }
+        else
+        {
+            targetDir = moveDirection;
+        }
+        Quaternion lookDir = Quaternion.LookRotation(targetDir);
+        //turn speed after flown is reduced
+        if (FlownAdjustmentLerp < 1)
+            FlownAdjustmentLerp += delta * 2f;
+        //set our turn speed
+        float TurnSpd = (WalkTurnSpeed + (ActSpeed * 0.1f)) * FlownAdjustmentLerp;
+        TurnSpd = Mathf.Clamp(TurnSpd, 0, 6);*/
+        //lerp mesh slower when not on ground
+        //RotateSelf(DownwardDirection, d, 8f);
+        //RotateMesh(d, targetDir, TurnSpd);
 
+        //get our rotation and adjustment speeds
+        float rotSpd = FlyingRotationSpeed;
+
+            RotateToVelocity(d, rotSpd * 1.05f);
+
+        /*
+        //rotate towards the rigid body velocity 
+        Vector3 LerpDirection = DownwardDirection;
+        float FallDirSpd = FallingDirectionSpeed;
+
+        if(Rigid.velocity.y < -6) //we are going downwards
+        {
+            LerpDirection = Vector3.up;
+            FallDirSpd = FallDirSpd * -(Rigid.velocity.y * 0.2f);
+        }         
+        
+        DownwardDirection = Vector3.Lerp(DownwardDirection, LerpDirection, FallDirSpd * d);
+
+        //lerp mesh slower when not on ground
+        RotateSelf(DownwardDirection, d, 8f);
+        RotateMesh(d, transform.forward, turnSpeedInAir);*/
+
+        //Best value of control for now
+       // Vector3 eulerRotation = transform.rotation.eulerAngles;
+        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 4f);
+
+        //move character
+        float Spd = Speed;
+        if (inDustDevil) // weird fix
+        {
+            if (moveDirection == Vector3.zero)
+            {
+                Spd = 0;
+            }
+            else
+            {
+                Spd = Speed;
+            }
+        }
+        else
+        {
+            Spd = Speed;
+        }
+        Vector3 curVelocity = Rigid.velocity;
+        //this part is weird
+        Vector3 targetVelocity;
+        targetVelocity = targetDir * Spd;
+
+        //lerp our acceleration
+        ActAccel = Mathf.Lerp(ActAccel, Accel, HandleReturnSpeed * d);
+        //set rigid direction
+        Vector3 dir = Vector3.Lerp(curVelocity, targetVelocity, d * ActAccel);
+        dir.y = Rigid.velocity.y;
+        Rigid.velocity = dir;
+    }
     void FlyingCtrl(float d, float Speed, float XMove, float ZMove)
     {
         //input direction 
