@@ -236,10 +236,19 @@ public class PlayerMovement : MonoBehaviour
                 UpwardDash();
             }
             //check for ground
-            bool Ground = Colli.CheckGround();
+            //bool Ground = Colli.CheckGround();
 
+            //check for ground version Phil
+            bool Ground = false;
+            if (Colli.CheckGround() || Colli.CheckGround2())
+            {
+                Ground = true;
+            }
             if (Ground)
             {
+                // test plonger
+                Anim.SetBool("isPlonging", false);
+
                 SetGrounded();
                 return;
             }
@@ -445,12 +454,32 @@ public class PlayerMovement : MonoBehaviour
             {
                 speedValueTempo= 5f;
             }
-            FallingCtrl(delta, speedValueTempo, AirAcceleration, moveDirection);
+
+            if(PreviousState == WorldState.Flying && !inDustDevil)
+            {
+                    Anim.SetBool("isPlonging", true);
+                //Anim.SetBool("Flying", false);
+
+                    FallingCtrl_Plonge(delta, speedValueTempo, AirAcceleration, moveDirection);
+               
+            }
+            else
+            {
+                FallingCtrl(delta, speedValueTempo, AirAcceleration, moveDirection);
+                if (inDustDevil)
+                { 
+                    PreviousState = WorldState.InAir;
+                    Anim.SetBool("Flying", false);
+                }
+
+            }
             //FlyingCtrl(delta, ActSpeed, _xMov, _zMov);
             //MoveSelf(delta, 5, MovementAcceleration, moveDirection);
         }
         else if (States == WorldState.Flying)
         {
+            Anim.SetBool("isPlonging", false);
+
             //setup gliding
             /*if (!InputHand.Fly)
             {
@@ -957,7 +986,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FallingCtrl_Plonge(float d, float Speed, float Accel, Vector3 moveDirection)
     {
-       /* if (moveDirection == Vector3.zero)
+        if (moveDirection == Vector3.zero)
         {
             targetDir = transform.forward;
         }
@@ -971,7 +1000,7 @@ public class PlayerMovement : MonoBehaviour
             FlownAdjustmentLerp += delta * 2f;
         //set our turn speed
         float TurnSpd = (WalkTurnSpeed + (ActSpeed * 0.1f)) * FlownAdjustmentLerp;
-        TurnSpd = Mathf.Clamp(TurnSpd, 0, 6);*/
+        TurnSpd = Mathf.Clamp(TurnSpd, 0, 6);
         //lerp mesh slower when not on ground
         //RotateSelf(DownwardDirection, d, 8f);
         //RotateMesh(d, targetDir, TurnSpd);
@@ -979,7 +1008,7 @@ public class PlayerMovement : MonoBehaviour
         //get our rotation and adjustment speeds
         float rotSpd = FlyingRotationSpeed;
 
-            RotateToVelocity(d, rotSpd * 1.05f);
+            RotateToVelocity(d, rotSpd * 0.15f); // was 0.05
 
         /*
         //rotate towards the rigid body velocity 
@@ -1135,7 +1164,11 @@ public class PlayerMovement : MonoBehaviour
     //rotate towards the velocity direction
     void RotateToVelocity(float d, float spd)
     {
-        Quaternion SlerpRot = Quaternion.LookRotation(Rigid.velocity.normalized);
+        //Need to use  bird flying forward
+        //Quaternion SlerpRot = Quaternion.LookRotation(Rigid.velocity.normalized); base de code
+        //Quaternion SlerpRot = Quaternion.LookRotation(new Vector3(0, -1,0));
+        Vector3 TempoRotation = transform.rotation.eulerAngles;
+        Quaternion SlerpRot = Quaternion.Euler(90, TempoRotation.y, TempoRotation.z);
         transform.rotation = Quaternion.Slerp(transform.rotation, SlerpRot, spd * d);
     }
 
@@ -1225,7 +1258,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canDashUp && canDashFront && upwardDashAbility && dashLock == false)
         {
+            SetInAir();
             Anim.SetTrigger("isDashing");
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
             Rigid.velocity = new Vector3(0, 0, 0);
             ActSpeed = 0;
             Rigid.AddForce((Vector3.up * upwardDashSpeed), ForceMode.Impulse);

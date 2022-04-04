@@ -8,13 +8,17 @@ public class DetectCollision : MonoBehaviour
 
     public float bottomOffset;
     public float frontOffset;
+    public float auDessusOffset;
     public float collisionRadiusFloor;
     public float collisionRadiusWall;
+    public float collisionRadiusDessus;
     public LayerMask GroundLayer;
     public LayerMask WallLayer;
     public float WallDistance;
     private PlayerMovement playMove;
 
+
+    public bool checkGround2;
     public void Start()
     {
        
@@ -48,7 +52,20 @@ public class DetectCollision : MonoBehaviour
 
         return false;
     }
+    public bool CheckGround2()
+    {
+        Vector3 Pos3 = transform.position + (transform.forward * auDessusOffset);
+        Collider[] hitColliders = Physics.OverlapSphere(Pos3, collisionRadiusFloor, GroundLayer);
+        if (hitColliders.Length > 0)
+        {
+            //we are on the ground
+            checkGround2 = true;
+            return true;
+        }
+        checkGround2 = false;
 
+        return false;
+    }
     void OnDrawGizmosSelected()
     {
         // Draw a yellow sphere at the transform's position
@@ -58,5 +75,8 @@ public class DetectCollision : MonoBehaviour
         Gizmos.color = Color.red;
         Vector3 Pos2 = transform.position + (transform.forward * frontOffset);
         Gizmos.DrawSphere(Pos2, collisionRadiusWall);
+        Gizmos.color = Color.blue;
+        Vector3 Pos3 = transform.position + (transform.forward * auDessusOffset);
+        Gizmos.DrawSphere(Pos3, collisionRadiusDessus);
     }
 }
