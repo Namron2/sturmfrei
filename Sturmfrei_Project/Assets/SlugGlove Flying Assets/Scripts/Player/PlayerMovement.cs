@@ -359,6 +359,7 @@ public class PlayerMovement : MonoBehaviour
         if (Time.time >= pressTime && ready == true)
         {
             ready = false;
+            Debug.Log("Respawn");
             ResetPlayer();
         }
     }
@@ -645,7 +646,7 @@ public class PlayerMovement : MonoBehaviour
         Rigid.useGravity = true;
     }
     //for when we are set in the air (for falling
-    void SetInAir()
+    public void SetInAir()
     {
         CamFol.MouseSpeed = 3;
         CamFol.minAngle =-25;

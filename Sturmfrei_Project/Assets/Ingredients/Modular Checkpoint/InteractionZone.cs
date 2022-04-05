@@ -12,6 +12,7 @@ public class InteractionZone : MonoBehaviour
     public GameObject crystalToSpawn;
     public GameObject player;
     public bool pressingLore;
+    public bool iHaveACrystal = false;
 
     private void Start()
     {
@@ -54,10 +55,11 @@ public class InteractionZone : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Press F on keyboard or Y on controller");
-            if (pressingLore)
+            if (pressingLore && !iHaveACrystal)
             {
                 Debug.Log("A crystal appears");
                Instantiate(crystalToSpawn, spawnPoint.position, spawnPoint.rotation);
+                iHaveACrystal = true;
             }
         }
     }

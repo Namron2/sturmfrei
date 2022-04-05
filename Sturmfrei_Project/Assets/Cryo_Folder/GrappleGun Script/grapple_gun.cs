@@ -5,28 +5,30 @@ using UnityEngine;
 public class grapple_gun : MonoBehaviour
 {
 
-        private LineRenderer lr;
-        private Vector3 grapplePoint;
-        public LayerMask whatIsGrappleable;
-        public Transform gunTip, camera, player;
-        private float maxDistance = 100f;
-        private SpringJoint joint;
-        public PlayerCollisionSphere playerRigid;
-        private Rigidbody tempoRigid;
-        public GameObject magneticBall;
-        private float enterSpeed;
-        private PlayerMovement playMov;
-        public  CameraFollow camFol;
+    private LineRenderer lr;
+    private Vector3 grapplePoint;
+    public LayerMask whatIsGrappleable;
+    public Transform gunTip, camera, player;
+    private float maxDistance = 100f;
+    private SpringJoint joint;
+    public PlayerCollisionSphere playerRigid;
+    private Rigidbody tempoRigid;
+    public GameObject magneticBall;
+    private float enterSpeed;
+    private PlayerMovement playMov;
+    public CameraFollow camFol;
     public CameraFollowTarget camFolTarg;
     private bool LerpDistance;
     float elapsedTime;
     public float GrappleTime;
 
+
     public magnetic magnetic_script;
+    public bool lacheSeul = false;
 
     void Awake()
-        {
-            lr = GetComponent<LineRenderer>();
+    {
+        lr = GetComponent<LineRenderer>();
         tempoRigid = playerRigid.GetComponent<Rigidbody>();
         player = this.gameObject.transform;
         playMov = player.GetComponent<PlayerMovement>();
@@ -35,46 +37,18 @@ public class grapple_gun : MonoBehaviour
         GrappleTime = 4;
     }
 
-        void Update()
-        {
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            StartGrapple();
-        player.GetComponent<PlayerMovement>().SetGrappling();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            StopGrapple();
-        player.GetComponent<PlayerMovement>().SetFlying();
 
-    }*/
-
-        /*if (LerpDistance)
-        {
-            if (elapsedTime < 1)
-            {
-                elapsedTime += Time.deltaTime;
-                camFol.DistanceFromPlayer = Mathf.Lerp(camFol.DistanceFromPlayer, 9, 1);
-            }
-            else
-            {
-                LerpDistance = false;
-            }
-
-        }*/
+    //Called after Update
+    void LateUpdate()
+    {
+        DrawRope();
     }
 
-        //Called after Update
-        void LateUpdate()
-        {
-            DrawRope();
-        }
-
-        /// <summary>
-        /// Call whenever we want to start a grapple
-        /// </summary>
-        public void StartGrapple()
-        {
+    /// <summary>
+    /// Call whenever we want to start a grapple
+    /// </summary>
+    public void StartGrapple()
+    {
         /*RaycastHit hit;
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, whatIsGrappleable))
         {
@@ -98,8 +72,10 @@ public class grapple_gun : MonoBehaviour
             lr.positionCount = 2;
             currentGrapplePosition = gunTip.position;
         }*/
-        if (magneticBall !=null)
+        if (magneticBall != null)
         {
+            Debug.Log("Grapple_ON");
+            lacheSeul = false;
             //LerpDistance = false;
             PlayerMovement playMov = player.GetComponent<PlayerMovement>();
             playMov.SetGrappling();
@@ -137,18 +113,27 @@ public class grapple_gun : MonoBehaviour
     }
 
 
-        /// <summary>
-        /// Call whenever we want to stop a grapple
-        /// </summary>
-        public void StopGrapple()
+    /// <summary>
+    /// Call whenever we want to stop a grapple
+    /// </summary>
+    public void StopGrapple()
+    {
+        //player.GetComponent<PlayerMovement>().SetFlying();
+        if (playMov.PreviousState == PlayerMovement.WorldState.Flying)
         {
-        player.GetComponent<PlayerMovement>().SetFlying();
+            playMov.SetFlying();
+        }
+        else if (playMov.PreviousState == PlayerMovement.WorldState.InAir)
+        {
+            playMov.SetInAir();
+        }
         lr.positionCount = 0;
-            Destroy(joint);
+        Destroy(joint);
 
         //camFol.DistanceFromPlayer = Mathf.Lerp(camFol.DistanceFromPlayer, 9, 0.5f);
         LerpDistance = true;
-        playMov.ActSpeed = enterSpeed+5;
+        // this seems to cause a shadow dash
+        playMov.ActSpeed = enterSpeed + 5;
         //Destroy(tempoRigid);
         camFol.isGrappled = false;
         camFolTarg.isGrappledFollow = false;
@@ -156,32 +141,44 @@ public class grapple_gun : MonoBehaviour
 
     private Vector3 currentGrapplePosition;
 
-        void DrawRope()
-        {
-            //If not grappling, don't draw rope
-            if (!joint) return;
+    void DrawRope()
+    {
+        //If not grappling, don't draw rope
+        if (!joint) return;
 
-            currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 8f);
+        currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 8f);
 
-            lr.SetPosition(0, gunTip.position);
-            lr.SetPosition(1, currentGrapplePosition);
-        }
+        lr.SetPosition(0, gunTip.position);
+        lr.SetPosition(1, currentGrapplePosition);
+    }
 
-        public bool IsGrappling()
-        {
-            return joint != null;
-        }
+    public bool IsGrappling()
+    {
+        return joint != null;
+    }
 
-        public Vector3 GetGrapplePoint()
-        {
-            return grapplePoint;
-        }
+    public Vector3 GetGrapplePoint()
+    {
+        return grapplePoint;
+    }
 
 
     IEnumerator LacheTuSeul()
     {
         yield return new WaitForSeconds(GrappleTime);
-        StopGrapple();
+        lacheSeul = true;
+        //StopGrapple();
     }
+    public float progressLache = 0;
+    private IEnumerator LacheTuSeul2()
+    {
+        while (progressLache <= 1)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            progressLache = elapsedTime / GrappleTime;
 
+            yield return null;
+        }
+        lacheSeul = true;
+    }
 }

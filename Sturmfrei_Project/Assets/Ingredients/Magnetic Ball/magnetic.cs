@@ -35,10 +35,15 @@ public class magnetic : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        grappleScript.progressLache = 0;
         isInsideMe = false;
-        if(playa.States == PlayerMovement.WorldState.Grappling)grappleScript.StopGrapple(); 
+        if (playa.States == PlayerMovement.WorldState.Grappling)
+        {
+            //grappleScript.StopGrapple();
+            grappleScript.lacheSeul = false;
+            Debug.Log("JeSaisPasSiJeSuisUtile");
+        }
     }
-
 
 
     private void Update()
@@ -51,10 +56,15 @@ public class magnetic : MonoBehaviour
                 //playa.gameObject.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z);
                 grappleScript.StartGrapple();
             }
-            else if (Input.GetButtonUp("Grapple"))
+            else if (Input.GetButtonUp("Grapple") || grappleScript.lacheSeul)
             {
                 grappleScript.StopGrapple();
+                grappleScript.lacheSeul = false;
             }
+        }
+        else
+        {
+            if(grappleScript !=null) grappleScript.lacheSeul = false;
         }
 
 
