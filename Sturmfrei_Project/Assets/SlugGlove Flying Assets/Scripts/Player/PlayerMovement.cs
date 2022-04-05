@@ -599,17 +599,17 @@ public class PlayerMovement : MonoBehaviour
 
 
         //FixedUpdate
-        if (canDashFront && canDashUp)
+        if (canDashFront && canDashUp && coolSlider != null)
         {
             coolSlider.value = 1;
         }
         else
         {
-            if (!isTainted)
+            if (!isTainted && coolSlider!=null)
             {
                 coolSlider.value = progress;
             }
-            else
+            else if (coolSlider != null)
             {
                 coolSlider.value = 0;
             }
