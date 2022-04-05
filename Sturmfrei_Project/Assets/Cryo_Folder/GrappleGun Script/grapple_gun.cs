@@ -21,7 +21,7 @@ public class grapple_gun : MonoBehaviour
     private bool LerpDistance;
     float elapsedTime;
     public float GrappleTime;
-
+    private IEnumerator LacheToer;
 
     public magnetic magnetic_script;
     public bool lacheSeul = false;
@@ -37,6 +37,13 @@ public class grapple_gun : MonoBehaviour
         GrappleTime = 4;
     }
 
+    private void Update()
+    {
+        if (magnetic_script !=null&&!magnetic_script.isInsideMe)
+        {
+            StopCoroutine(LacheToer);
+        }
+    }
 
     //Called after Update
     void LateUpdate()
@@ -44,9 +51,7 @@ public class grapple_gun : MonoBehaviour
         DrawRope();
     }
 
-    /// <summary>
-    /// Call whenever we want to start a grapple
-    /// </summary>
+
     public void StartGrapple()
     {
         /*RaycastHit hit;
@@ -106,16 +111,14 @@ public class grapple_gun : MonoBehaviour
             camFolTarg.isGrappledFollow = true;
             camFolTarg.camPos = magnetic_script.Camera_Magnetic.gameObject;
 
-
-            StartCoroutine(LacheTuSeul());
+            LacheToer = LacheTuSeul2();
+            StartCoroutine(LacheToer);
         }
 
     }
 
 
-    /// <summary>
-    /// Call whenever we want to stop a grapple
-    /// </summary>
+
     public void StopGrapple()
     {
         //player.GetComponent<PlayerMovement>().SetFlying();
@@ -132,7 +135,6 @@ public class grapple_gun : MonoBehaviour
 
         //camFol.DistanceFromPlayer = Mathf.Lerp(camFol.DistanceFromPlayer, 9, 0.5f);
         LerpDistance = true;
-        // this seems to cause a shadow dash
         playMov.ActSpeed = enterSpeed + 5;
         //Destroy(tempoRigid);
         camFol.isGrappled = false;
@@ -166,17 +168,21 @@ public class grapple_gun : MonoBehaviour
     IEnumerator LacheTuSeul()
     {
         yield return new WaitForSeconds(GrappleTime);
+        Debug.LogFormat("Jlache");
         lacheSeul = true;
         //StopGrapple();
     }
+
+    //does not work, dunno why
     public float progressLache = 0;
-    private IEnumerator LacheTuSeul2()
+    public float elapsedTimes = 0;
+    public IEnumerator LacheTuSeul2()
     {
         while (progressLache <= 1)
         {
-            elapsedTime += Time.unscaledDeltaTime;
-            progressLache = elapsedTime / GrappleTime;
-
+            elapsedTimes += Time.unscaledDeltaTime;
+            progressLache = elapsedTimes / GrappleTime;
+            lacheSeul = false;
             yield return null;
         }
         lacheSeul = true;

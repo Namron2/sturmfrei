@@ -35,14 +35,18 @@ public class magnetic : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("JeSors");
+        //StopCoroutine(grappleScript.LacheTuSeul2()); //besoin d'arreter le coroutine pour la reset 
         grappleScript.progressLache = 0;
+        grappleScript.elapsedTimes = 0;
         isInsideMe = false;
+        grappleScript.lacheSeul = false;/*
         if (playa.States == PlayerMovement.WorldState.Grappling)
         {
             //grappleScript.StopGrapple();
             grappleScript.lacheSeul = false;
             Debug.Log("JeSaisPasSiJeSuisUtile");
-        }
+        }*/
     }
 
 
