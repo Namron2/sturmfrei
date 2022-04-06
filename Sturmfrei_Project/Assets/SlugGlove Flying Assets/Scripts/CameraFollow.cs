@@ -61,6 +61,7 @@ public class CameraFollow : MonoBehaviour
     private float FovLerp;
 
     public bool isGrappled;
+    public bool isDead;
 
     //setup objects
     void Awake()
@@ -91,7 +92,7 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-        if (!isGrappled)
+        if (!isGrappled || !isDead)
         {
             Tick(delta);
         }
@@ -101,6 +102,8 @@ public class CameraFollow : MonoBehaviour
             this.transform.LookAt(target.position);
                 
         }
+
+
     }
 
     /*private void Update()

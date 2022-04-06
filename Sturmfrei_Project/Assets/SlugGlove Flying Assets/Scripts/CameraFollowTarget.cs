@@ -16,7 +16,7 @@ public class CameraFollowTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isGrappledFollow)
+        if (!isGrappledFollow && !Target.amDead)
         {
             Vector3 MPos = Target.transform.position;
 
@@ -27,17 +27,32 @@ public class CameraFollowTarget : MonoBehaviour
         }
         else
         {
-            GrappleCam();
+            if (isGrappledFollow) 
+            {
+                GrappleCam();
+            }
+            else if(Target.amDead)
+            {
+                DeathCam();
+            }
         }
+
     }
 
     public void GrappleCam()
     {
         //camPos = 
-        Debug.Log("Moved");
+        //Debug.Log("Moved");
         transform.position = camPos.transform.position;
         //this.gameObject.transform = camPos;
         //LookAtPos = target.position;
+
+    }
+
+    public void DeathCam()
+    {
+        //transform.position = this.transform.position;
+        //Stay in place
 
     }
 }

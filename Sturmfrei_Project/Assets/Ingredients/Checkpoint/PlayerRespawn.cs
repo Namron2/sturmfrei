@@ -28,6 +28,7 @@ public class PlayerRespawn : MonoBehaviour
         if (fallingCollision.transform.gameObject.tag == "DeathZone")
         {
             fallingCollision.transform.position = respawnPoint;
+            playMove.amDead = false;
         }
     }
 

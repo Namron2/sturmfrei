@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public WorldState PreviousState;
     private Transform Cam; //reference to our camera
     private Transform CamY; //reference to our camera axis
-    private CameraFollow CamFol; //reference to our camera script
+    public CameraFollow CamFol; //reference to our camera script
     private PlayerVisuals Visuals; //script for handling visual effects
     private Vector3 CheckPointPos; //where we respawn
 
@@ -142,6 +142,9 @@ public class PlayerMovement : MonoBehaviour
     public bool ready = false;
     private PlayerRespawn playerResp;
 
+    public bool amDead = false;
+    public Image Fade;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -174,6 +177,9 @@ public class PlayerMovement : MonoBehaviour
         lerpDuration = 10;
 
         progress = 1;
+
+        GameObject canvas = GameObject.Find("InGameUI_Prefab");
+        Fade = canvas.transform.Find("Fade").GetComponent<Image>();
     }
 
     private void Update()   //inputs and animation
@@ -430,6 +436,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (States == WorldState.InAir)
         {
+            Anim.SetBool("Flying", false);
+
             //reduce air timer 
             if (ActionAirTimer > 0)
                 ActionAirTimer -= delta;
@@ -1321,7 +1329,7 @@ public class PlayerMovement : MonoBehaviour
         //ActSpeed = 20;
 
         //Normal size collider
-        Rigid.GetComponent<SphereCollider>().radius = 0.7f;
+        Rigid.GetComponent<SphereCollider>().radius = 0.6f;
 
         ActSpeed = tempoSpeed;
     }
@@ -1433,6 +1441,39 @@ public class PlayerMovement : MonoBehaviour
         if (Anim)
             Anim.SetBool("Stunned", false);
         SetGrounded();
+    }
+
+    public IEnumerator FadeToBlack()
+    {
+       // Fade.
+       for(float f =0.05f; f<=1; f+=0.05f)
+        {
+            Color c = Fade.color;
+            c.a = f;
+            Fade.color = c;
+            yield return new WaitForSeconds(0.05f);
+        }
+        Color finalBlack = Fade.color;
+        finalBlack.a = 1;
+        Fade.color = finalBlack;
+    }
+
+    public void StartFade()
+    {
+        if (Fade != null)
+        {
+            StartCoroutine(FadeToBlack());
+        }
+    }
+
+    public void RemoveFade()
+    {
+        if (Fade != null)
+        {
+            Color blanc = Fade.color;
+            blanc.a = 0;
+            Fade.color = blanc;
+        }
     }
 
 }
