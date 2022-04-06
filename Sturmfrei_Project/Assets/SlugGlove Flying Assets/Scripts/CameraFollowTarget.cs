@@ -11,30 +11,43 @@ public class CameraFollowTarget : MonoBehaviour
 
     public bool isGrappledFollow;
     public GameObject camPos;
+    public CameraFollow camFol;
+    public bool lookingAtWall = false;
 
-
+    private void Start()
+    {
+        camFol = this.gameObject.GetComponent<CameraFollow>();
+    }
     // Update is called once per frame
     void Update()
     {
-        if (!isGrappledFollow && !Target.amDead)
+        camFol.lookWall = lookingAtWall;
+        if (!lookingAtWall)
         {
-            Vector3 MPos = Target.transform.position;
+            if (!isGrappledFollow && !Target.amDead)
+            {
+                Vector3 MPos = Target.transform.position;
 
-            if (Target.Rigid != null)
-                MPos = Target.Rigid.position;
+                if (Target.Rigid != null)
+                    MPos = Target.Rigid.position;
 
-            transform.position = MPos + (OffsetDirection.up * Offset);
+                transform.position = MPos + (OffsetDirection.up * Offset);
+            }
+            else
+            {
+                if (isGrappledFollow)
+                {
+                    GrappleCam();
+                }
+                if (Target.amDead)
+                {
+
+                }
+            }
         }
         else
         {
-            if (isGrappledFollow) 
-            {
-                GrappleCam();
-            }
-            if(Target.amDead)
-            {
-                
-            }
+            LerpCamToward(Target.gameObject);
         }
 
     }
@@ -42,12 +55,16 @@ public class CameraFollowTarget : MonoBehaviour
     public void GrappleCam()
     {
         //camPos = 
-        Debug.Log("Moved");
+        //Debug.Log("Moved");
         transform.position = camPos.transform.position;
         //this.gameObject.transform = camPos;
         //LookAtPos = target.position;
 
     }
 
+    public void LerpCamToward(GameObject obj)
+    {
+
+    }
 
 }

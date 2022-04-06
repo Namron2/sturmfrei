@@ -62,6 +62,9 @@ public class CameraFollow : MonoBehaviour
 
     public bool isGrappled;
     public bool isDead;
+    public bool lookWall = false;
+    public GameObject wallObject;
+    private CameraFollowTarget camFolTar;
 
     //setup objects
     void Awake()
@@ -81,6 +84,8 @@ public class CameraFollow : MonoBehaviour
 
         //Ajouter par Philippe
         Cursor.lockState = CursorLockMode.Locked;
+
+        camFolTar = this.gameObject.GetComponent<CameraFollowTarget>();
     }
 
     private void FixedUpdate()
@@ -92,17 +97,20 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-        if (!isGrappled && !isDead)
+        if (!isGrappled && !isDead && !lookWall)
         {
             Tick(delta);
         }
-        else
+        else if (!lookWall)
         {
             //LookAtPos = target.position;
             this.transform.LookAt(target.GetComponentInParent<PlayerMovement>().transform.position);
                 
         }
-
+        else if (lookWall)
+        {
+            this.transform.LookAt(wallObject.transform.position);
+        }
 
     }
 

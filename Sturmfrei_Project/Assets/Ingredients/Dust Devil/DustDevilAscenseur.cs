@@ -17,7 +17,10 @@ public class DustDevilAscenseur : MonoBehaviour
     private void Start()
     {
         pono = GameObject.Find("PonoPrefab#03");
-        anim = pono.GetComponentInChildren<Animator>();
+        if (pono!=null)
+        {
+            anim = pono.GetComponentInChildren<Animator>();
+        }
     }
 
     //donne une velocite verticale
