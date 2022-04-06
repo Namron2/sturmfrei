@@ -178,8 +178,11 @@ public class PlayerMovement : MonoBehaviour
 
         progress = 1;
 
-        GameObject canvas = GameObject.Find("InGameUI_Prefab");
-        Fade = canvas.transform.Find("Fade").GetComponent<Image>();
+        GameObject canvas = GameObject.Find("InGameUI").GetComponentInChildren<Canvas>().gameObject;
+        if (canvas != null)
+        {
+            Fade = canvas.transform.Find("Fade").GetComponent<Image>();
+        }
     }
 
     private void Update()   //inputs and animation
