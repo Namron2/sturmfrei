@@ -92,14 +92,14 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-        if (!isGrappled || !isDead)
+        if (!isGrappled && !isDead)
         {
             Tick(delta);
         }
         else
         {
             //LookAtPos = target.position;
-            this.transform.LookAt(target.position);
+            this.transform.LookAt(target.GetComponentInParent<PlayerMovement>().transform.position);
                 
         }
 

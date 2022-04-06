@@ -31,9 +31,9 @@ public class CameraFollowTarget : MonoBehaviour
             {
                 GrappleCam();
             }
-            else if(Target.amDead)
+            if(Target.amDead)
             {
-                DeathCam();
+                
             }
         }
 
@@ -42,17 +42,12 @@ public class CameraFollowTarget : MonoBehaviour
     public void GrappleCam()
     {
         //camPos = 
-        //Debug.Log("Moved");
+        Debug.Log("Moved");
         transform.position = camPos.transform.position;
         //this.gameObject.transform = camPos;
         //LookAtPos = target.position;
 
     }
 
-    public void DeathCam()
-    {
-        //transform.position = this.transform.position;
-        //Stay in place
 
-    }
 }

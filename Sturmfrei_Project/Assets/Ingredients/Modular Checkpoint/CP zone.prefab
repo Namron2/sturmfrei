@@ -60,8 +60,9 @@ Transform:
   - {fileID: 1789937305871892955}
   - {fileID: 5439003666220544293}
   - {fileID: 537698807941888993}
-  - {fileID: 2503317769190520962}
   - {fileID: 7436466116987776173}
+  - {fileID: 2503317769190520962}
+  - {fileID: 3783070534282747528}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,6 +85,7 @@ MonoBehaviour:
   crystalToSpawn: {fileID: 3513341586770345981, guid: 6cd843cfaa5ba23498016c6e560087c9, type: 3}
   player: {fileID: 0}
   pressingLore: 0
+  iHaveACrystal: 0
 --- !u!65 &2539166966249551648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,7 +114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2539166967038716388
 Transform:
   m_ObjectHideFlags: 0
@@ -144,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2503317769190520962
 Transform:
   m_ObjectHideFlags: 0
@@ -157,7 +159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2539166966249551674}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &7085382809014486224
 ParticleSystem:
@@ -5086,6 +5088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Rock_Moss_Grown_11
       objectReference: {fileID: 0}
+    - target: {fileID: 4500668923149335752, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
 --- !u!4 &3960762972508499241 stripped
@@ -5160,6 +5166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Hyacinth_04
       objectReference: {fileID: 0}
+    - target: {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
 --- !u!4 &2426576479228979174 stripped
@@ -5222,6 +5232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Plant_05
       objectReference: {fileID: 0}
+    - target: {fileID: 4038413375223519700, guid: f8d7096fd9960ac499ab5acf9607e332, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d7096fd9960ac499ab5acf9607e332, type: 3}
 --- !u!4 &3900498806849643224 stripped
@@ -5240,9 +5254,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Rune_Cemetery_09
       objectReference: {fileID: 0}
+    - target: {fileID: 6969689205446236632, guid: 922a0159a89187b42b05d6aaa944c437, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7778455202256847714, guid: 922a0159a89187b42b05d6aaa944c437, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7778455202256847714, guid: 922a0159a89187b42b05d6aaa944c437, type: 3}
       propertyPath: m_LocalScale.x
@@ -5362,6 +5380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Grass_15 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
 --- !u!4 &911863321074455284 stripped
@@ -5379,6 +5401,10 @@ PrefabInstance:
     - target: {fileID: 1367215652035909317, guid: ab3589b41d282cd4c8fcf56b32817f37, type: 3}
       propertyPath: m_Name
       value: PP_Pansy_Flower_Pink_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367215652035909317, guid: ab3589b41d282cd4c8fcf56b32817f37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1851687295514840191, guid: ab3589b41d282cd4c8fcf56b32817f37, type: 3}
       propertyPath: m_RootOrder
@@ -5454,6 +5480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Pansy_Flower_Pink_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8299736307098875016, guid: 24325d7d1400139428269962e305d851, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8675417901898542642, guid: 24325d7d1400139428269962e305d851, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -5527,6 +5557,10 @@ PrefabInstance:
     - target: {fileID: 8402664351978262315, guid: 702e117b0d60aff45a3f86e8d17158cd, type: 3}
       propertyPath: m_Name
       value: PP_Grass_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402664351978262315, guid: 702e117b0d60aff45a3f86e8d17158cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9211992202642773393, guid: 702e117b0d60aff45a3f86e8d17158cd, type: 3}
       propertyPath: m_RootOrder
@@ -5654,6 +5688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Meadow_04
       objectReference: {fileID: 0}
+    - target: {fileID: 4511824224430587935, guid: 9654a870bbac7e846a1d2eea55438256, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9654a870bbac7e846a1d2eea55438256, type: 3}
 --- !u!4 &1342983231523462210 stripped
@@ -5728,6 +5766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Hyacinth_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2247470057876518298, guid: 99de2f1d37fca464ca87da127e74d9f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99de2f1d37fca464ca87da127e74d9f2, type: 3}
 --- !u!4 &4390753004833285392 stripped
@@ -5745,6 +5787,10 @@ PrefabInstance:
     - target: {fileID: 7190010732716781045, guid: f1736398b6738ff439900447d702ad92, type: 3}
       propertyPath: m_Name
       value: PP_Pansy_Flower_Pink_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190010732716781045, guid: f1736398b6738ff439900447d702ad92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7531104921771587407, guid: f1736398b6738ff439900447d702ad92, type: 3}
       propertyPath: m_RootOrder
@@ -5819,6 +5865,10 @@ PrefabInstance:
     - target: {fileID: 6088240294152054706, guid: 87ed80b606fc07e4292e99796be2844e, type: 3}
       propertyPath: m_Name
       value: PP_Hyacinth_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088240294152054706, guid: 87ed80b606fc07e4292e99796be2844e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6860696263513832712, guid: 87ed80b606fc07e4292e99796be2844e, type: 3}
       propertyPath: m_RootOrder
@@ -5950,6 +6000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Hyacinth_06
       objectReference: {fileID: 0}
+    - target: {fileID: 826897211453269241, guid: 6e24256e9dcf55c4f89c87f77dd4d086, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e24256e9dcf55c4f89c87f77dd4d086, type: 3}
 --- !u!4 &3852663486466203706 stripped
@@ -5967,6 +6021,10 @@ PrefabInstance:
     - target: {fileID: 2767936087239726551, guid: 7131b3a2a69fa3b46864734905613678, type: 3}
       propertyPath: m_Name
       value: PP_Candle_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767936087239726551, guid: 7131b3a2a69fa3b46864734905613678, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3252302173108227949, guid: 7131b3a2a69fa3b46864734905613678, type: 3}
       propertyPath: m_RootOrder
@@ -6086,6 +6144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Pansy_Flower_Pink_04
       objectReference: {fileID: 0}
+    - target: {fileID: 7804295290622668406, guid: 5c275147b354ffb4db88a637ff826fda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c275147b354ffb4db88a637ff826fda, type: 3}
 --- !u!4 &6754615654908162549 stripped
@@ -6148,6 +6210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Candle_03
       objectReference: {fileID: 0}
+    - target: {fileID: 9040327388526833046, guid: b18f0c0605428fd4bb4d26a655fbd8a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b18f0c0605428fd4bb4d26a655fbd8a4, type: 3}
 --- !u!4 &5439003666220544293 stripped
@@ -6169,6 +6235,10 @@ PrefabInstance:
     - target: {fileID: 1216187513632999838, guid: 74db4d29376d7cc47be42a808c91a7e6, type: 3}
       propertyPath: m_Name
       value: PP_Rock_Moss_Grown_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216187513632999838, guid: 74db4d29376d7cc47be42a808c91a7e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1993710027678683940, guid: 74db4d29376d7cc47be42a808c91a7e6, type: 3}
       propertyPath: m_RootOrder
@@ -6300,6 +6370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Grass_15
       objectReference: {fileID: 0}
+    - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
 --- !u!4 &5943764181051270004 stripped
@@ -6374,6 +6448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Hyacinth_09
       objectReference: {fileID: 0}
+    - target: {fileID: 4564410245192726284, guid: bc97343df5f767044b1cdc49580e6f1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc97343df5f767044b1cdc49580e6f1a, type: 3}
 --- !u!4 &7303199305725976358 stripped
@@ -6391,6 +6469,10 @@ PrefabInstance:
     - target: {fileID: 2380157556675019727, guid: 4cf86047382fdbb44a857c07f36cfd5e, type: 3}
       propertyPath: m_Name
       value: PP_Hyacinth_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380157556675019727, guid: 4cf86047382fdbb44a857c07f36cfd5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3045510884289141109, guid: 4cf86047382fdbb44a857c07f36cfd5e, type: 3}
       propertyPath: m_RootOrder
@@ -6465,6 +6547,10 @@ PrefabInstance:
     - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_Name
       value: PP_Grass_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1778994357615247706, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_RootOrder
@@ -6572,6 +6658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Plant_05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4038413375223519700, guid: f8d7096fd9960ac499ab5acf9607e332, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d7096fd9960ac499ab5acf9607e332, type: 3}
 --- !u!4 &6017575034062696480 stripped
@@ -6634,6 +6724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Mushroom_Fantasy_Purple_10
       objectReference: {fileID: 0}
+    - target: {fileID: 2117061778515623725, guid: 32409f794795d9841aa778eae21e75c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32409f794795d9841aa778eae21e75c4, type: 3}
 --- !u!4 &8634430594502441885 stripped
@@ -6651,6 +6745,10 @@ PrefabInstance:
     - target: {fileID: 3882117218566529560, guid: 77a2445a2b4aaf7419e2e1a4a48232f6, type: 3}
       propertyPath: m_Name
       value: PP_Pansy_Flower_Pink_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882117218566529560, guid: 77a2445a2b4aaf7419e2e1a4a48232f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4515946757068535970, guid: 77a2445a2b4aaf7419e2e1a4a48232f6, type: 3}
       propertyPath: m_RootOrder
@@ -6782,6 +6880,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Hyacinth_02
       objectReference: {fileID: 0}
+    - target: {fileID: 897012379813228350, guid: a9cf62174c9619f4ebba7a442f7075cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9cf62174c9619f4ebba7a442f7075cc, type: 3}
 --- !u!4 &6986269059653356717 stripped
@@ -6860,17 +6962,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Tree_Trunk_05
       objectReference: {fileID: 0}
+    - target: {fileID: 4428698822974435398, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4428698822974435397, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
---- !u!1 &5794132584392965794 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4428698822974435398, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
-  m_PrefabInstance: {fileID: 7862443816733036260}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6567150197975180312 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3908621660879891196, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
+  m_PrefabInstance: {fileID: 7862443816733036260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5794132584392965794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4428698822974435398, guid: aae22cbb6bae2da4bb37f6726ab7c1a8, type: 3}
   m_PrefabInstance: {fileID: 7862443816733036260}
   m_PrefabAsset: {fileID: 0}
 --- !u!64 &8524601376251210193
@@ -6954,6 +7060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Pansy_Flower_Pink_06
       objectReference: {fileID: 0}
+    - target: {fileID: 4550310067205742525, guid: 0e3e5eb654c08104dbad68e17a874706, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e3e5eb654c08104dbad68e17a874706, type: 3}
 --- !u!4 &6616166736945724724 stripped
@@ -6971,6 +7081,10 @@ PrefabInstance:
     - target: {fileID: 4792213761507574190, guid: 9695c1375fc69a84e9714fa5bfbf06d5, type: 3}
       propertyPath: m_Name
       value: PP_Hyacinth_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792213761507574190, guid: 9695c1375fc69a84e9714fa5bfbf06d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5317218071429356308, guid: 9695c1375fc69a84e9714fa5bfbf06d5, type: 3}
       propertyPath: m_RootOrder
@@ -7045,6 +7159,10 @@ PrefabInstance:
     - target: {fileID: 1288189827560121612, guid: ec5d097cab525ed4a91b66a16399d0f9, type: 3}
       propertyPath: m_Name
       value: PP_Hyacinth_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288189827560121612, guid: ec5d097cab525ed4a91b66a16399d0f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1921701676101566390, guid: ec5d097cab525ed4a91b66a16399d0f9, type: 3}
       propertyPath: m_RootOrder
@@ -7164,10 +7282,146 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Candle_01
       objectReference: {fileID: 0}
+    - target: {fileID: 9032522909251937105, guid: f2f55c57753725641a8afde4a8849987, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f55c57753725641a8afde4a8849987, type: 3}
 --- !u!4 &537698807941888993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8507905623063165419, guid: f2f55c57753725641a8afde4a8849987, type: 3}
   m_PrefabInstance: {fileID: 8170775616060949002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8871975746762291559
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2539166966249551674}
+    m_Modifications:
+    - target: {fileID: 82081896, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393250886, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466508344, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539675505, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 552217655, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633307397, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 858945263, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 940007795, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287572698, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612795435, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964742813, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_RootOrder
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737511660546828278, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Name
+      value: CP#02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559374828780564344, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1716769988465668480, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 6559374828780564344, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 1918852213600783423, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 6828100624436653892, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 4589176665639834031, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 4339740133284394836, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 4203464950336486373, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 7197390871071166537, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 4596298481450186415, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 3860988095458175258, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 2647307340772975626, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 5893479909263681718, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 1940529560847759620, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 4137635819329304398, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 7732422057384892570, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 3776895709477567054, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 7809138232397941986, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 2329155863838311960, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 8358339585288206072, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 5845662211752077129, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 4743386335797700285, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+    - {fileID: 872090180365736848, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+--- !u!4 &3783070534282747528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5737511660546828271, guid: 74df3d85e38c33741b44090be6c7c473, type: 3}
+  m_PrefabInstance: {fileID: 8871975746762291559}
   m_PrefabAsset: {fileID: 0}

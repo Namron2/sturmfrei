@@ -144,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool amDead = false;
     public Image Fade;
+    public bool usingTriggerAxis = false;
 
 
     // Start is called before the first frame update
@@ -187,6 +188,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()   //inputs and animation
     {
+        //triggerAxis = Input.GetAxis("TriggerSwitch");
         veloY = Rigid.velocity.y;
         //cannot function when dead
         if (States == WorldState.Static)
@@ -1228,6 +1230,38 @@ public class PlayerMovement : MonoBehaviour
         {
             if (States == WorldState.Flying)
             {
+                wingSwitchCooldown = false;
+                StartCoroutine(Countdown());
+                SetInAir();
+                //flyTest = false;
+                Anim.SetBool("Flying", false);
+                AnimCtrl();
+                wingON = true;
+                this.gameObject.GetComponent<WingSwitch>().Switch();
+
+            }
+        }
+
+        if (Input.GetAxis("TriggerSwitch") > 0 && wingSwitchCooldown)
+        {
+            if (States == WorldState.InAir)
+            {
+                usingTriggerAxis = true;
+                wingSwitchCooldown = false;
+                StartCoroutine(Countdown());
+                SetFlying();
+                //flyTest = true;
+                Anim.SetBool("Flying", true);
+                AnimCtrl();
+                wingON = false;
+                this.gameObject.GetComponent<WingSwitch>().Switch();
+            }
+        }
+        if (Input.GetAxis("TriggerSwitch") <= 0 && wingSwitchCooldown && usingTriggerAxis)
+        {
+            if (States == WorldState.Flying)
+            {
+                usingTriggerAxis = false;
                 wingSwitchCooldown = false;
                 StartCoroutine(Countdown());
                 SetInAir();
