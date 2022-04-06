@@ -96,8 +96,11 @@ public class PonchoColourChange : MonoBehaviour
     {
         //renderPoncho = GetComponent<Renderer>();
         //renderPoncho.enabled = true;
-        renderPoncho.sharedMaterial = texturePoncho[0];
-        renderPonchoCollar.sharedMaterial = texturePoncho[0];
+        if (renderPoncho != null || renderPonchoCollar != null)
+        {
+            renderPoncho.sharedMaterial = texturePoncho[0];
+            renderPonchoCollar.sharedMaterial = texturePoncho[0];
+        }
 
     }
 
@@ -115,14 +118,20 @@ public class PonchoColourChange : MonoBehaviour
     }
     public void GoldPoncho()
     {
-        renderPoncho.sharedMaterial = texturePoncho[1];
-        renderPonchoCollar.sharedMaterial = texturePoncho[1];
+        if (renderPoncho != null || renderPonchoCollar != null)
+        {
+            renderPoncho.sharedMaterial = texturePoncho[1];
+            renderPonchoCollar.sharedMaterial = texturePoncho[1];
+        }
         Debug.Log("Gold");
     }
     public void NoMoreGold()
-    {
-        renderPoncho.sharedMaterial = texturePoncho[0];
-        renderPonchoCollar.sharedMaterial = texturePoncho[0];
+        {
+        if (renderPoncho != null || renderPonchoCollar != null)
+        {
+            renderPoncho.sharedMaterial = texturePoncho[0];
+            renderPonchoCollar.sharedMaterial = texturePoncho[0];
+        }
         Debug.Log("Shoot, gold is gone");
     }
    
