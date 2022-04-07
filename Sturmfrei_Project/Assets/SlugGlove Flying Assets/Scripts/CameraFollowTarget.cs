@@ -12,6 +12,7 @@ public class CameraFollowTarget : MonoBehaviour
     public bool isGrappledFollow;
     public GameObject camPos;
     public CameraFollow camFol;
+    public GameObject Cam_Pos_Unlock;
     public bool lookingAtWall = false;
 
     private void Start()
@@ -47,24 +48,22 @@ public class CameraFollowTarget : MonoBehaviour
         }
         else
         {
-            LerpCamToward(Target.gameObject);
+            // lerp dat shit boi
+            if (Cam_Pos_Unlock != null)
+            {
+                Target.ActSpeed = 0;
+                Target.Anim.SetFloat("Moving", 0);
+                Target.Rigid.transform.position = Target.transform.position;
+                Target.Rigid.velocity = Vector3.zero;
+                transform.position = Vector3.Lerp(transform.position, Cam_Pos_Unlock.transform.position, 1 * Time.deltaTime);
+            }
         }
-
     }
 
     public void GrappleCam()
     {
-        //camPos = 
-        //Debug.Log("Moved");
         transform.position = camPos.transform.position;
-        //this.gameObject.transform = camPos;
-        //LookAtPos = target.position;
-
     }
 
-    public void LerpCamToward(GameObject obj)
-    {
-
-    }
 
 }

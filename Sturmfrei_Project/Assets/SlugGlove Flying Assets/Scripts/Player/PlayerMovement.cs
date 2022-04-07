@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private DetectCollision Colli; //collision detection
     [HideInInspector]
     public Rigidbody Rigid; //rigidbody 
-    private Animator Anim; //animator
+    public Animator Anim; //animator
     private InputHandle InputHand; //script for handling our inputs
     float delta;
 
@@ -188,7 +188,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()   //inputs and animation
     {
-        //triggerAxis = Input.GetAxis("TriggerSwitch");
         veloY = Rigid.velocity.y;
         //cannot function when dead
         if (States == WorldState.Static)
@@ -211,13 +210,11 @@ public class PlayerMovement : MonoBehaviour
             if (!Ground)
             {
                 SetInAir();
-                //SetFlying(); //Tempo modif
                 return;
             }
 
             if (InputHand.Jump)
             {
-                //if(InputHand.Dashing) UpwardDash();
                 //if the player can jump, isnt attacking and isnt using an item
                 SetInAir();
                 if (!HasJumped)
@@ -246,8 +243,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 UpwardDash();
             }
-            //check for ground
-            //bool Ground = Colli.CheckGround();
+
 
             //check for ground version Phil
             bool Ground = false;
@@ -264,14 +260,6 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
 
-            // I can't figure it out, the rotation stop at 90 instead of going to 160
-            if (isFalling) 
-            {
-                //Vector3 eulerRotation = transform.rotation.eulerAngles;
-                //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(160, eulerRotation.y, eulerRotation.z), Time.deltaTime*2);
-            }
-            
-            // UpwardDash();
         }
         else if(States == WorldState.Flying)
         {
@@ -292,8 +280,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 if(ActSpeed > SpeedLimitBeforeCrash /*&& !isDashing*/)
                 {
-                    //stun character
-                    //Debug.Log("Wabam");
                     Stunned(-transform.forward);
                     return;
                 }
@@ -341,20 +327,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-// Wing switch controls
         WingSwitch();
-        //Zoom in Camera when dashing, does not feel good
-        /*if (!isDashing && CamFol.DistanceFromPlayer != 9)
-        {
-
-            if (timeElapsedDashZoom < lerpDuration)
-            {
-                CamFol.DistanceFromPlayer = Mathf.Lerp(CamFol.DistanceFromPlayer, 9, timeElapsedDashZoom / lerpDuration);
-                timeElapsedDashZoom += Time.deltaTime;
-            }
-            if (CamFol.DistanceFromPlayer >= 8.99) CamFol.DistanceFromPlayer = 9;
-        }*/
-
 
         // Reset mecanic
         if (Input.GetButtonDown("Save") && ready == false)
@@ -370,7 +343,6 @@ public class PlayerMovement : MonoBehaviour
         if (Time.time >= pressTime && ready == true)
         {
             ready = false;
-            Debug.Log("Respawn");
             ResetPlayer();
         }
     }
@@ -487,33 +459,11 @@ public class PlayerMovement : MonoBehaviour
                 }
 
             }
-            //FlyingCtrl(delta, ActSpeed, _xMov, _zMov);
-            //MoveSelf(delta, 5, MovementAcceleration, moveDirection);
+
         }
         else if (States == WorldState.Flying)
         {
             Anim.SetBool("isPlonging", false);
-
-            //setup gliding
-            /*if (!InputHand.Fly)
-            {
-                if (FlyingTimer > 0) //reduce flying timer 
-                    FlyingTimer -= delta; 
-            }
-            
-             else if (FlyingTimer < GlideTime) // pressing flying ---Here---
-            {
-                //flapping animation
-                //if(FlyingTimer < GlideTime * 0.8f)
-                    Anim.SetTrigger("Flap");
-
-                FlyingTimer = GlideTime;
-            }
-            */
-
-            //reduce air timer 
-            //if (ActionAirTimer > 0)
-            //    ActionAirTimer -= delta;
 
             //falling effect
             Visuals.FallEffectCheck(delta);
@@ -524,8 +474,6 @@ public class PlayerMovement : MonoBehaviour
             //Philippe was here and it took me 2h -_-
             if (InputHand.Horizontal == 0 && transform.rotation.z !=0 )
             {
-                //Debug.Log("Stabilizing");
-                //Quaternion TiltReset = new Quaternion( transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
                 Vector3 eulerRotation = transform.rotation.eulerAngles;
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0), Time.deltaTime * 1.5f);
             }
@@ -545,11 +493,7 @@ public class PlayerMovement : MonoBehaviour
                 if(ActSpeed > FlyingMinSpeed)
                     FlyAccel = FlyingDecelleration * FlyingAdjustmentLerp;
             }
-            //else
-            //{
-                //flying effects 
-              //  Visuals.FlyingFxTimer(delta);
-            //}
+
 
             HandleVelocity(delta, Spd, FlyAccel, YAmt);
 
@@ -677,10 +621,6 @@ public class PlayerMovement : MonoBehaviour
         //turn off gravity
         Rigid.useGravity = true;
 
-        /*if (!coroutRunning)
-        {
-            StartCoroutine(TetePremiere());
-        }*/
     }
     //for when we start to fly
     public void SetFlying()
@@ -714,7 +654,6 @@ public class PlayerMovement : MonoBehaviour
 
         StunTimer = StunnedTime;
         Anim.SetBool("Flying", false);
-
 
         //set physics
         ActSpeed = 0f;
@@ -758,11 +697,7 @@ public class PlayerMovement : MonoBehaviour
 
         //set our grounded and flying animations
         Anim.SetBool("OnGround", OnGround);
-        //bool Fly = true;
-        //if (!InputHand.Fly)
-          //  Fly = false;
 
-        //Anim.SetBool("Flying", flyTest);
     }
 
     void FixedAnimCtrl(float D) //animations involving a timer
@@ -896,14 +831,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveDirection == Vector3.zero)
         {
-            //Debug.Log("Vector 0");
             targetDir = transform.forward;
-            //targetDir = moveDirection;
-
         }
         else
         {
-            //Debug.Log("Vector is something");
             targetDir = moveDirection;
         }
 
@@ -915,25 +846,9 @@ public class PlayerMovement : MonoBehaviour
         //set our turn speed
         float TurnSpd = (WalkTurnSpeed + (ActSpeed * 0.1f)) * FlownAdjustmentLerp;
         TurnSpd = Mathf.Clamp(TurnSpd, 0, 6);
-        //lerp mesh slower when not on ground
-        //RotateSelf(DownwardDirection, d, 8f);
+
         RotateMesh(d, targetDir, TurnSpd);
-        /*
-        //rotate towards the rigid body velocity 
-        Vector3 LerpDirection = DownwardDirection;
-        float FallDirSpd = FallingDirectionSpeed;
 
-        if(Rigid.velocity.y < -6) //we are going downwards
-        {
-            LerpDirection = Vector3.up;
-            FallDirSpd = FallDirSpd * -(Rigid.velocity.y * 0.2f);
-        }         
-        
-        DownwardDirection = Vector3.Lerp(DownwardDirection, LerpDirection, FallDirSpd * d);
-
-        //lerp mesh slower when not on ground
-        RotateSelf(DownwardDirection, d, 8f);
-        RotateMesh(d, transform.forward, turnSpeedInAir);*/
 
         //Best value of control for now
         Vector3 eulerRotation = transform.rotation.eulerAngles;
@@ -956,20 +871,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Spd = Speed;
         }
-        //Spd = (moveDirection == Vector3.zero) ? 0 : Speed; // this fix jump forward
-        Vector3 curVelocity = Rigid.velocity;
+       Vector3 curVelocity = Rigid.velocity;
         //this part is weird
         Vector3 targetVelocity;
         targetVelocity = targetDir * Spd;
-        /*if(moveDirection == Vector3.zero) // no input
-        {
-            targetVelocity = targetDir*0;
-            
-        }
-        else
-        {
-            targetVelocity = targetDir * Spd;
-        }*/
+
         //lerp our acceleration
         ActAccel = Mathf.Lerp(ActAccel, Accel, HandleReturnSpeed * d);
         //set rigid direction
@@ -979,14 +885,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FallingCtrl2(float d, float Speed, float Accel, Vector3 moveDirection)
     {
-        /*if (moveDirection == Vector3.zero)
-        {
-            targetDir = transform.forward;
-        }
-        else
-        {
-            targetDir = moveDirection;
-        }*/
+
         //Best value of control for now
         Vector3 eulerRotation = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 2f);
@@ -1015,35 +914,12 @@ public class PlayerMovement : MonoBehaviour
         //set our turn speed
         float TurnSpd = (WalkTurnSpeed + (ActSpeed * 0.1f)) * FlownAdjustmentLerp;
         TurnSpd = Mathf.Clamp(TurnSpd, 0, 6);
-        //lerp mesh slower when not on ground
-        //RotateSelf(DownwardDirection, d, 8f);
-        //RotateMesh(d, targetDir, TurnSpd);
 
-        //get our rotation and adjustment speeds
         float rotSpd = FlyingRotationSpeed;
 
             RotateToVelocity(d, rotSpd * 0.15f); // was 0.05
 
-        /*
-        //rotate towards the rigid body velocity 
-        Vector3 LerpDirection = DownwardDirection;
-        float FallDirSpd = FallingDirectionSpeed;
 
-        if(Rigid.velocity.y < -6) //we are going downwards
-        {
-            LerpDirection = Vector3.up;
-            FallDirSpd = FallDirSpd * -(Rigid.velocity.y * 0.2f);
-        }         
-        
-        DownwardDirection = Vector3.Lerp(DownwardDirection, LerpDirection, FallDirSpd * d);
-
-        //lerp mesh slower when not on ground
-        RotateSelf(DownwardDirection, d, 8f);
-        RotateMesh(d, transform.forward, turnSpeedInAir);*/
-
-        //Best value of control for now
-       // Vector3 eulerRotation = transform.rotation.eulerAngles;
-        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Time.deltaTime * 4f);
 
         //move character
         float Spd = Speed;
@@ -1098,10 +974,7 @@ public class PlayerMovement : MonoBehaviour
             RotateToVelocity(d, rotSpd * 0.05f);
 
         Vector3 targetVelocity = transform.forward * Speed;
-        //push down more when not pressing fly
-        //if(InputHand.Fly)
-        //    ActGravAmt = Mathf.Lerp(ActGravAmt, FlyingGravityAmt, FlyingGravBuildSpeed * 4f * d);
-        //else
+
             ActGravAmt = Mathf.Lerp(ActGravAmt, GlideGravityAmt, FlyingGravBuildSpeed * 0.5f * d);
  
         targetVelocity -= Vector3.up * ActGravAmt;
@@ -1114,7 +987,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 VD = -transform.up;
 
-        //up and down input = moving up and down (this effects our downward direction
         if (ZMove > 0.1) //upward tilt
         {
             VD = Vector3.Lerp(VD, -transform.forward, d * (FlyingUpDownSpeed * ZMove));
@@ -1123,17 +995,6 @@ public class PlayerMovement : MonoBehaviour
         {
             VD = Vector3.Lerp(VD, transform.forward, d * (FlyingUpDownSpeed * (ZMove * -1)));
         }
-
-        //LB and RB input = roll (this effects our downward direction
-       /* if (InputHand.LB) //left roll
-        {
-            VD = Vector3.Lerp(VD, -transform.right, d * FlyingRollSpeed);
-        }
-        else if (InputHand.RB) //right roll
-        {
-            VD = Vector3.Lerp(VD, transform.right, d * FlyingRollSpeed);
-        }*/
-
         return VD;
     }
 
@@ -1141,7 +1002,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 RollDir = transform.forward;
 
-        //rb lb = move left and right (this effects our target direction
         //left right input
         if (XMove > 0.1)
         {
@@ -1151,16 +1011,6 @@ public class PlayerMovement : MonoBehaviour
         {
             RollDir = Vector3.Lerp(RollDir, transform.right, d * (FlyingLeftRightSpeed * (XMove * -1)));
         }
-        //bumper input
-        /*if (InputHand.LB)
-        {
-            RollDir = Vector3.Lerp(RollDir, -transform.right, d * FlyingLeftRightSpeed * 0.2f);
-        }
-        else if (InputHand.RB)
-        {
-            RollDir = Vector3.Lerp(RollDir, transform.right, d * FlyingLeftRightSpeed * 0.2f);
-        }*/
-
         return RollDir;
     }
     //rotate our upwards direction
@@ -1178,9 +1028,6 @@ public class PlayerMovement : MonoBehaviour
     //rotate towards the velocity direction
     void RotateToVelocity(float d, float spd)
     {
-        //Need to use  bird flying forward
-        //Quaternion SlerpRot = Quaternion.LookRotation(Rigid.velocity.normalized); base de code
-        //Quaternion SlerpRot = Quaternion.LookRotation(new Vector3(0, -1,0));
         Vector3 TempoRotation = transform.rotation.eulerAngles;
         Quaternion SlerpRot = Quaternion.Euler(90, TempoRotation.y, TempoRotation.z);
         transform.rotation = Quaternion.Slerp(transform.rotation, SlerpRot, spd * d);
@@ -1238,7 +1085,6 @@ public class PlayerMovement : MonoBehaviour
                 AnimCtrl();
                 wingON = true;
                 this.gameObject.GetComponent<WingSwitch>().Switch();
-
             }
         }
 
@@ -1281,14 +1127,9 @@ public class PlayerMovement : MonoBehaviour
         if (canDashUp && canDashFront && frontDashAbility && dashLock == false) 
         {
             Anim.SetTrigger("isDashing");
-            //Debug.Log("Dashing forward");
             tempoSpeed = ActSpeed;
-            //Tempo zoom in 
-            //CamFol.DistanceFromPlayer = 3;
-            //SpeedBoost(frontDashSpeed);
-            //tempoFixedSpeed = ActSpeed;
 
-            //Smaller collider test
+            //Smaller collider 
             Rigid.GetComponent<SphereCollider>().radius = 0.3f;
 
             canDashFront = false;
@@ -1341,7 +1182,6 @@ public class PlayerMovement : MonoBehaviour
             if (!canDashUp && progressDash > 1)// le 1 represente le temps que le joueur dash vers le haut, soit environ 1 sec
             {
                 isDashing = false;
-                //stop the upward dash animation
             }
             if (!canDashFront && progressDash > dashTime)
             {
@@ -1360,12 +1200,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         yield return new WaitForSeconds(dashTime);//0.5sec
-                                                  //The player just dash frontward 
 
-        // this dash dgives speed when goind up, returning to 20 does not feel good.
-        //ActSpeed = 20;
-
-        //Normal size collider
         Rigid.GetComponent<SphereCollider>().radius = 0.6f;
 
         ActSpeed = tempoSpeed;
@@ -1386,17 +1221,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Tainted()
     {
-        //Debug.Log("Got polluted !");
         isTainted = true;
         dashLock = true;
-        //RedLineOverStamina.SetActive(true);
-       /* if(!canDashFront || !canDashUp)
-        {
-
-        }*/
         canDashFront = false;
         canDashUp = false;
-        //StartCoroutine(NotTainted());
     }
 
     //ajout Oli pour que player reste tainted tant que pono est dans toxic
@@ -1410,16 +1238,13 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(TaintedTimer);
         isTainted = false;
         dashLock = false;
-        //RedLineOverStamina.SetActive(false);
         canDashFront = true;
         canDashUp = true;
     }
     public void Purify()
     {
-        //Debug.Log("Purified the pollution !");
         canDashFront = true;
         canDashUp = true;
-
     }
     private void SetupValue()
     {
@@ -1458,7 +1283,7 @@ public class PlayerMovement : MonoBehaviour
         purificationAbility = false;
         upwardDashAbility = true;
         frontDashAbility = true;
-    isTainted = false;
+        isTainted = false;
         TaintedTimer = 5;
         secondStaminaCooldown = 5;
         dashTime = 0.5f;
@@ -1472,7 +1297,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetPlayer()
     {
-        //Debug.Log("Reset the player");
         Rigid.transform.position = playerResp.respawnPoint;
         ActSpeed = 0;
         if (Anim)
@@ -1480,6 +1304,7 @@ public class PlayerMovement : MonoBehaviour
         SetGrounded();
     }
 
+    
     public IEnumerator FadeToBlack()
     {
        // Fade.

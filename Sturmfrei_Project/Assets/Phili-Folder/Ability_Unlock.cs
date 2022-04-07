@@ -7,7 +7,8 @@ public class Ability_Unlock : MonoBehaviour
 {
     //public UnityEvent Unlock_Time;
     public GameObject Objet_A_Regarder;
-    float tempsDeLookAt;
+    public GameObject Camera_Position;
+    public float tempsDeLookAt;
 
     private CameraFollowTarget camFolTar;
     private CameraFollow camFol;
@@ -15,7 +16,7 @@ public class Ability_Unlock : MonoBehaviour
 
     private void Start()
     {
-        tempsDeLookAt = 3;
+        //tempsDeLookAt = 3;
         camFolTar = GameObject.Find("CameraFollow").GetComponent<CameraFollowTarget>();
         player = GameObject.Find("PonoPrefab#03").GetComponent<PlayerMovement>();
         camFol = camFolTar.gameObject.GetComponent<CameraFollow>();
@@ -33,6 +34,7 @@ public class Ability_Unlock : MonoBehaviour
     {
         
         camFolTar.lookingAtWall = true;
+        camFolTar.Cam_Pos_Unlock = Camera_Position;
         // Stop player control
         player.enabled = false ;
         //stop animation
