@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     //[HideInInspector]
     public WorldState States;
     public WorldState PreviousState;
-    private Transform Cam; //reference to our camera
+    public Transform Cam; //reference to our camera
     private Transform CamY; //reference to our camera axis
     public CameraFollow CamFol; //reference to our camera script
     private PlayerVisuals Visuals; //script for handling visual effects

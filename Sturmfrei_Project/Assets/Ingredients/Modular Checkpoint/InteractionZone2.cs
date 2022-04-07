@@ -8,7 +8,7 @@ public class InteractionZone2 : MonoBehaviour
     private Transform CPDetectionPoint; // CP = checkpoint
     private GameObject CPDetectionPointObject; // CP = checkpoint
     public Transform spawnPoint;
-    public GameObject player;
+    public GameObject playerObject;
     public bool pressingLore;
     public GameObject shrine;
     public GameObject[] shrineRocks;
@@ -22,11 +22,13 @@ public class InteractionZone2 : MonoBehaviour
 
     public bool shrineActive = false;
 
+    public GameObject controllerY;
+    public GameObject keyboardF;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        CPDetectionPointObject = GameObject.Find("/"+player.name.ToString() + "/Bird_Centre/FloorCheck");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        CPDetectionPointObject = GameObject.Find("/"+ playerObject.name.ToString() + "/Bird_Centre/FloorCheck");
         CPDetectionPoint = CPDetectionPointObject.transform;     
 
     }
@@ -49,7 +51,9 @@ public class InteractionZone2 : MonoBehaviour
         {
             shrine.GetComponent<Animator>().SetBool("PonoProche", true);
 
-            Debug.Log("Press F on keyboard or Y on controller");
+            PlayerMovement player = playerObject.GetComponent<PlayerMovement>();
+            ControleDeCheckPoint(player);
+
             if (pressingLore)
             {
                 shrine.GetComponent<Animator>().SetTrigger("SetCheckpoint");
@@ -64,6 +68,7 @@ public class InteractionZone2 : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             shrine.GetComponent<Animator>().SetBool("PonoProche", false);
+             RemoveControleDeCheckPoint();
         }
     }
 
@@ -85,5 +90,27 @@ public class InteractionZone2 : MonoBehaviour
 
         ShrineLight = Color.Lerp(coul1, coul2, Mathf.PingPong(Time.time, 3));
         
+    }
+
+
+    private void ControleDeCheckPoint(PlayerMovement player)
+    {
+        if (controllerY != null && keyboardF != null)
+        {
+            controllerY.SetActive(true);
+            keyboardF.SetActive(true);
+
+            controllerY.transform.LookAt(player.Cam);
+            keyboardF.transform.LookAt(player.Cam);
+        }
+    }
+
+    private void RemoveControleDeCheckPoint()
+    {
+        if (controllerY != null && keyboardF != null)
+        {
+            controllerY.SetActive(false);
+            keyboardF.SetActive(false);
+        }
     }
 }
