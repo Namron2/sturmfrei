@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class Ability_Unlock : MonoBehaviour
 {
     //public UnityEvent Unlock_Time;
-    public GameObject Objet_A_Regarder;
-    public GameObject Camera_Position;
+    public GameObject ObjetARegarder;
+    public GameObject CameraPosition;
     public float tempsDeLookAt;
 
     private CameraFollowTarget camFolTar;
@@ -23,9 +23,9 @@ public class Ability_Unlock : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && Objet_A_Regarder != null)
+        if (other.tag == "Player" && ObjetARegarder != null)
         {
-            camFol.wallObject = Objet_A_Regarder;
+            camFol.wallObject = ObjetARegarder;
             StartCoroutine(RegardeObjet());
         }
     }
@@ -34,7 +34,7 @@ public class Ability_Unlock : MonoBehaviour
     {
         
         camFolTar.lookingAtWall = true;
-        camFolTar.Cam_Pos_Unlock = Camera_Position;
+        camFolTar.Cam_Pos_Unlock = CameraPosition;
         // Stop player control
         player.enabled = false ;
         //stop animation
