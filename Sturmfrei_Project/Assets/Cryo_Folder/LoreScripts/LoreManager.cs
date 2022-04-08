@@ -21,14 +21,6 @@ public class LoreManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            EndLore();
-        }
-    }
-
     public void StartLore (Lore lore)
     {
         //Debug.Log("Starting lore of " + lore.name);
