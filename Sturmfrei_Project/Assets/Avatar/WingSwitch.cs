@@ -5,22 +5,16 @@ using UnityEngine;
 public class WingSwitch : MonoBehaviour
 {
     public GameObject[] ponchos;
-    //public GameObject poncho1;
-    //public GameObject poncho2;
     public Material[] ponchoMat;
-    public SphereCollider pono;
+    private SphereCollider pono;
     private float radiusIni;
     private float radiusMod;
-    
-    //ref playermovement pour detecter wingswitch
-    public bool isFlying;
-    public string state;
     PlayerMovement playerMovement;
-
 
     private void Start()
     {
         playerMovement = this.gameObject.GetComponent<PlayerMovement>();
+        pono = playerMovement.Rigid.gameObject.GetComponent<SphereCollider>();
         radiusIni = pono.radius;
         radiusMod = 0.2f;
     }
@@ -45,6 +39,5 @@ public class WingSwitch : MonoBehaviour
             ponchos[i].GetComponent<Renderer>().material = ponchoMat[0];
         }
         pono.radius = radiusIni;
-
     }
 }

@@ -14,9 +14,9 @@ public class PlayerMovement : MonoBehaviour
         Grappling, 
     }
 
-    public ParticleSystem aether;
 
-    //[HideInInspector]
+
+    [HideInInspector]
     public WorldState States;
     public WorldState PreviousState;
     public Transform Cam; //reference to our camera
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeedInAir;
     public float FallingDirectionSpeed; //how quickly we will return to a normal direction
 
-    [Header("Flying")]
+   [Header("Flying")]
     public float FlyingDirectionSpeed; //how much influence our direction relative to the camera will influence our flying
     public float FlyingRotationSpeed; //how fast we turn in air overall
     public float FlyingUpDownSpeed; //how fast we rotate up and down
@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
     public float JumpAmt; //how much we jump upwards 
     private bool HasJumped; //if we have pressed jump
     public float GroundedTimerBeforeJump; //how long we have to be on the floor before an action can be made
-    //public float JumpForwardAmount; //how much our regular jumps move us forward
+                                          //public float JumpForwardAmount; //how much our regular jumps move us forward
 
     [Header("Wall Impact")]
     public float SpeedLimitBeforeCrash; //how fast we have to be going to crash
@@ -112,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
     public int secondStaminaCooldown = 5;
     public bool canDashFront=true;
     public bool canDashUp=true;
-    public Slider coolSlider;
     private float elapsedTime = 0;
     public float progress = 0;
     public float dashTime = 0.5f;
@@ -125,23 +124,20 @@ public class PlayerMovement : MonoBehaviour
     public bool purificationAbility;
     public bool upwardDashAbility;
     public bool frontDashAbility;
-    public bool isTainted;
-    public GameObject RedLineOverStamina;
-    public float TaintedTimer;
-    private grapple_gun grappleGunz;
 
+    [Header("Custom")]
+    public ParticleSystem aether;
+    private PlayerRespawn playerResp;
+    private grapple_gun grappleGunz;
+    public bool isTainted;
+    public float TaintedTimer;
     private float timeElapsedDashZoom;
     private float lerpDuration;
-
     public bool inDustDevil;
-    //ajout Oli
     public bool dashLock = false;
-
     public float downTime, upTime, pressTime = 0;
     public float countDown = 2.0f;
     public bool ready = false;
-    private PlayerRespawn playerResp;
-
     public bool amDead = false;
     private Image Fade;
     private Image FadeWhite;
@@ -151,8 +147,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
-        //static until finished setup
         States = WorldState.Static;
 
         InputHand = GetComponent<InputHandle>();
@@ -163,18 +157,17 @@ public class PlayerMovement : MonoBehaviour
         Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         CamY = Cam.transform.parent.parent.transform;
         CamFol = Cam.GetComponentInParent<CameraFollow>();
-        playerResp = GetComponent<PlayerRespawn>();
+        playerResp = this.GetComponent<PlayerRespawn>();
+        grappleGunz = this.GetComponent<grapple_gun>();
+        aether = this.transform.Find("Aether").gameObject.GetComponent<ParticleSystem>();
         CheckPointPos = transform.position;
 
         //setup this characters stats
         SetupCharacter();
         SetupValue();
 
-        //Philippe 
         wingON = false;
         wingSwitchCooldown = true;
-        grappleGunz = this.GetComponent<grapple_gun>();
-
         timeElapsedDashZoom = 0;
         lerpDuration = 10;
 
@@ -188,19 +181,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Update()   //inputs and animation
+    private void Update()   
     {
         veloY = Rigid.velocity.y;
         //cannot function when dead
         if (States == WorldState.Static)
             return;
 
-        //control the animator
         AnimCtrl();
 
         transform.position = Rigid.position;
 
-        //check for jumping
         if (States == WorldState.Grounded)
         {
             if (FloorTimer > 0)
@@ -217,7 +208,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (InputHand.Jump)
             {
-                //if the player can jump, isnt attacking and isnt using an item
                 SetInAir();
                 if (!HasJumped)
                 {                   
@@ -255,9 +245,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (Ground)
             {
-                // test plonger
                 Anim.SetBool("isPlonging", false);
-
                 SetGrounded();
                 return;
             }
@@ -267,20 +255,20 @@ public class PlayerMovement : MonoBehaviour
         {
             MinimalChangeSpeed();
 
-            if (ActionAirTimer > 0) //reduce air timer 
+            if (ActionAirTimer > 0)
                 return;
 
             //check wall collision for a crash, if this unit can crash
             bool WallHit = Colli.CheckWall();
 
             //if we have hit a wall
-            if (WallHit /*&& !isDashing*/)
+            if (WallHit)
             {
                 if(ActSpeed < SpeedLimitBeforeCrash)
                 {
                     SetInAir();
                 }
-                if(ActSpeed > SpeedLimitBeforeCrash /*&& !isDashing*/)
+                if(ActSpeed > SpeedLimitBeforeCrash)
                 {
                     Stunned(-transform.forward);
                     return;
@@ -431,8 +419,6 @@ public class PlayerMovement : MonoBehaviour
             if (FlyingAdjustmentLerp > -.1)
                 FlyingAdjustmentLerp -= delta * (FlyingAdjustmentSpeed * 0.5f);
 
-            //control our character when falling
-            // modified by PB, need feedback
             float speedValueTempo;
             if(moveDirection == Vector3.zero)
             {
@@ -445,11 +431,8 @@ public class PlayerMovement : MonoBehaviour
 
             if(PreviousState == WorldState.Flying && !inDustDevil)
             {
-                    Anim.SetBool("isPlonging", true);
-                //Anim.SetBool("Flying", false);
-
-                    FallingCtrl_Plonge(delta, speedValueTempo, AirAcceleration, moveDirection);
-               
+                   Anim.SetBool("isPlonging", true);
+                   FallingCtrl_Plonge(delta, speedValueTempo, AirAcceleration, moveDirection);
             }
             else
             {
@@ -459,9 +442,7 @@ public class PlayerMovement : MonoBehaviour
                     PreviousState = WorldState.InAir;
                     Anim.SetBool("Flying", false);
                 }
-
             }
-
         }
         else if (States == WorldState.Flying)
         {
@@ -552,28 +533,7 @@ public class PlayerMovement : MonoBehaviour
             //falling audio
             Visuals.WindAudioSetting(delta, Rigid.velocity.magnitude);
         }
-        else if (States == WorldState.Grappling)
-        {
-            
-        }
 
-
-        //FixedUpdate
-        if (canDashFront && canDashUp && coolSlider != null)
-        {
-            coolSlider.value = 1;
-        }
-        else
-        {
-            if (!isTainted && coolSlider!=null)
-            {
-                coolSlider.value = progress;
-            }
-            else if (coolSlider != null)
-            {
-                coolSlider.value = 0;
-            }
-        }
     }
     //for when we return to the ground
     public void SetGrounded()
@@ -919,9 +879,7 @@ public class PlayerMovement : MonoBehaviour
 
         float rotSpd = FlyingRotationSpeed;
 
-            RotateToVelocity(d, rotSpd * 0.15f); // was 0.05
-
-
+        RotateToVelocity(d, rotSpd * 0.15f); // was 0.05
 
         //move character
         float Spd = Speed;
@@ -1040,15 +998,11 @@ public class PlayerMovement : MonoBehaviour
         //get components
         Anim = GetComponentInChildren<Animator>();
         Rigid = GetComponentInChildren<PlayerCollisionSphere>().GetComponentInChildren<Rigidbody>();
-
         //detatch rigidbody
         Rigid.transform.parent = null;
-
         //setup rigidbody link
         PlayerCollisionSphere LinkSet = Rigid.GetComponent<PlayerCollisionSphere>();
         LinkSet.Setup(this);
-
-        //return with our character being in air
         SetInAir();
     }
     #endregion
@@ -1068,7 +1022,6 @@ public class PlayerMovement : MonoBehaviour
                 wingSwitchCooldown = false;
                 StartCoroutine(Countdown());
                 SetFlying();
-                //flyTest = true;
                 Anim.SetBool("Flying", true);
                 AnimCtrl();
                 wingON = false;
@@ -1082,7 +1035,6 @@ public class PlayerMovement : MonoBehaviour
                 wingSwitchCooldown = false;
                 StartCoroutine(Countdown());
                 SetInAir();
-                //flyTest = false;
                 Anim.SetBool("Flying", false);
                 AnimCtrl();
                 wingON = true;
@@ -1098,7 +1050,6 @@ public class PlayerMovement : MonoBehaviour
                 wingSwitchCooldown = false;
                 StartCoroutine(Countdown());
                 SetFlying();
-                //flyTest = true;
                 Anim.SetBool("Flying", true);
                 AnimCtrl();
                 wingON = false;
@@ -1113,7 +1064,6 @@ public class PlayerMovement : MonoBehaviour
                 wingSwitchCooldown = false;
                 StartCoroutine(Countdown());
                 SetInAir();
-                //flyTest = false;
                 Anim.SetBool("Flying", false);
                 AnimCtrl();
                 wingON = true;
@@ -1125,7 +1075,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FrontalDash()
     {
-        //dash would need to have fixed speed ?
         if (canDashUp && canDashFront && frontDashAbility && dashLock == false) 
         {
             Anim.SetTrigger("isDashing");
@@ -1133,7 +1082,6 @@ public class PlayerMovement : MonoBehaviour
 
             //Smaller collider 
             Rigid.GetComponent<SphereCollider>().radius = 0.3f;
-
             canDashFront = false;
             elapsedTime = 0;
             progress = 0;
@@ -1160,7 +1108,6 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(DashCountdown());
         }
     }
-
     public float progressTempo;
     private IEnumerator DashCountdown()
     {
@@ -1180,7 +1127,6 @@ public class PlayerMovement : MonoBehaviour
                     ActSpeed = frontDashSpeed;
                 }
             }
-
             if (!canDashUp && progressDash > 1)// le 1 represente le temps que le joueur dash vers le haut, soit environ 1 sec
             {
                 isDashing = false;
@@ -1189,8 +1135,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 isDashing = false;
             }
-
-
             yield return null;
         }
         canDashFront = true;
@@ -1200,11 +1144,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator DashResetSpeed()
     {
-        
         yield return new WaitForSeconds(dashTime);//0.5sec
-
         Rigid.GetComponent<SphereCollider>().radius = 0.6f;
-
         ActSpeed = tempoSpeed;
     }
 
@@ -1310,18 +1251,6 @@ public class PlayerMovement : MonoBehaviour
     private float elapsedTimeFadeBlack;
     public IEnumerator FadeToBlack()
     {
-       // Fade.
-       /*for(float f =0.05f; f<=1; f+=0.05f)
-        {
-            Color c = Fade.color;
-            c.a = f;
-            Fade.color = c;
-            yield return new WaitForSeconds(0.05f);
-        }
-        Color finalBlack = Fade.color;
-        finalBlack.a = 1;
-        Fade.color = finalBlack;*/
-
         while (progressFadeBlack < 1)
         {
             elapsedTimeFadeBlack += Time.unscaledDeltaTime;
@@ -1385,7 +1314,6 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(FadeToWhite());
         }
     }
-
     public void RemoveFadeWhite()
     {
         if (Fade != null)
@@ -1397,5 +1325,4 @@ public class PlayerMovement : MonoBehaviour
             progressFadeWhite = 0;
         }
     }
-
 }

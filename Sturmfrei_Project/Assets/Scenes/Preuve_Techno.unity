@@ -1486,6 +1486,10 @@ PrefabInstance:
       propertyPath: Fade
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5401864734109634369, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: aether
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5401864734109634372, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1533,6 +1537,10 @@ PrefabInstance:
     - target: {fileID: 5401864734109634382, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
       propertyPath: m_Name
       value: PonoPrefab#03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442326331438352602, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
+      propertyPath: pono
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08026f677805edf4082054a1b2b955e0, type: 3}
