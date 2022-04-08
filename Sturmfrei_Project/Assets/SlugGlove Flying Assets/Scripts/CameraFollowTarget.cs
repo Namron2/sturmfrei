@@ -15,6 +15,8 @@ public class CameraFollowTarget : MonoBehaviour
     public GameObject Cam_Pos_Unlock;
     public bool lookingAtWall = false;
 
+    public bool ReturnHub = false;
+
     private void Start()
     {
         camFol = this.gameObject.GetComponent<CameraFollow>();
@@ -25,7 +27,7 @@ public class CameraFollowTarget : MonoBehaviour
         camFol.lookWall = lookingAtWall;
         if (!lookingAtWall)
         {
-            if (!isGrappledFollow && !Target.amDead)
+            if (!isGrappledFollow && !Target.amDead && !ReturnHub)
             {
                 Vector3 MPos = Target.transform.position;
 
@@ -41,6 +43,10 @@ public class CameraFollowTarget : MonoBehaviour
                     GrappleCam();
                 }
                 if (Target.amDead)
+                {
+
+                }
+                if(ReturnHub)
                 {
 
                 }

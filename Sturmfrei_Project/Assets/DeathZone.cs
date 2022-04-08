@@ -31,7 +31,7 @@ public class DeathZone : MonoBehaviour
         camFol.isDead = player.amDead;
         //Fade in instant
         collider_Player.transform.position = respawnPoint;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         player.RemoveFade();
     }
 }

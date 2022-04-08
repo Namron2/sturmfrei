@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public enum WorldState
@@ -143,7 +143,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerRespawn playerResp;
 
     public bool amDead = false;
-    public Image Fade;
+    private Image Fade;
+    private Image FadeWhite;
     public bool usingTriggerAxis = false;
 
 
@@ -183,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
         if (canvas != null)
         {
             Fade = canvas.transform.Find("Fade").GetComponent<Image>();
+            FadeWhite = canvas.transform.Find("FadeWhite").GetComponent<Image>();
         }
     }
 
@@ -1304,16 +1306,31 @@ public class PlayerMovement : MonoBehaviour
         SetGrounded();
     }
 
-    
+    private float progressFadeBlack;
+    private float elapsedTimeFadeBlack;
     public IEnumerator FadeToBlack()
     {
        // Fade.
-       for(float f =0.05f; f<=1; f+=0.05f)
+       /*for(float f =0.05f; f<=1; f+=0.05f)
         {
             Color c = Fade.color;
             c.a = f;
             Fade.color = c;
             yield return new WaitForSeconds(0.05f);
+        }
+        Color finalBlack = Fade.color;
+        finalBlack.a = 1;
+        Fade.color = finalBlack;*/
+
+        while (progressFadeBlack < 1)
+        {
+            elapsedTimeFadeBlack += Time.unscaledDeltaTime;
+            progressFadeBlack = elapsedTimeFadeBlack / 2;
+
+            Color c = Fade.color;
+            c.a = progressFadeBlack;
+            Fade.color = c;
+            yield return null;
         }
         Color finalBlack = Fade.color;
         finalBlack.a = 1;
@@ -1335,6 +1352,49 @@ public class PlayerMovement : MonoBehaviour
             Color blanc = Fade.color;
             blanc.a = 0;
             Fade.color = blanc;
+            elapsedTimeFadeBlack = 0;
+            progressFadeBlack = 0;
+        }
+    }
+
+    private float progressFadeWhite;
+    private float elapsedTimeFadeWhite;
+    public IEnumerator FadeToWhite()
+    {
+        while (progressFadeWhite < 1)
+        {
+            elapsedTimeFadeWhite += Time.unscaledDeltaTime;
+            progressFadeWhite = elapsedTimeFadeWhite / 2;
+
+            Color c = FadeWhite.color;
+            c.a = progressFadeWhite;
+            FadeWhite.color = c;
+            yield return null;
+        }
+        Color finalWhite = FadeWhite.color;
+        finalWhite.a = 1;
+        FadeWhite.color = finalWhite;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Hub#02");
+    }
+
+    public void StartFadeWhite()
+    {
+        if (Fade != null)
+        {
+            StartCoroutine(FadeToWhite());
+        }
+    }
+
+    public void RemoveFadeWhite()
+    {
+        if (Fade != null)
+        {
+            Color blanc = FadeWhite.color;
+            blanc.a = 0;
+            FadeWhite.color = blanc;
+            elapsedTimeFadeWhite = 0;
+            progressFadeWhite = 0;
         }
     }
 
