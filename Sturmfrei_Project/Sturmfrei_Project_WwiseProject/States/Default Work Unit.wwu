@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{188BCC65-8758-4A03-B4E4-69BFD420466D}" SchemaVersion="103">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{188BCC65-8758-4A03-B4E4-69BFD420466D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{188BCC65-8758-4A03-B4E4-69BFD420466D}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Music" ID="{1FFF2930-E4C0-4D9A-8B26-2D35E145462C}">
+					<ChildrenList>
+						<State Name="None" ID="{79C8C9C9-C580-4BAB-9655-74656E2A89F4}"/>
+						<State Name="Ambience" ID="{AFBBD1FE-EE4C-48F7-99B7-F2B02EDB3279}"/>
+						<State Name="Wonder" ID="{1C08A910-D655-46C5-ABF9-174C70BFCB8D}"/>
+						<State Name="Boss" ID="{53F18CA2-BA87-4DB6-8AD7-A4F2E1613F14}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Level" ID="{94DC4A26-7B88-48CD-A2F3-0E2F50494BF5}">
+					<ChildrenList>
+						<State Name="None" ID="{362F49D5-B98D-4A01-9DD9-565618F8C672}"/>
+						<State Name="Level_1" ID="{4AF86F3E-2F72-4BE1-B566-3C9FFF18A0BE}"/>
+						<State Name="Level_2" ID="{7AEAFD6D-9549-4464-B120-69DDB04C0F1A}"/>
+						<State Name="Level_3" ID="{EEB84612-9773-43BE-8C4A-8C9C4C9336B9}"/>
+						<State Name="Hub" ID="{C66BE474-8691-4FB7-940B-9D539A992BC4}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Poncho" ID="{2C19520B-EB43-4A29-A6CA-E012BB3E7BA9}">
+					<ChildrenList>
+						<State Name="None" ID="{38FA9B61-1EE0-4F36-834E-3647FCE41EC0}"/>
+						<State Name="Equipped" ID="{62CFD9C9-45E8-4E07-B46C-CBB127F40E15}"/>
+						<State Name="Unequipped" ID="{3EDD2C56-E3D3-4BFF-807D-16C6F87A24A5}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

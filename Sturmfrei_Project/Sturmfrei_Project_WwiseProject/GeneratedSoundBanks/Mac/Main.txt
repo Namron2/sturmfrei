@@ -1,6 +1,64 @@
 Event	ID	Name			Wwise Object Path	Notes
+	19599888	Foot_DashJump			\Default Work Unit\PLAYER\Foot_DashJump	
+	171783953	MUS_Hub_PostTuto			\Default Work Unit\MUSIC\MUS_Hub_PostTuto	
+	254470037	Foot_Falling			\Default Work Unit\PLAYER\Foot_Falling	
+	291430954	Tree_Idle			\Default Work Unit\AMBIENCE\Tree_Idle	
+	294084732	Landing_Diagonal			\Default Work Unit\PLAYER\Landing_Diagonal	
+	353331381	Stinger_FirstFly			\Default Work Unit\MUSIC\Stinger_FirstFly	
+	448491495	Landing_Vertical			\Default Work Unit\PLAYER\Landing_Vertical	
+	535719110	BreakWall_Ice			\Default Work Unit\INGREDIENT\BreakWall_Ice	
+	612075679	Checkpoint			\Default Work Unit\UI\Checkpoint	
+	626954121	Menu_Close			\Default Work Unit\UI\Menu_Close	
+	733335984	Flying_Land			\Default Work Unit\PLAYER\Flying_Land	
+	760777789	Menu_Click			\Default Work Unit\UI\Menu_Click	
+	761314172	Foot_Jump			\Default Work Unit\PLAYER\Foot_Jump	
+	820586857	Bridge_Crack			\Default Work Unit\AMBIENCE\Bridge_Crack	
+	1081381930	MUS_Hub_PreTuto			\Default Work Unit\MUSIC\MUS_Hub_PreTuto	
+	1114964412	Start_Game			\Default Work Unit\UI\Start_Game	
+	1138063715	Soul_Collect			\Default Work Unit\INGREDIENT\Soul_Collect	
+	1287511387	Menu_Open			\Default Work Unit\UI\Menu_Open	
+	1373415169	Magnet_Release			\Default Work Unit\INGREDIENT\Magnet_Release	
+	1462442152	MUS_Level1_Wonder			\Default Work Unit\MUSIC\MUS_Level1_Wonder	
+	1556990097	Flying_Start			\Default Work Unit\PLAYER\Flying_Start	
+	1562262157	Stinger_Poncho			\Default Work Unit\MUSIC\Stinger_Poncho	
+	1640886257	Magnet_Activate			\Default Work Unit\INGREDIENT\Magnet_Activate	
+	1807777261	MUS_Level1_Ambience			\Default Work Unit\MUSIC\MUS_Level1_Ambience	
+	1846985177	Soul_Idle			\Default Work Unit\INGREDIENT\Soul_Idle	
+	1966150636	Magnet_Idle			\Default Work Unit\INGREDIENT\Magnet_Idle	
+	1973954843	MUS_Start			\Default Work Unit\MUSIC\MUS_Start	
+	2024919782	PurpleCloud_Damage			\Default Work Unit\INGREDIENT\PurpleCloud_Damage	
+	2176935827	Foot_Walk			\Default Work Unit\PLAYER\Foot_Walk	
+	2201597904	Foot_Interaction			\Default Work Unit\PLAYER\Foot_Interaction	
+	2318407373	MUS_Level2_Wonder			\Default Work Unit\MUSIC\MUS_Level2_Wonder	
+	2410930353	Tutorial_Tip			\Default Work Unit\UI\Tutorial_Tip	
+	2600606019	PurpleCloud_Idle			\Default Work Unit\INGREDIENT\PurpleCloud_Idle	
+	2635524439	MUS_Level3_Ambience			\Default Work Unit\MUSIC\MUS_Level3_Ambience	
+	2649590838	Test_Footstep			\Default Work Unit\Test_Footstep	
+	2840002408	Flying_Stunned			\Default Work Unit\PLAYER\Flying_Stunned	
+	2911411227	Wind_Turbine			\Default Work Unit\AMBIENCE\Wind_Turbine	
+	3026592080	Boss_Defeat			\Default Work Unit\INGREDIENT\Boss_Defeat	
+	3037851228	MUS_Level2_Ambience			\Default Work Unit\MUSIC\MUS_Level2_Ambience	
+	3105165424	Wind_Column			\Default Work Unit\AMBIENCE\Wind_Column	
+	3122584051	Flying_Dash			\Default Work Unit\PLAYER\Flying_Dash	
+	3167145899	Boss_Idle			\Default Work Unit\INGREDIENT\Boss_Idle	
+	3336347158	MUS_Level3_Wonder			\Default Work Unit\MUSIC\MUS_Level3_Wonder	
+	3385283415	Amb_Hub			\Default Work Unit\AMBIENCE\Amb_Hub	
+	3391124858	River_Idle			\Default Work Unit\AMBIENCE\River_Idle	
+	3555376460	BreakWall_Stone			\Default Work Unit\INGREDIENT\BreakWall_Stone	
+	3624297410	MUS_Level1_BossPuzzle			\Default Work Unit\MUSIC\MUS_Level1_BossPuzzle	
+	3755979049	Amb_Cave			\Default Work Unit\AMBIENCE\Amb_Cave	
+	3791781342	Foot_Idle			\Default Work Unit\PLAYER\Foot_Idle	
+	3820074413	Amb_Sky			\Default Work Unit\AMBIENCE\Amb_Sky	
+	3886197287	MUS_Level2_BossPuzzle			\Default Work Unit\MUSIC\MUS_Level2_BossPuzzle	
+	3902909597	Flying_Idle			\Default Work Unit\PLAYER\Flying_Idle	
+	4059733421	Amb_Level1			\Default Work Unit\AMBIENCE\Amb_Level1	
+	4059733422	Amb_Level2			\Default Work Unit\AMBIENCE\Amb_Level2	
+	4059733423	Amb_Level3			\Default Work Unit\AMBIENCE\Amb_Level3	
+	4175312948	Sturmfrei_Recharge			\Default Work Unit\INGREDIENT\Sturmfrei_Recharge	
+	4244769408	MUS_Level3_BossPuzzle			\Default Work Unit\MUSIC\MUS_Level3_BossPuzzle	
 	4258653052	Test_Event			\Default Work Unit\Test_Event	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	368729365	Footstep_Test	Y:\Desktop\Udem\MCSJV 2\sturmfrei\Sturmfrei_Project\Sturmfrei_Project_WwiseProject\.cache\Mac\SFX\Footstep_Grass_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footstep_Test		25526
 	591509253	Test	Y:\Desktop\Udem\MCSJV 2\sturmfrei\Sturmfrei_Project\Sturmfrei_Project_WwiseProject\.cache\Mac\SFX\Alma(piano)_C0E94E1D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Test		36300524
 

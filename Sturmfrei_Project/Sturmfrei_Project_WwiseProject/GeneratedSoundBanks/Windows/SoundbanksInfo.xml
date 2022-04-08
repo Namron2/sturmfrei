@@ -11,16 +11,68 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3690994985">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1923096337">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2803829669">
+		<SoundBank Id="3161908922" Language="SFX" Hash="1561995966">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3755979049" Name="Amb_Cave" ObjectPath="\Events\Default Work Unit\AMBIENCE\Amb_Cave" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3385283415" Name="Amb_Hub" ObjectPath="\Events\Default Work Unit\AMBIENCE\Amb_Hub" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="4059733421" Name="Amb_Level1" ObjectPath="\Events\Default Work Unit\AMBIENCE\Amb_Level1" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="4059733422" Name="Amb_Level2" ObjectPath="\Events\Default Work Unit\AMBIENCE\Amb_Level2" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="4059733423" Name="Amb_Level3" ObjectPath="\Events\Default Work Unit\AMBIENCE\Amb_Level3" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3820074413" Name="Amb_Sky" ObjectPath="\Events\Default Work Unit\AMBIENCE\Amb_Sky" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3026592080" Name="Boss_Defeat" ObjectPath="\Events\Default Work Unit\INGREDIENT\Boss_Defeat" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3167145899" Name="Boss_Idle" ObjectPath="\Events\Default Work Unit\INGREDIENT\Boss_Idle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="535719110" Name="BreakWall_Ice" ObjectPath="\Events\Default Work Unit\INGREDIENT\BreakWall_Ice" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3555376460" Name="BreakWall_Stone" ObjectPath="\Events\Default Work Unit\INGREDIENT\BreakWall_Stone" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="820586857" Name="Bridge_Crack" ObjectPath="\Events\Default Work Unit\AMBIENCE\Bridge_Crack" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="612075679" Name="Checkpoint" ObjectPath="\Events\Default Work Unit\UI\Checkpoint" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3122584051" Name="Flying_Dash" ObjectPath="\Events\Default Work Unit\PLAYER\Flying_Dash" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3902909597" Name="Flying_Idle" ObjectPath="\Events\Default Work Unit\PLAYER\Flying_Idle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="733335984" Name="Flying_Land" ObjectPath="\Events\Default Work Unit\PLAYER\Flying_Land" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1556990097" Name="Flying_Start" ObjectPath="\Events\Default Work Unit\PLAYER\Flying_Start" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2840002408" Name="Flying_Stunned" ObjectPath="\Events\Default Work Unit\PLAYER\Flying_Stunned" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="19599888" Name="Foot_DashJump" ObjectPath="\Events\Default Work Unit\PLAYER\Foot_DashJump" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="254470037" Name="Foot_Falling" ObjectPath="\Events\Default Work Unit\PLAYER\Foot_Falling" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3791781342" Name="Foot_Idle" ObjectPath="\Events\Default Work Unit\PLAYER\Foot_Idle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2201597904" Name="Foot_Interaction" ObjectPath="\Events\Default Work Unit\PLAYER\Foot_Interaction" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="761314172" Name="Foot_Jump" ObjectPath="\Events\Default Work Unit\PLAYER\Foot_Jump" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2176935827" Name="Foot_Walk" ObjectPath="\Events\Default Work Unit\PLAYER\Foot_Walk" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="294084732" Name="Landing_Diagonal" ObjectPath="\Events\Default Work Unit\PLAYER\Landing_Diagonal" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="448491495" Name="Landing_Vertical" ObjectPath="\Events\Default Work Unit\PLAYER\Landing_Vertical" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1640886257" Name="Magnet_Activate" ObjectPath="\Events\Default Work Unit\INGREDIENT\Magnet_Activate" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1966150636" Name="Magnet_Idle" ObjectPath="\Events\Default Work Unit\INGREDIENT\Magnet_Idle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1373415169" Name="Magnet_Release" ObjectPath="\Events\Default Work Unit\INGREDIENT\Magnet_Release" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="760777789" Name="Menu_Click" ObjectPath="\Events\Default Work Unit\UI\Menu_Click" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="626954121" Name="Menu_Close" ObjectPath="\Events\Default Work Unit\UI\Menu_Close" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1287511387" Name="Menu_Open" ObjectPath="\Events\Default Work Unit\UI\Menu_Open" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="171783953" Name="MUS_Hub_PostTuto" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Hub_PostTuto" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1081381930" Name="MUS_Hub_PreTuto" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Hub_PreTuto" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1807777261" Name="MUS_Level1_Ambience" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level1_Ambience" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3624297410" Name="MUS_Level1_BossPuzzle" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level1_BossPuzzle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1462442152" Name="MUS_Level1_Wonder" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level1_Wonder" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3037851228" Name="MUS_Level2_Ambience" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level2_Ambience" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3886197287" Name="MUS_Level2_BossPuzzle" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level2_BossPuzzle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2318407373" Name="MUS_Level2_Wonder" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level2_Wonder" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2635524439" Name="MUS_Level3_Ambience" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level3_Ambience" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="4244769408" Name="MUS_Level3_BossPuzzle" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level3_BossPuzzle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3336347158" Name="MUS_Level3_Wonder" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Level3_Wonder" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1973954843" Name="MUS_Start" ObjectPath="\Events\Default Work Unit\MUSIC\MUS_Start" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2024919782" Name="PurpleCloud_Damage" ObjectPath="\Events\Default Work Unit\INGREDIENT\PurpleCloud_Damage" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2600606019" Name="PurpleCloud_Idle" ObjectPath="\Events\Default Work Unit\INGREDIENT\PurpleCloud_Idle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3391124858" Name="River_Idle" ObjectPath="\Events\Default Work Unit\AMBIENCE\River_Idle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1138063715" Name="Soul_Collect" ObjectPath="\Events\Default Work Unit\INGREDIENT\Soul_Collect" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1846985177" Name="Soul_Idle" ObjectPath="\Events\Default Work Unit\INGREDIENT\Soul_Idle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1114964412" Name="Start_Game" ObjectPath="\Events\Default Work Unit\UI\Start_Game" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="353331381" Name="Stinger_FirstFly" ObjectPath="\Events\Default Work Unit\MUSIC\Stinger_FirstFly" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="1562262157" Name="Stinger_Poncho" ObjectPath="\Events\Default Work Unit\MUSIC\Stinger_Poncho" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="4175312948" Name="Sturmfrei_Recharge" ObjectPath="\Events\Default Work Unit\INGREDIENT\Sturmfrei_Recharge" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
 				<Event Id="4258653052" Name="Test_Event" ObjectPath="\Events\Default Work Unit\Test_Event" DurationType="OneShot" DurationMin="205.784927" DurationMax="205.784927">
 					<IncludedMemoryFiles>
 						<File Id="591509253" Language="SFX">
@@ -29,6 +81,18 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2649590838" Name="Test_Footstep" ObjectPath="\Events\Default Work Unit\Test_Footstep" DurationType="OneShot" DurationMin="0.263896" DurationMax="0.263896">
+					<IncludedMemoryFiles>
+						<File Id="368729365" Language="SFX">
+							<ShortName>Footstep_Grass_03.wav</ShortName>
+							<Path>SFX/Footstep_Grass_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="291430954" Name="Tree_Idle" ObjectPath="\Events\Default Work Unit\AMBIENCE\Tree_Idle" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2410930353" Name="Tutorial_Tip" ObjectPath="\Events\Default Work Unit\UI\Tutorial_Tip" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="3105165424" Name="Wind_Column" ObjectPath="\Events\Default Work Unit\AMBIENCE\Wind_Column" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2911411227" Name="Wind_Turbine" ObjectPath="\Events\Default Work Unit\AMBIENCE\Wind_Turbine" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
 			</IncludedEvents>
 		</SoundBank>
 	</SoundBanks>

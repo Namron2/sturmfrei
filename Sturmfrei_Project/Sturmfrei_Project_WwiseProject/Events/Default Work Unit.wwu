@@ -14,6 +14,118 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Test_Footstep" ID="{6970350F-492D-40A3-AA05-21762E29F963}">
+					<ChildrenList>
+						<Action Name="" ID="{2FC68C70-061B-43D6-A03A-0069B165FFEA}" ShortID="1003055602">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footstep_Test" ID="{6322810F-B2C3-4329-9EF5-CAB44245395D}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="PLAYER" ID="{25851330-DC55-4F5D-B093-C1103B1D0A67}" ShortID="477332102">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="2"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Foot_Idle" ID="{27FC7981-8F93-4D5C-9BAE-B0BA71C05D4A}"/>
+						<Event Name="Foot_Walk" ID="{5E795AD9-3B56-4C4A-A958-4632ED0D2709}"/>
+						<Event Name="Foot_Jump" ID="{36AA8B77-A011-47D9-B7F1-6F3D94AD5874}"/>
+						<Event Name="Foot_Interaction" ID="{F71B9DAA-2CBB-41E8-BA99-226F6F8BFA65}"/>
+						<Event Name="Foot_Falling" ID="{A20F3F42-F3CF-4673-B80E-45A7969C2C05}"/>
+						<Event Name="Foot_DashJump" ID="{AECB8705-7358-44FA-A09B-304F3AF98658}"/>
+						<Event Name="Flying_Start" ID="{6DFC8D54-E8F1-4B09-A625-24839B936240}"/>
+						<Event Name="Flying_Idle" ID="{0CAAFE01-3114-4976-98CD-94C9A2F7B1EF}"/>
+						<Event Name="Flying_Dash" ID="{DFB133EF-A123-46F7-8799-0EE47A73F85D}"/>
+						<Event Name="Flying_Land" ID="{06458486-4BE0-445A-8EE1-FFF36EA42280}"/>
+						<Event Name="Flying_Stunned" ID="{52F97DA9-597E-4761-8478-342A159385AE}"/>
+						<Event Name="Landing_Vertical" ID="{DC89EA0D-BC0F-4AE5-B129-27A6AFF7AA91}"/>
+						<Event Name="Landing_Diagonal" ID="{5D18EC31-97B3-4FFA-B350-62DD87FD0188}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="AMBIENCE" ID="{635F207D-23D8-4426-92B0-3B1D5A09298F}" ShortID="385877395">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="20"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Amb_Hub" ID="{8C05ECD7-1050-4317-825C-71574DA60B61}"/>
+						<Event Name="Amb_Level1" ID="{09CB17ED-E8A6-476C-A196-D37441B95D7D}"/>
+						<Event Name="Amb_Level2" ID="{6717C21B-4E69-4A5E-885A-DE2D96D96DB0}"/>
+						<Event Name="Amb_Level3" ID="{93F945EB-6743-4F24-BF71-DFF69A4A6595}"/>
+						<Event Name="Amb_Cave" ID="{620A2193-711F-4CD1-BC13-3F25BC0F829F}"/>
+						<Event Name="Amb_Sky" ID="{BBB33E0C-5989-422D-B8CE-A2ECA7B19DE7}"/>
+						<Event Name="Tree_Idle" ID="{8CF48BA3-E5AC-4030-932C-8042D2BA9E54}"/>
+						<Event Name="River_Idle" ID="{5C79CBB8-7EFB-45FA-B657-B2E44A283978}"/>
+						<Event Name="Bridge_Crack" ID="{87B77034-03E8-45D4-A814-2726F80F8B3B}"/>
+						<Event Name="Wind_Turbine" ID="{D3ED819A-0B46-40C1-9515-60D7420BF34E}"/>
+						<Event Name="Wind_Column" ID="{A44EBFF1-050F-482C-8F45-9DDB7CB7D128}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="INGREDIENT" ID="{C932F243-6722-42DC-8568-9F1C1B452D43}" ShortID="602137840">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="23"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="PurpleCloud_Damage" ID="{F03EF3D5-3A7B-4B74-83F4-3321EA10BB1C}"/>
+						<Event Name="PurpleCloud_Idle" ID="{81C7AC9A-353B-4BD1-8ACB-B1D956B6CD55}"/>
+						<Event Name="Soul_Collect" ID="{9B844E38-E3B9-438D-A235-8C84545D2DD4}"/>
+						<Event Name="Soul_Idle" ID="{B294F2C5-893E-4604-B42E-785C8B7700BE}"/>
+						<Event Name="Magnet_Activate" ID="{E8E9AB05-1412-4D73-A599-C40B879FDB3A}"/>
+						<Event Name="Magnet_Release" ID="{6509D89A-9BCB-4870-915F-206DD863482E}"/>
+						<Event Name="Magnet_Idle" ID="{1E50D05C-64A5-4045-A696-5BE25EF8D1BD}"/>
+						<Event Name="Sturmfrei_Recharge" ID="{8EA18413-DAE2-4733-A6A7-F7D43C9361E5}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="23"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Event>
+						<Event Name="Boss_Idle" ID="{9F6CD685-3AE8-4700-A6FE-09AFD51D73C6}"/>
+						<Event Name="Boss_Defeat" ID="{7E885446-B05E-466F-B67A-721B066A92C2}"/>
+						<Event Name="BreakWall_Stone" ID="{B0225E8E-DB1E-4642-87E0-E87D8DDA3016}"/>
+						<Event Name="BreakWall_Ice" ID="{F5F8921F-5405-4A30-9521-142FDC10AAD9}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{8C177A8D-FB32-464C-8DBA-E688AF208F1A}" ShortID="582140264">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Menu_Click" ID="{80490755-B7FC-4ED2-BA56-38A371820AA8}"/>
+						<Event Name="Menu_Open" ID="{DF9FD397-4A6A-4261-9352-7317A5CF5394}"/>
+						<Event Name="Menu_Close" ID="{B29A4941-C936-4B97-8987-EDC76BB9DEA6}"/>
+						<Event Name="Start_Game" ID="{6E03F07A-B357-4C09-8B15-40526A512A2F}"/>
+						<Event Name="Checkpoint" ID="{83A03314-F64D-496D-8C54-D78F5CB02A77}"/>
+						<Event Name="Tutorial_Tip" ID="{67472195-FD5A-48E2-A876-D51960DF4A8B}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="MUSIC" ID="{63A558BB-BABE-4CEE-8515-DB0CF579CE25}" ShortID="982548981">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="26"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="MUS_Start" ID="{BB5D6177-928F-484B-A580-D888200C2AA9}"/>
+						<Event Name="MUS_Hub_PreTuto" ID="{AB57AE24-ECCF-4033-9016-E62A6655D4BC}"/>
+						<Event Name="MUS_Hub_PostTuto" ID="{6A5DA9AD-2F56-4E75-920C-8E196687501A}"/>
+						<Event Name="MUS_Level1_BossPuzzle" ID="{F28E7BD4-34F1-4EDC-AC7C-502423DAE8FE}"/>
+						<Event Name="MUS_Level2_BossPuzzle" ID="{2D9B5425-DC31-401D-AA8F-3781BAAF12A2}"/>
+						<Event Name="MUS_Level3_BossPuzzle" ID="{3BB24B2F-777A-4DCC-B7EF-214658CD15D2}"/>
+						<Event Name="MUS_Level1_Wonder" ID="{441A15AF-9B03-4485-9DA9-C0074C57C026}"/>
+						<Event Name="MUS_Level2_Wonder" ID="{89E30CD7-5303-4029-B5E2-EE002D35E317}"/>
+						<Event Name="MUS_Level3_Wonder" ID="{86D7B585-D8FC-41AF-B6FD-0D57FFE57112}"/>
+						<Event Name="MUS_Level1_Ambience" ID="{22BCEA3C-AFA3-4403-85BB-998D43FA9A9E}"/>
+						<Event Name="MUS_Level2_Ambience" ID="{934FCC82-5D60-48C7-BDB1-D7A1C06717E9}"/>
+						<Event Name="MUS_Level3_Ambience" ID="{E60ECAE7-43EB-4E6E-86D0-09E411601F5A}"/>
+						<Event Name="Stinger_Poncho" ID="{318334EA-2DC2-4F2C-A365-D8F2E9A264CD}"/>
+						<Event Name="Stinger_FirstFly" ID="{BBE82E3A-9FD2-4AE1-913D-914B8E2CCAD1}"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

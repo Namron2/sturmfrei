@@ -1,3 +1,22 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1422468564	Poncho			\Default Work Unit\Poncho	
+	2782712965	Level			\Default Work Unit\Level	
+	3991942870	Music			\Default Work Unit\Music	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Poncho			
+	1780230126	Equipped	Poncho			
+	2413814047	Unequipped	Poncho			
+	646625282	Hub	Level			
+	748895195	None	Level			
+	1290008369	Level_1	Level			
+	1290008370	Level_2	Level			
+	1290008371	Level_3	Level			
+	85412153	Ambience	Music			
+	748895195	None	Music			
+	1560169506	Boss	Music			
+	2976041628	Wonder	Music			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
