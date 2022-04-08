@@ -54,14 +54,14 @@ public class MenuPause : MonoBehaviour
 
     public void LoadMenu()
     {
-        Debug.Log("loadingMenuPrincipal");
+        //Debug.Log("loadingMenuPrincipal");
         SceneManager.LoadScene(menuPrincipal);
         Time.timeScale = 1f; 
     }
 
     public void Quitter()
     {
-        Debug.Log("Quitte le jeu");
+        //Debug.Log("Quitte le jeu");
         Application.Quit();
     }
 }

@@ -22,15 +22,19 @@ public class InteractionZone2 : MonoBehaviour
 
     public bool shrineActive = false;
 
-    public GameObject controllerY;
-    public GameObject keyboardF;
+    private GameObject controllerY;
+    private GameObject keyboardF;
 
     private void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
         CPDetectionPointObject = GameObject.Find("/"+ playerObject.name.ToString() + "/Bird_Centre/FloorCheck");
-        CPDetectionPoint = CPDetectionPointObject.transform;     
+        CPDetectionPoint = CPDetectionPointObject.transform;
+        controllerY = this.transform.parent.transform.Find("YController").gameObject;
+        keyboardF = this.transform.parent.transform.Find("FKeyboard").gameObject;
 
+        controllerY.SetActive(false);
+        keyboardF.SetActive(false);
     }
 
     public void Update()
