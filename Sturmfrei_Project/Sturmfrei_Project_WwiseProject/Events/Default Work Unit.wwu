@@ -37,7 +37,20 @@
 						<Event Name="Foot_Interaction" ID="{F71B9DAA-2CBB-41E8-BA99-226F6F8BFA65}"/>
 						<Event Name="Foot_Falling" ID="{A20F3F42-F3CF-4673-B80E-45A7969C2C05}"/>
 						<Event Name="Foot_DashJump" ID="{AECB8705-7358-44FA-A09B-304F3AF98658}"/>
-						<Event Name="Flying_Start" ID="{6DFC8D54-E8F1-4B09-A625-24839B936240}"/>
+						<Event Name="Flying_Start" ID="{6DFC8D54-E8F1-4B09-A625-24839B936240}">
+							<ChildrenList>
+								<Action Name="" ID="{7B826745-150B-4FDF-B99C-71B0DE309752}" ShortID="478057964">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="High" ID="{1CA9C315-A4AE-42B7-A299-BF804E04640D}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Flying_Idle" ID="{0CAAFE01-3114-4976-98CD-94C9A2F7B1EF}"/>
 						<Event Name="Flying_Dash" ID="{DFB133EF-A123-46F7-8799-0EE47A73F85D}"/>
 						<Event Name="Flying_Land" ID="{06458486-4BE0-445A-8EE1-FFF36EA42280}"/>
