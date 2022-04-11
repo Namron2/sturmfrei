@@ -48,6 +48,7 @@ public class brisable : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
         Destroy(transform.parent.gameObject);
         Destroy(particule);
+        yield return new WaitForSeconds(5f);
         Destroy(this.gameObject);
     }
 
