@@ -8,7 +8,7 @@ public class Scr_Pollution : MonoBehaviour
     private GameObject playerObject;
     public PlayerCollisionSphere playMovScript;
     private bool asPurifiability;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         playerObject = other.gameObject;
         playMovScript = other.gameObject.GetComponent<PlayerCollisionSphere>();

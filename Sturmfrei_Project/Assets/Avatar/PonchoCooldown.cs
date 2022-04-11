@@ -58,7 +58,7 @@ public class PonchoCooldown : MonoBehaviour
         couleurPoncho = gradientPoncho.Evaluate(t);
 
         //intensity est affecte par cooldown : devient invisible a utilisation
-        intensity = recharge * 2.0f + 0.0f;
+        
         ponchoMaterial.SetColor("_EmissionColor", couleurPoncho * intensity);
 
         if (recharge >= 1.00f)
@@ -69,13 +69,14 @@ public class PonchoCooldown : MonoBehaviour
                 ParticleDash();
             }
             aether.GetComponent<ParticleSystem>().Play();
-
+            intensity = recharge * 2.0f + 0.0f;
         }
 
         if (recharge < 0.99f)
         {
             aether.GetComponent<ParticleSystem>().Pause();
             dashFull = false;
+            intensity = recharge * 1.0f + 0.0f;
         }
     }
    

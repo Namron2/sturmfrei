@@ -214,7 +214,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 3.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1943,7 +1943,7 @@ ParticleSystem:
     orbitalZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.6
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5016,6 +5016,7 @@ GameObject:
   - component: {fileID: 7390056650089640391}
   - component: {fileID: 7390056650089640409}
   - component: {fileID: 7390056650089640408}
+  - component: {fileID: 5522472970403041339}
   m_Layer: 9
   m_Name: Dust Devil #02
   m_TagString: Wind
@@ -5051,6 +5052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a5a9f53bd2f474cad6d3fee0b975fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  pono: {fileID: 0}
 --- !u!136 &7390056650089640408
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5065,3 +5068,19 @@ CapsuleCollider:
   m_Height: 40
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5522472970403041339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390056650089640390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c6d46de1c6a254e967dbd86d194576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dustCollider: {fileID: 7390056650089640408}
+  ventParticules: {fileID: 7390056648670458511}
+  hauteur: 1
+  rayon: 1
