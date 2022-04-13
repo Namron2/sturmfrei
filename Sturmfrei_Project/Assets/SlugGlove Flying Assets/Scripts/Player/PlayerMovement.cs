@@ -1261,6 +1261,7 @@ public class PlayerMovement : MonoBehaviour
             Fade.color = c;
             yield return null;
         }
+        ///OPTIONNEL
         Color finalBlack = Fade.color;
         finalBlack.a = 1;
         Fade.color = finalBlack;
