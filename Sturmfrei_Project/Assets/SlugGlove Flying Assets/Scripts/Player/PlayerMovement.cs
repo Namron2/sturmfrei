@@ -1319,11 +1319,33 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Fade != null)
         {
+            /*
             Color blanc = FadeWhite.color;
             blanc.a = 0;
-            FadeWhite.color = blanc;
+            FadeWhite.color = blanc;*/
             elapsedTimeFadeWhite = 0;
             progressFadeWhite = 0;
+           progressRemoveFadeWhite = 1;
+             elapsedTimeRemoveFadeWhite = 1;
+            StartCoroutine(RemoveFadeToWhite());
+        }
+
+        // try to remove with fadeout
+    }
+
+    private float progressRemoveFadeWhite = 1;
+    private float elapsedTimeRemoveFadeWhite = 1;
+    public IEnumerator RemoveFadeToWhite()
+    {
+        while (progressRemoveFadeWhite > 0)
+        {
+            elapsedTimeRemoveFadeWhite -= Time.unscaledDeltaTime;
+            progressRemoveFadeWhite = elapsedTimeRemoveFadeWhite * 2;
+
+            Color c = FadeWhite.color;
+            c.a = progressRemoveFadeWhite;
+            FadeWhite.color = c;
+            yield return null;
         }
     }
 }

@@ -7,5 +7,6 @@ public class Event_Custom : MonoBehaviour
 {
     public UnityEvent RaiseIsland;
     public UnityEvent ChangeIsland;
+    public UnityEvent LookAtFlyingControl;
 
 }

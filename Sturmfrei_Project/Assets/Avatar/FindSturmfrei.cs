@@ -36,17 +36,26 @@ public class FindSturmfrei : MonoBehaviour
     IEnumerator Collecte(Collider other)
     {
         this.gameObject.GetComponent<AudioSource>().Play();
-
+        pono.GetComponent<PlayerMovement>().enabled = false;
         collecte = true;
         yield return new WaitForSeconds(3.5f);
         sturmfreiAnim.SetBool("Collecte", true);
         yield return new WaitForSeconds(1.9f);
         sturmfrei.SetActive(false);
+
+        // Around here for the cinematic I guess 
+
+
         customEvent.RaiseIsland.Invoke();
         customEvent.ChangeIsland.Invoke();
         yield return new WaitForSeconds(1.2f);
         poncho1.GetComponent<SkinnedMeshRenderer>().enabled = true;
         poncho2.GetComponent<SkinnedMeshRenderer>().enabled = true;
         other.GetComponent<PlayerCollisionSphere>().PlayerMov.RemoveFadeWhite();
+        yield return new WaitForSeconds(1.0f);
+
+        pono.GetComponent<PlayerMovement>().enabled = false;
+        customEvent.LookAtFlyingControl.Invoke();
+
     }
 }

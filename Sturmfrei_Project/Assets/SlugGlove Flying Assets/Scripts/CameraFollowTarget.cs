@@ -12,7 +12,7 @@ public class CameraFollowTarget : MonoBehaviour
     public bool isGrappledFollow;
     public GameObject camPos;
     public CameraFollow camFol;
-    public GameObject Cam_Pos_Unlock;
+    public Vector3 Cam_Pos_Unlock;
     public bool lookingAtWall = false;
 
     public bool ReturnHub = false;
@@ -61,7 +61,7 @@ public class CameraFollowTarget : MonoBehaviour
                 Target.Anim.SetFloat("Moving", 0);
                 Target.Rigid.transform.position = Target.transform.position;
                 Target.Rigid.velocity = Vector3.zero;
-                transform.position = Vector3.Lerp(transform.position, Cam_Pos_Unlock.transform.position, 1 * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, Cam_Pos_Unlock, 1 * Time.deltaTime);
             }
         }
     }

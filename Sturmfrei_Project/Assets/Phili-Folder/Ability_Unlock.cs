@@ -34,7 +34,7 @@ public class Ability_Unlock : MonoBehaviour
     {
         
         camFolTar.lookingAtWall = true;
-        camFolTar.Cam_Pos_Unlock = CameraPosition;
+        camFolTar.Cam_Pos_Unlock = CameraPosition.transform.position;
         // Stop player control
         player.enabled = false ;
         //stop animation
