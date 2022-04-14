@@ -9,12 +9,12 @@ public class CristalBrise : MonoBehaviour
     public PlayerCollisionSphere playMov;
     public GameObject tempo;
     public GameObject cristal;
-    public GameObject cristalBrisé;
+    public GameObject cristalBriser;
     public GameObject[] rocks;
 
     private void Start()
     {
-        cristalBrisé.SetActive(false);
+        cristalBriser.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -34,8 +34,8 @@ public class CristalBrise : MonoBehaviour
     {
         cristal.transform.parent.GetComponent<Animator>().enabled = false;
         cristal.SetActive(false);
-        cristalBrisé.SetActive(true);
-        cristalBrisé.GetComponent<ParticleSystem>().Play();
+        cristalBriser.SetActive(true);
+        cristalBriser.GetComponent<ParticleSystem>().Play();
         isDestroyed = true;
         DropRocks();
         yield return null;
