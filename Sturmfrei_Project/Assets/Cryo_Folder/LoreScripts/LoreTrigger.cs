@@ -11,26 +11,27 @@ public class LoreTrigger : MonoBehaviour
     public  bool pressedDialogInput;
     private GameObject playerObject;
 
-    private GameObject controllerY;
-    private GameObject keyboardF;
+    //private GameObject controllerY;
+    //private GameObject keyboardF;
 
     bool inputLore;
     private void Start()
     {
         loreManager = FindObjectOfType<LoreManager>();
         pressedDialogInput = false;
-        controllerY = this.transform.Find("YController").gameObject;
-        keyboardF = this.transform.Find("FKeyboard").gameObject;
+        //controllerY = this.transform.Find("YController").gameObject;
+        //keyboardF = this.transform.Find("FKeyboard").gameObject;
         playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        controllerY.SetActive(false);
-        keyboardF.SetActive(false);
+        //controllerY.SetActive(false);
+       // keyboardF.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             Readable = true;
+            loreManager.StartLore(lore);
         }
     }
 
@@ -38,7 +39,7 @@ public class LoreTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            RemoveControleDeCheckPoint();
+            //RemoveControleDeCheckPoint();
             Readable = false;
             loreManager.EndLore();
             pressedDialogInput = false;
@@ -47,12 +48,12 @@ public class LoreTrigger : MonoBehaviour
 
 
     private void Update()
-    {
+    {/*
         inputLore = Input.GetButtonDown("ReadLore");
         if (Readable)
         {
-            PlayerMovement player = playerObject.GetComponent<PlayerMovement>();
-            ControleDeCheckPoint(player);
+            //PlayerMovement player = playerObject.GetComponent<PlayerMovement>();
+            //ControleDeCheckPoint(player);
         }
 
         if (Readable && inputLore && !pressedDialogInput)
@@ -65,9 +66,9 @@ public class LoreTrigger : MonoBehaviour
         {
             loreManager.EndLore();
             pressedDialogInput = false;
-        }
+        }*/
     }
-
+    /*
     private void ControleDeCheckPoint(PlayerMovement player)
     {
         if (controllerY != null && keyboardF != null)
@@ -88,4 +89,5 @@ public class LoreTrigger : MonoBehaviour
             keyboardF.SetActive(false);
         }
     }
+    */
 }
