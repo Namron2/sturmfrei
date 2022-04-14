@@ -30,9 +30,9 @@ public class RetourHub : MonoBehaviour
 
     IEnumerator TelepHub()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(10f);
         RetourDustDevil.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         RetourCheck.SetActive(true);
     }
 }

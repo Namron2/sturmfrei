@@ -24,7 +24,7 @@ public class DustDevilAscenseur : MonoBehaviour
     }
 
     //donne une velocite verticale
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         colliderPlayer = other.gameObject;
         if (colliderPlayer.tag == "Player")
@@ -39,7 +39,7 @@ public class DustDevilAscenseur : MonoBehaviour
     }
 
     //desactive la gravite pour que eviter conflit avec vector3 up
-    private void OnTriggerStay(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -53,10 +53,9 @@ public class DustDevilAscenseur : MonoBehaviour
                 //quiMonteRigid.AddForce(transform.up * 2000f);
                 //Remove effect when flying trough dust devil
                 //quiMonteRigid.AddForce((Vector3.up * 50f),ForceMode.Impulse);
-
             }
         }
-    }
+    }*/
 
     private void OnTriggerExit(Collider other)
     {
