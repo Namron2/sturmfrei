@@ -29,6 +29,7 @@ public class LoreManager : MonoBehaviour
 
         nameText.text = lore.name;
 
+
         sentences.Clear();
 
         foreach (string sentence in lore.sentences)
