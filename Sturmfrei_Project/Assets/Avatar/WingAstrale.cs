@@ -29,27 +29,25 @@ public class WingAstrale : MonoBehaviour
     {
         astral.color = coulAstral;
         coulAstral.a = alpha;
-        state = playerMovement.States.ToString();
-        dansPollution = playerMovement.isTainted;
 
-        if (state == "Flying" /*&& isFlying == true*/)
+        if (playerMovement.States == PlayerMovement.WorldState.Flying /*&& isFlying == true*/)
         {
             alpha = 1;
             //StartCoroutine(FadeTo(1.0f, 1.0f));
         }
-        if (state != "Flying" /*&& isFlying == false*/)
+        if (playerMovement.States != PlayerMovement.WorldState.Flying /*&& isFlying == false*/)
         {
             alpha = 0;
             //StartCoroutine(FadeTo(0.0f, 0.2f));
         }
 
-        if (dansPollution == true && toxicCheck == false)
+        if (playerMovement.isTainted && toxicCheck == false)
         {
             toxicCheck = true;
             astral.SetColor("_EmissionColor", Color.Lerp(coulIni, coulPollution, 0.8f) * 2f);
             particuleCloud.GetComponent<ParticleSystem>().Play();
         }
-        if (dansPollution == false && toxicCheck == true)
+        if (!playerMovement.isTainted && toxicCheck == true)
         {
             toxicCheck = false;
             astral.SetColor("_EmissionColor", Color.Lerp(coulPollution, coulIni, 0.5f) * 2f);

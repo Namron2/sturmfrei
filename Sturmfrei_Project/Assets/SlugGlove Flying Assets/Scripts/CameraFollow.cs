@@ -109,7 +109,7 @@ public class CameraFollow : MonoBehaviour
         }
         else if (lookWall)
         {
-            Vector2 direction = wallObject.transform.position - transform.position;
+            Vector3 direction = wallObject.transform.position - transform.position;
             Quaternion toRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 1 * Time.deltaTime);
             //this.transform.LookAt(wallObject.transform.position);

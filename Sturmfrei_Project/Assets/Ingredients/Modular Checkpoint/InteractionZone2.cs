@@ -22,19 +22,19 @@ public class InteractionZone2 : MonoBehaviour
 
     public bool shrineActive = false;
 
-    private GameObject controllerY;
-    private GameObject keyboardF;
+    //private GameObject controllerY;
+    //private GameObject keyboardF;
 
     private void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
         CPDetectionPointObject = GameObject.Find("/"+ playerObject.name.ToString() + "/Bird_Centre/FloorCheck");
         CPDetectionPoint = CPDetectionPointObject.transform;
-        controllerY = this.transform.parent.transform.Find("YController").gameObject;
-        keyboardF = this.transform.parent.transform.Find("FKeyboard").gameObject;
+        //controllerY = this.transform.parent.transform.Find("YController").gameObject;
+        //keyboardF = this.transform.parent.transform.Find("FKeyboard").gameObject;
 
-        controllerY.SetActive(false);
-        keyboardF.SetActive(false);
+       // controllerY.SetActive(false);
+       // keyboardF.SetActive(false);
     }
 
     public void Update()
@@ -55,10 +55,17 @@ public class InteractionZone2 : MonoBehaviour
         {
             shrine.GetComponent<Animator>().SetBool("PonoProche", true);
 
-            PlayerMovement player = playerObject.GetComponent<PlayerMovement>();
-            ControleDeCheckPoint(player);
-
+            //PlayerMovement player = playerObject.GetComponent<PlayerMovement>();
+            //ControleDeCheckPoint(player);
+            /*
             if (pressingLore)
+            {
+                shrine.GetComponent<Animator>().SetTrigger("SetCheckpoint");
+                Instantiate(crystalToSpawn, spawnPoint.position, spawnPoint.rotation);
+                StartCoroutine(Aether());
+                shrineActive = true;
+            }*/
+            if (!shrineActive)
             {
                 shrine.GetComponent<Animator>().SetTrigger("SetCheckpoint");
                 Instantiate(crystalToSpawn, spawnPoint.position, spawnPoint.rotation);
@@ -72,7 +79,7 @@ public class InteractionZone2 : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             shrine.GetComponent<Animator>().SetBool("PonoProche", false);
-             RemoveControleDeCheckPoint();
+             //RemoveControleDeCheckPoint();
         }
     }
 
@@ -96,7 +103,7 @@ public class InteractionZone2 : MonoBehaviour
         
     }
 
-
+    /*
     private void ControleDeCheckPoint(PlayerMovement player)
     {
         if (controllerY != null && keyboardF != null)
@@ -117,4 +124,5 @@ public class InteractionZone2 : MonoBehaviour
             keyboardF.SetActive(false);
         }
     }
+    */
 }

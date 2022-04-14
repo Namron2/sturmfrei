@@ -1305,7 +1305,7 @@ public class PlayerMovement : MonoBehaviour
         finalWhite.a = 1;
         FadeWhite.color = finalWhite;
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Hub#02");
+        //SceneManager.LoadScene("Hub#02");
     }
 
     public void StartFadeWhite()

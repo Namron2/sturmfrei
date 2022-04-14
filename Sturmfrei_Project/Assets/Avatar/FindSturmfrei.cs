@@ -10,6 +10,7 @@ public class FindSturmfrei : MonoBehaviour
     public Transform poncho1;
     public Transform poncho2;
     private bool collecte = false;
+    public Event_Custom customEvent;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class FindSturmfrei : MonoBehaviour
         pono = GameObject.Find("PonoPrefab#03");
         //poncho1 = gameObject.transform.Find("ponchoMain");
         //poncho2 = gameObject.transform.Find("poncho2");
+        customEvent = this.GetComponent<Event_Custom>();
 
     }
 
@@ -26,11 +28,12 @@ public class FindSturmfrei : MonoBehaviour
         if (other.gameObject.tag == "Player" && collecte == false)
         {
 
-            StartCoroutine(Collecte());
+            StartCoroutine(Collecte(other));
+            other.GetComponent<PlayerCollisionSphere>().PlayerMov.StartFadeWhite();
         }
     }
 
-    IEnumerator Collecte()
+    IEnumerator Collecte(Collider other)
     {
         this.gameObject.GetComponent<AudioSource>().Play();
 
@@ -39,9 +42,11 @@ public class FindSturmfrei : MonoBehaviour
         sturmfreiAnim.SetBool("Collecte", true);
         yield return new WaitForSeconds(1.9f);
         sturmfrei.SetActive(false);
+        customEvent.RaiseIsland.Invoke();
+        customEvent.ChangeIsland.Invoke();
         yield return new WaitForSeconds(1.2f);
         poncho1.GetComponent<SkinnedMeshRenderer>().enabled = true;
         poncho2.GetComponent<SkinnedMeshRenderer>().enabled = true;
-
+        other.GetComponent<PlayerCollisionSphere>().PlayerMov.RemoveFadeWhite();
     }
 }

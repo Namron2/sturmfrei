@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &195088846
 Transform:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &573436782
 Transform:
   m_ObjectHideFlags: 0
@@ -361,8 +361,6 @@ MonoBehaviour:
   coul2: {r: 0.3726415, g: 0.8445993, b: 1, a: 0}
   intensity: 0
   shrineActive: 0
-  controllerY: {fileID: 0}
-  keyboardF: {fileID: 0}
 --- !u!1 &6055251504267895355
 GameObject:
   m_ObjectHideFlags: 0
