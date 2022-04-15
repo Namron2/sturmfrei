@@ -30660,9 +30660,16 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.2
-    functionName: WalkingAnimation
+    functionName: Foot_Walk
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 950a885db28aa4fbeb1c9a3095163937, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: d1aa2ad69443b2a48bdb5bb882e73a5f, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.46666667
+    functionName: Foot_Walk
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: d1aa2ad69443b2a48bdb5bb882e73a5f, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
