@@ -61,7 +61,7 @@ public class CameraFollowTarget : MonoBehaviour
                 Target.Anim.SetFloat("Moving", 0);
                 Target.Rigid.transform.position = Target.transform.position;
                 Target.Rigid.velocity = Vector3.zero;
-                transform.position = Vector3.Lerp(transform.position, Cam_Pos_Unlock, 1 * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, Cam_Pos_Unlock, 1 * Time.deltaTime); // 1 vitesse de lerp peut etre adapté selon temps de look at
             }
         }
     }

@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     public float GravityFollowSpeed = 0.1f;
     private Vector3 LookDirection;
 
-
+   
     public enum WorldState
     {
         Grounded, //on ground
