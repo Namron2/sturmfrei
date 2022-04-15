@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Ability_Unlock : MonoBehaviour
 {
-    //public UnityEvent Unlock_Time;
+    public UnityEvent Unlock_Event;
     public GameObject ObjetARegarder;
     public GameObject CameraPosition;
     public float tempsDeLookAt;
@@ -27,6 +27,10 @@ public class Ability_Unlock : MonoBehaviour
         {
             camFol.wallObject = ObjetARegarder;
             StartCoroutine(RegardeObjet());
+            if (Unlock_Event != null)
+            {
+                Unlock_Event.Invoke();
+            }
         }
     }
 

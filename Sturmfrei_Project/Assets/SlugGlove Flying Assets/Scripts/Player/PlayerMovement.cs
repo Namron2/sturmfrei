@@ -14,13 +14,21 @@ public class PlayerMovement : MonoBehaviour
         Grappling, 
     }
 
+    [Header("Ability Unlock")]
+    public bool upwardDashAbility = false;
+    public bool frontDashAbility = false;
+    public bool purificationAbility = false;
+    public bool ponchoToFly = false;
 
 
     [HideInInspector]
     public WorldState States;
+    [HideInInspector]
     public WorldState PreviousState;
+    [HideInInspector]
     public Transform Cam; //reference to our camera
     private Transform CamY; //reference to our camera axis
+    [HideInInspector]
     public CameraFollow CamFol; //reference to our camera script
     private PlayerVisuals Visuals; //script for handling visual effects
     private Vector3 CheckPointPos; //where we respawn
@@ -28,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private DetectCollision Colli; //collision detection
     [HideInInspector]
     public Rigidbody Rigid; //rigidbody 
+    [HideInInspector]
     public Animator Anim; //animator
     private InputHandle InputHand; //script for handling our inputs
     float delta;
@@ -121,9 +130,7 @@ public class PlayerMovement : MonoBehaviour
     public float veloY;
     public bool isFalling;
     private bool coroutRunning;
-    public bool purificationAbility;
-    public bool upwardDashAbility;
-    public bool frontDashAbility;
+
 
     [Header("Custom")]
     public ParticleSystem aether;
@@ -1015,7 +1022,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void WingSwitch()
     {
-        if (Input.GetButtonDown("SwitchWingOn") && wingSwitchCooldown)
+        if (Input.GetButtonDown("SwitchWingOn") && wingSwitchCooldown && ponchoToFly)
         {
             if (States == WorldState.InAir)
             {
@@ -1028,7 +1035,7 @@ public class PlayerMovement : MonoBehaviour
                 this.gameObject.GetComponent<WingSwitch>().Switch();
             }
         }
-        if (Input.GetButtonDown("SwitchWingOn") && wingSwitchCooldown)
+        if (Input.GetButtonDown("SwitchWingOn") && wingSwitchCooldown && ponchoToFly)
         {
             if (States == WorldState.Flying)
             {
@@ -1347,5 +1354,24 @@ public class PlayerMovement : MonoBehaviour
             FadeWhite.color = c;
             yield return null;
         }
+    }
+
+    public void GotPonchoICanFlyNow()
+    {
+        ponchoToFly = true;
+    }
+
+    public void UnlockFrontalDash()
+    {
+    frontDashAbility = true;
+    }
+    public void UnlockUpwardDash()
+    {
+        upwardDashAbility = true;
+    }
+
+    public void UnlockPurification()
+    {
+        purificationAbility = true;
     }
 }

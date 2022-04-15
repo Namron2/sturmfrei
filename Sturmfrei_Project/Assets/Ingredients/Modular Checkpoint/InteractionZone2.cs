@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractionZone2 : MonoBehaviour
 {
+    public UnityEvent Event_Modular;
     public LayerMask checkPointZone;
     private Transform CPDetectionPoint; // CP = checkpoint
     private GameObject CPDetectionPointObject; // CP = checkpoint
@@ -70,6 +72,7 @@ public class InteractionZone2 : MonoBehaviour
                 shrine.GetComponent<Animator>().SetTrigger("SetCheckpoint");
                 Instantiate(crystalToSpawn, spawnPoint.position, spawnPoint.rotation);
                 StartCoroutine(Aether());
+                if (!shrineActive) StartCoroutine(ActivateLook());
                 shrineActive = true;
             }
         }
@@ -103,6 +106,11 @@ public class InteractionZone2 : MonoBehaviour
         
     }
 
+    IEnumerator ActivateLook()
+    {
+        yield return new WaitForSeconds(3);
+        Event_Modular.Invoke();
+    }
     /*
     private void ControleDeCheckPoint(PlayerMovement player)
     {
