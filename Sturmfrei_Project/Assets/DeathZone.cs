@@ -16,6 +16,8 @@ public class DeathZone : MonoBehaviour
             collider_Player.GetComponent<PlayerCollisionSphere>().PlayerMov.amDead = true;
             camFol = collider_Player.GetComponent<PlayerCollisionSphere>().PlayerMov.CamFol;
             camFol.isDead = collider_Player.GetComponent<PlayerCollisionSphere>().PlayerMov.amDead;
+            //GameObject.Find("Pono#05").gameObject.GetComponent<EventsPonoAnim>().Fall_Respawn();
+            collider_Player.GetComponent<PlayerCollisionSphere>().PlayerMov.gameObject.GetComponentInChildren<EventsPonoAnim>().Fall_Respawn();
             StartCoroutine(Dead_Respawn());
         }
     }

@@ -12,17 +12,30 @@ public class EventsPonoAnim : MonoBehaviour
     public string footDashJump = "Foot_DashJump";
     public string footLanging = "Foot_Landing";
     public string flyingStart = "Flying_Start";
+    public string flyingStop = "Flying_Stop";
     public string flyingForward = "Flying_Idle";
     public string flyingDown = "Flying_Down";
     public string flyingDash = "Flying_Dash";
     public string flyingLanding = "Flying_Landing";
     public string flyingStunned = "Flying_Stunned";
+
+    public string fallRespawn = "Fall_Respawn";
+
     public bool debugEnabled = false;
     public GameObject ponoAnim;
+    public Animator anim;
 
     void Start()
     {
         AkSoundEngine.RegisterGameObj(gameObject);
+        anim = this.gameObject.GetComponent<Animator>();
+    }
+    
+    //Events
+    public void Fall_Respawn()
+    {
+        AkSoundEngine.PostEvent(fallRespawn, gameObject);
+        if (debugEnabled) { Debug.Log("respawn"); }
     }
 
     //On foot
@@ -74,8 +87,20 @@ public class EventsPonoAnim : MonoBehaviour
 
     void Flying_Start()
     {
-        AkSoundEngine.PostEvent(flyingStart, gameObject);
-        if (debugEnabled) { Debug.Log("wingSwitch"); }
+        if (anim.GetBool("Flying") == true)
+        {
+            AkSoundEngine.PostEvent(flyingStart, gameObject);
+            if (debugEnabled) { Debug.Log("wingSwitchOn"); }
+        }   
+    }
+
+    void Flying_Stop()
+    {
+        if (anim.GetBool("Flying") == false)
+        {
+            AkSoundEngine.PostEvent(flyingStart, gameObject);
+            if (debugEnabled) { Debug.Log("wingSwitchOff"); }
+        }
     }
 
     void Flying_Idle()
