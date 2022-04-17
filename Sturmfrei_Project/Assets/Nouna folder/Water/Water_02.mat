@@ -65,11 +65,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowMap:
-        m_Texture: {fileID: 2800000, guid: e8ac168d5b8c66c479151a66fc028b2e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9829666e0cb2db5459ef210ee91a16af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FoamTex:
-        m_Texture: {fileID: 2800000, guid: 90a8f296999313848b3b88975d0867df, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0ff2039be2f9987429f216f9fd7ea752, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -135,7 +135,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Size: 2
+    - _Size: 0.1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -149,9 +149,9 @@ Material:
     - WaterColor: {r: 0.05490192, g: 0.7382618, b: 1, a: 0.003921569}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkFoamColor: {r: 0.18123916, g: 0.5608159, b: 0.872, a: 1}
+    - _DarkFoamColor: {r: 0.31764707, g: 0.6509804, b: 0.80392164, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightFoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightFoamColor: {r: 0.80392164, g: 0.9960785, b: 0.9960785, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WaterColor: {r: 0.20784307, g: 0.6431373, b: 1, a: 1}
+    - _WaterColor: {r: 0.3647059, g: 0.7294118, b: 0.90196085, a: 1}
   m_BuildTextureStacks: []
