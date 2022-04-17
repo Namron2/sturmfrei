@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{216739BB-E6B5-4EB0-9B50-E44A22498FE4}" SchemaVersion="103">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{216739BB-E6B5-4EB0-9B50-E44A22498FE4}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{216739BB-E6B5-4EB0-9B50-E44A22498FE4}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Ambience" ID="{63768D1B-7852-4238-B787-8A65B7D9C55D}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Amb_Hub" ID="{8C05ECD7-1050-4317-825C-71574DA60B61}" WorkUnitID="{2EC4DCCE-511E-4C7C-8888-DBDD56061AE7}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Tree_Idle" ID="{8CF48BA3-E5AC-4030-932C-8042D2BA9E54}" WorkUnitID="{2EC4DCCE-511E-4C7C-8888-DBDD56061AE7}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Inclination" ID="{08579759-D253-464D-9CDD-800E7A21C796}"/>
+							<Value>50</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Dirt" ID="{BBA01E9E-3B16-4F72-8787-AA9E1AEE5A80}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Player" ID="{0AC89FAC-C86B-4744-B879-847E93CE4129}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Flying_Stunned" ID="{52F97DA9-597E-4761-8478-342A159385AE}" WorkUnitID="{2EC4DCCE-511E-4C7C-8888-DBDD56061AE7}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Foot_Landing" ID="{DC89EA0D-BC0F-4AE5-B129-27A6AFF7AA91}" WorkUnitID="{2EC4DCCE-511E-4C7C-8888-DBDD56061AE7}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Inclination" ID="{08579759-D253-464D-9CDD-800E7A21C796}"/>
+							<Value>50</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Stone" ID="{C5112161-F393-4A1D-8649-501FCF4BECD2}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

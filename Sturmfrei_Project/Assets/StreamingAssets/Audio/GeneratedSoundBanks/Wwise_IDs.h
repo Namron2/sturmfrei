@@ -24,20 +24,20 @@ namespace AK
         static const AkUniqueID BREAKWALL_ICE = 535719110U;
         static const AkUniqueID BREAKWALL_STONE = 3555376460U;
         static const AkUniqueID BRIDGE_CRACK = 820586857U;
-        static const AkUniqueID CHECKPOINT = 612075679U;
+        static const AkUniqueID FALL_RESPAWN = 1661316371U;
         static const AkUniqueID FLYING_DASH = 3122584051U;
         static const AkUniqueID FLYING_IDLE = 3902909597U;
-        static const AkUniqueID FLYING_LAND = 733335984U;
+        static const AkUniqueID FLYING_LANDING = 621155176U;
         static const AkUniqueID FLYING_START = 1556990097U;
+        static const AkUniqueID FLYING_STOP = 2961275275U;
         static const AkUniqueID FLYING_STUNNED = 2840002408U;
         static const AkUniqueID FOOT_DASHJUMP = 19599888U;
         static const AkUniqueID FOOT_FALLING = 254470037U;
         static const AkUniqueID FOOT_IDLE = 3791781342U;
         static const AkUniqueID FOOT_INTERACTION = 2201597904U;
         static const AkUniqueID FOOT_JUMP = 761314172U;
+        static const AkUniqueID FOOT_LANDING = 1633218881U;
         static const AkUniqueID FOOT_WALK = 2176935827U;
-        static const AkUniqueID LANDING_DIAGONAL = 294084732U;
-        static const AkUniqueID LANDING_VERTICAL = 448491495U;
         static const AkUniqueID MAGNET_ACTIVATE = 1640886257U;
         static const AkUniqueID MAGNET_IDLE = 1966150636U;
         static const AkUniqueID MAGNET_RELEASE = 1373415169U;
@@ -135,6 +135,11 @@ namespace AK
         } // namespace SURFACE
 
     } // namespace SWITCHES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID INCLINATION = 1322591463U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {

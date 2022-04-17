@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{ADBC13F4-B892-4A0C-9DCA-013F7C3DA6C8}" SchemaVersion="103">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{ADBC13F4-B892-4A0C-9DCA-013F7C3DA6C8}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{ADBC13F4-B892-4A0C-9DCA-013F7C3DA6C8}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Inclination" ID="{08579759-D253-464D-9CDD-800E7A21C796}"/>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

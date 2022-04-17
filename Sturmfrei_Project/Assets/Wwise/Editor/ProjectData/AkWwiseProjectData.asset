@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: cedcc42e1e517c4c8888dbdd56061ae7
     GuidInternal: 
-    m_lastTime: -8585522586264775808
+    m_lastTime: -8585514533684775808
     List:
     - name: Amb_Cave
       guid: 93210a621f71d14cbc133f25bc0f829f
@@ -333,9 +333,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Checkpoint
-      guid: 1433a0834df66d498c54d78f5cb02a77
-      id: 612075679
+    - name: Fall_Respawn
+      guid: aa31af78be113b40b7327533a26f56ee
+      id: 1661316371
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -343,16 +343,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: cedcc42e1e517c4c8888dbdd56061ae7
-      - ElementName: UI
+      - ElementName: PLAYER
         ObjectType: 4
-        guid: 8d7a178c32fb4c468dbae688af208f1a
-      - ElementName: Checkpoint
+        guid: 3013852555dc5d4fb093c1103b1d0a67
+      - ElementName: Fall_Respawn
         ObjectType: 3
-        guid: 1433a0834df66d498c54d78f5cb02a77
-      Path: Events/Default Work Unit/UI/Checkpoint
+        guid: aa31af78be113b40b7327533a26f56ee
+      Path: Events/Default Work Unit/PLAYER/Fall_Respawn
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 2.711539
+      minDuration: 1.941792
     - name: Flying_Dash
       guid: ef33b1df23a1f74687990ee47a73f85d
       id: 3122584051
@@ -371,8 +371,8 @@ MonoBehaviour:
         guid: ef33b1df23a1f74687990ee47a73f85d
       Path: Events/Default Work Unit/PLAYER/Flying_Dash
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 5.517072
+      minDuration: 1.939815
     - name: Flying_Idle
       guid: 01feaa0c1431764998cd94c9a2f7b1ef
       id: 3902909597
@@ -391,11 +391,11 @@ MonoBehaviour:
         guid: 01feaa0c1431764998cd94c9a2f7b1ef
       Path: Events/Default Work Unit/PLAYER/Flying_Idle
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Flying_Land
+      maxDuration: -1
+      minDuration: -1
+    - name: Flying_Landing
       guid: 86844506e04b5a448ee1fff36ea42280
-      id: 733335984
+      id: 621155176
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -406,13 +406,13 @@ MonoBehaviour:
       - ElementName: PLAYER
         ObjectType: 4
         guid: 3013852555dc5d4fb093c1103b1d0a67
-      - ElementName: Flying_Land
+      - ElementName: Flying_Landing
         ObjectType: 3
         guid: 86844506e04b5a448ee1fff36ea42280
-      Path: Events/Default Work Unit/PLAYER/Flying_Land
+      Path: Events/Default Work Unit/PLAYER/Flying_Landing
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.275548
+      minDuration: 0.636177
     - name: Flying_Start
       guid: 548dfc6df1e8094ba62524839b936240
       id: 1556990097
@@ -431,8 +431,28 @@ MonoBehaviour:
         guid: 548dfc6df1e8094ba62524839b936240
       Path: Events/Default Work Unit/PLAYER/Flying_Start
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 14.158521
+      minDuration: 3.686
+    - name: Flying_Stop
+      guid: 3f6ede02b314a348a3d7bb186eedb6c8
+      id: 2961275275
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cedcc42e1e517c4c8888dbdd56061ae7
+      - ElementName: PLAYER
+        ObjectType: 4
+        guid: 3013852555dc5d4fb093c1103b1d0a67
+      - ElementName: Flying_Stop
+        ObjectType: 3
+        guid: 3f6ede02b314a348a3d7bb186eedb6c8
+      Path: Events/Default Work Unit/PLAYER/Flying_Stop
+      maxAttenuation: 0
+      maxDuration: 0.483874
+      minDuration: 0.275265
     - name: Flying_Stunned
       guid: a97df9527e5961478478342a159385ae
       id: 2840002408
@@ -451,8 +471,8 @@ MonoBehaviour:
         guid: a97df9527e5961478478342a159385ae
       Path: Events/Default Work Unit/PLAYER/Flying_Stunned
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 3.084376
+      minDuration: 1.468209
     - name: Foot_DashJump
       guid: 0587cbae5873fa44a09b304f3af98658
       id: 19599888
@@ -471,8 +491,8 @@ MonoBehaviour:
         guid: 0587cbae5873fa44a09b304f3af98658
       Path: Events/Default Work Unit/PLAYER/Foot_DashJump
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 5.517072
+      minDuration: 1.939815
     - name: Foot_Falling
       guid: 423f0fa2cff37346b80e45a7969c2c05
       id: 254470037
@@ -511,8 +531,8 @@ MonoBehaviour:
         guid: 8179fc27938f5c4d9baeb0ba71c05d4a
       Path: Events/Default Work Unit/PLAYER/Foot_Idle
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Foot_Interaction
       guid: aa9d1bf7bb2ce841ba99226f6f8bfa65
       id: 2201597904
@@ -551,8 +571,28 @@ MonoBehaviour:
         guid: 778baa3611a0d947b7f16f3d94ad5874
       Path: Events/Default Work Unit/PLAYER/Foot_Jump
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.329819
+      minDuration: 0.259569
+    - name: Foot_Landing
+      guid: 0dea89dc0fbce54ab12927a6aff7aa91
+      id: 1633218881
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cedcc42e1e517c4c8888dbdd56061ae7
+      - ElementName: PLAYER
+        ObjectType: 4
+        guid: 3013852555dc5d4fb093c1103b1d0a67
+      - ElementName: Foot_Landing
+        ObjectType: 3
+        guid: 0dea89dc0fbce54ab12927a6aff7aa91
+      Path: Events/Default Work Unit/PLAYER/Foot_Landing
+      maxAttenuation: 0
+      maxDuration: 1.175548
+      minDuration: 0.068164
     - name: Foot_Walk
       guid: d95a795e563b4a4ca9584632ed0d2709
       id: 2176935827
@@ -571,8 +611,8 @@ MonoBehaviour:
         guid: d95a795e563b4a4ca9584632ed0d2709
       Path: Events/Default Work Unit/PLAYER/Foot_Walk
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.075494
+      minDuration: 0.079945
     - name: INGREDIENT
       guid: 43f232c92267dc4285689f1c1b452d43
       id: 1746288848
@@ -590,46 +630,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Landing_Diagonal
-      guid: 31ec185db397fa4fb35062dd87fd0188
-      id: 294084732
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: cedcc42e1e517c4c8888dbdd56061ae7
-      - ElementName: PLAYER
-        ObjectType: 4
-        guid: 3013852555dc5d4fb093c1103b1d0a67
-      - ElementName: Landing_Diagonal
-        ObjectType: 3
-        guid: 31ec185db397fa4fb35062dd87fd0188
-      Path: Events/Default Work Unit/PLAYER/Landing_Diagonal
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Landing_Vertical
-      guid: 0dea89dc0fbce54ab12927a6aff7aa91
-      id: 448491495
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: cedcc42e1e517c4c8888dbdd56061ae7
-      - ElementName: PLAYER
-        ObjectType: 4
-        guid: 3013852555dc5d4fb093c1103b1d0a67
-      - ElementName: Landing_Vertical
-        ObjectType: 3
-        guid: 0dea89dc0fbce54ab12927a6aff7aa91
-      Path: Events/Default Work Unit/PLAYER/Landing_Vertical
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
     - name: Magnet_Activate
       guid: 05abe9e81214734da599c40b879fdb3a
       id: 1640886257
@@ -1202,8 +1202,8 @@ MonoBehaviour:
         guid: 1384a18ee2da3347a6a7f7d43c9361e5
       Path: Events/Default Work Unit/INGREDIENT/Sturmfrei_Recharge
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1
+      minDuration: 0.875011
     - name: Test_Event
       guid: 1dc9a53428617d41b86f0e0956dc36de
       id: 4258653052
@@ -1347,8 +1347,22 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit
     guid: f413bcad92b80c4a9dca013f7c3da6c8
     GuidInternal: 
-    m_lastTime: -8585527364824775808
-    List: []
+    m_lastTime: -8585515981204775808
+    List:
+    - name: Inclination
+      guid: 5997570853d24d469cdd800e7a21c796
+      id: 1322591463
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f413bcad92b80c4a9dca013f7c3da6c8
+      - ElementName: Inclination
+        ObjectType: 13
+        guid: 5997570853d24d469cdd800e7a21c796
+      Path: Game Parameters/Default Work Unit/Inclination
   StateWwu:
   - PhysicalPath: States/Default Work Unit.wwu
     PathAndIcons:
@@ -1768,7 +1782,7 @@ MonoBehaviour:
     m_lastTime: -8585527364824775808
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000070000001300000014000000
+  ExpandedWaapiItemIds: 060000001300000014000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

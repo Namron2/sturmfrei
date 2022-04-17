@@ -31,12 +31,73 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="Foot_Idle" ID="{27FC7981-8F93-4D5C-9BAE-B0BA71C05D4A}"/>
-						<Event Name="Foot_Walk" ID="{5E795AD9-3B56-4C4A-A958-4632ED0D2709}"/>
-						<Event Name="Foot_Jump" ID="{36AA8B77-A011-47D9-B7F1-6F3D94AD5874}"/>
+						<Event Name="Foot_Idle" ID="{27FC7981-8F93-4D5C-9BAE-B0BA71C05D4A}">
+							<ChildrenList>
+								<Action Name="" ID="{A3FD2956-024E-4F24-B002-50EA3062134E}" ShortID="576499712">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VO_Foot_Idle" ID="{E5D9FDE1-5DC7-4C2B-A540-C3FBAD3446DE}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Foot_Walk" ID="{5E795AD9-3B56-4C4A-A958-4632ED0D2709}">
+							<ChildrenList>
+								<Action Name="" ID="{1813260C-F26D-4600-9411-5B06EB736995}" ShortID="222114584">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_Footsteps" ID="{41062C10-A241-4794-B861-F941F6A51823}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Foot_Jump" ID="{36AA8B77-A011-47D9-B7F1-6F3D94AD5874}">
+							<ChildrenList>
+								<Action Name="" ID="{DC128A75-61A6-4F3C-AA99-A1CE28FE8CA4}" ShortID="1014775276">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VO_Foot_Jump" ID="{65C5F91B-A67B-4E6C-95EF-83ECEEFBEC30}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Foot_Interaction" ID="{F71B9DAA-2CBB-41E8-BA99-226F6F8BFA65}"/>
 						<Event Name="Foot_Falling" ID="{A20F3F42-F3CF-4673-B80E-45A7969C2C05}"/>
-						<Event Name="Foot_DashJump" ID="{AECB8705-7358-44FA-A09B-304F3AF98658}"/>
+						<Event Name="Foot_DashJump" ID="{AECB8705-7358-44FA-A09B-304F3AF98658}">
+							<ChildrenList>
+								<Action Name="" ID="{694BD3BF-9BE1-48A0-8380-38FAAF78AFFE}" ShortID="216932772">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VO_Foot_DashJump" ID="{055C816E-9CA7-4639-B790-F3B571FD9F31}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F66552B2-E3DC-4279-8136-8BDF28953946}" ShortID="393358238">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Whoosh_Foot_JumpDash" ID="{ADAED9B1-FB40-4E14-A297-5701659E1AC9}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{32678408-EFA9-40C7-A8C3-C0FFD367E34B}" ShortID="693640400">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Poncho_Start" ID="{C5752B82-D471-4F3D-AF66-C7A945D90BA2}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{BB0FC20D-91D5-406C-9799-72D7BBB289F2}" ShortID="585364132">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Energy_Dash" ID="{1D9A06A0-9AE3-4A82-B8BC-76177FDBBF1C}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Flying_Start" ID="{6DFC8D54-E8F1-4B09-A625-24839B936240}">
 							<ChildrenList>
 								<Action Name="" ID="{7B826745-150B-4FDF-B99C-71B0DE309752}" ShortID="478057964">
@@ -49,14 +110,191 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{1D7A0B2F-E34D-4E39-8A00-AC07AE658AF6}" ShortID="118328133">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VO_Flying_Start" ID="{6FDCB1BD-F45C-483B-AEED-67BA4D684AE6}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{503FE4EA-AB23-49D5-A826-AC8659D2938F}" ShortID="72440096">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Poncho_Start" ID="{C5752B82-D471-4F3D-AF66-C7A945D90BA2}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Flying_Idle" ID="{0CAAFE01-3114-4976-98CD-94C9A2F7B1EF}"/>
-						<Event Name="Flying_Dash" ID="{DFB133EF-A123-46F7-8799-0EE47A73F85D}"/>
-						<Event Name="Flying_Land" ID="{06458486-4BE0-445A-8EE1-FFF36EA42280}"/>
-						<Event Name="Flying_Stunned" ID="{52F97DA9-597E-4761-8478-342A159385AE}"/>
-						<Event Name="Landing_Vertical" ID="{DC89EA0D-BC0F-4AE5-B129-27A6AFF7AA91}"/>
-						<Event Name="Landing_Diagonal" ID="{5D18EC31-97B3-4FFA-B350-62DD87FD0188}"/>
+						<Event Name="Flying_Idle" ID="{0CAAFE01-3114-4976-98CD-94C9A2F7B1EF}">
+							<ChildrenList>
+								<Action Name="" ID="{C250FBE2-9E73-4FFE-B394-059904650A63}" ShortID="256119039">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Poncho_Flying" ID="{9CB1B918-0799-416A-BCC7-203309EFA094}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Flying_Dash" ID="{DFB133EF-A123-46F7-8799-0EE47A73F85D}">
+							<ChildrenList>
+								<Action Name="" ID="{A19C06A4-5B7A-4C67-8AEF-593DBB4C9436}" ShortID="460340176">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Whoosh_Flying_Dash" ID="{654F11FA-FC9B-4D96-A64D-F46018C1ABB5}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D0AEB017-44C4-4043-9AEE-409E7190FACA}" ShortID="180162540">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VO_Flying_Dash" ID="{A27A1391-1750-47F0-BA28-40FF6E344D25}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{B1816D5A-B131-4431-9A10-FB5A4820D6AF}" ShortID="552904788">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Poncho_Wind" ID="{4D528871-B91C-4478-9366-18E7846AD0E7}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{06B4CCC9-78AB-4DD2-B2C7-14B55CA33F62}" ShortID="249435865">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Energy_Dash" ID="{1D9A06A0-9AE3-4A82-B8BC-76177FDBBF1C}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Flying_Landing" ID="{06458486-4BE0-445A-8EE1-FFF36EA42280}">
+							<ChildrenList>
+								<Action Name="" ID="{B75BCB85-3908-42F1-AE11-38345374F572}" ShortID="228479955">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Poncho_Landing" ID="{8DE7B422-B919-4F88-8428-D282017AB503}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F343AF4E-CFF2-4230-80F2-53D5F8D77E34}" ShortID="932094533">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VO_Flying_Landing" ID="{405DAB7F-B673-422D-B011-C5EC67E1C837}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{C06EF73D-E3D7-47AE-A720-2A9D7A6D1ECF}" ShortID="1058915679">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Poncho_Flying" ID="{9CB1B918-0799-416A-BCC7-203309EFA094}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{37415BE7-CE4A-43A4-AC26-1C4DF7AA5534}" ShortID="392825310">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_Footsteps_Landing" ID="{B129E110-F174-41D0-B9A4-4171804B4A1F}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{29C0D292-3FA5-4C83-8650-F0C5ED651FD7}" ShortID="608285229">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.05"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_Footsteps_Landing" ID="{B129E110-F174-41D0-B9A4-4171804B4A1F}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Flying_Stunned" ID="{52F97DA9-597E-4761-8478-342A159385AE}">
+							<ChildrenList>
+								<Action Name="" ID="{34165E27-7C98-4AB8-88EF-002752DC0C01}" ShortID="146877336">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_Thud" ID="{2B9470F2-39C5-4474-8058-E98467123B73}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{C3DA2D85-A093-4213-9E02-63D570EB3461}" ShortID="1023014104">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VO_Flying_Stunned" ID="{FCFC8F72-F3FF-4412-B45A-E1C11D4466D4}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Foot_Landing" ID="{DC89EA0D-BC0F-4AE5-B129-27A6AFF7AA91}">
+							<ChildrenList>
+								<Action Name="" ID="{0FEF30F3-2DC5-412E-8809-2B4C4C381DF6}" ShortID="600537981">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_Footsteps_Landing" ID="{B129E110-F174-41D0-B9A4-4171804B4A1F}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{896DA504-1C11-4196-A6D7-9C42C4CF1452}" ShortID="287285889">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_Footsteps_Landing" ID="{B129E110-F174-41D0-B9A4-4171804B4A1F}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4F65F77E-FBE9-4E1A-8129-745B7CECE6F3}" ShortID="1012822535">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_Poncho" ID="{65E0D449-B028-4AEF-BCD3-8E535D4AD81E}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Flying_Stop" ID="{02DE6E3F-14B3-48A3-A3D7-BB186EEDB6C8}">
+							<ChildrenList>
+								<Action Name="" ID="{EB5B850A-3FCC-4891-A1AF-9A381EE1908A}" ShortID="155790836">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Poncho_Stop" ID="{1908FDB6-9460-433B-9FE1-F14EA74A226F}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Fall_Respawn" ID="{78AF31AA-11BE-403B-B732-7533A26F56EE}">
+							<ChildrenList>
+								<Action Name="" ID="{25DE25D5-F88C-4028-AD1D-D28F1E1DAAA6}" ShortID="981468805">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VO_Foot_Falling" ID="{33737FAA-4ED4-424A-9CD5-3D580441DC9B}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8F1D09D5-8B02-46DB-BB1C-C9670DC711ED}" ShortID="909039971">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_Poncho" ID="{65E0D449-B028-4AEF-BCD3-8E535D4AD81E}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="AMBIENCE" ID="{635F207D-23D8-4426-92B0-3B1D5A09298F}" ShortID="385877395">
@@ -96,6 +334,15 @@
 								<Property Name="Color" Type="int16" Value="23"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{D3CE6C54-68E6-400C-9CB8-90316AA538B9}" ShortID="899925365">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Energy_Recharge" ID="{594EB336-48CB-47C4-9882-BA9CE3258ADC}" WorkUnitID="{916F91C2-C878-413A-8918-76E9E5F3DC89}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
 						</Event>
 						<Event Name="Boss_Idle" ID="{9F6CD685-3AE8-4700-A6FE-09AFD51D73C6}"/>
 						<Event Name="Boss_Defeat" ID="{7E885446-B05E-466F-B67A-721B066A92C2}"/>
@@ -113,7 +360,6 @@
 						<Event Name="Menu_Open" ID="{DF9FD397-4A6A-4261-9352-7317A5CF5394}"/>
 						<Event Name="Menu_Close" ID="{B29A4941-C936-4B97-8987-EDC76BB9DEA6}"/>
 						<Event Name="Start_Game" ID="{6E03F07A-B357-4C09-8B15-40526A512A2F}"/>
-						<Event Name="Checkpoint" ID="{83A03314-F64D-496D-8C54-D78F5CB02A77}"/>
 						<Event Name="Tutorial_Tip" ID="{67472195-FD5A-48E2-A876-D51960DF4A8B}"/>
 					</ChildrenList>
 				</Folder>
