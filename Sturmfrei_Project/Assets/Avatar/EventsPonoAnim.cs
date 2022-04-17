@@ -57,7 +57,7 @@ public class EventsPonoAnim : MonoBehaviour
         if (debugEnabled) { Debug.Log("idling"); }
     }
 
-    void Foot_Interaction()
+    public void Foot_Interaction()
     {
         AkSoundEngine.PostEvent(footInteract, gameObject);
         if (debugEnabled) { Debug.Log("Interacting"); }
