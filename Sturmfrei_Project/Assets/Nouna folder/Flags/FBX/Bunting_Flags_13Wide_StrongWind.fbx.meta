@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: 54004332ca89d6e4795957915557d456
+timeCreated: 1529655586
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cord
+    100004: Flag_01
+    100006: Flag_02
+    100008: Flag_03
+    100010: Flag_04
+    100012: Flag_05
+    100014: Flag_06
+    100016: Flag_07
+    100018: Flag_08
+    100020: Flag_09
+    100022: Flag_10
+    100024: Flag_11
+    100026: Flag_12
+    100028: Flag_13
+    400000: //RootNode
+    400002: Cord
+    400004: Flag_01
+    400006: Flag_02
+    400008: Flag_03
+    400010: Flag_04
+    400012: Flag_05
+    400014: Flag_06
+    400016: Flag_07
+    400018: Flag_08
+    400020: Flag_09
+    400022: Flag_10
+    400024: Flag_11
+    400026: Flag_12
+    400028: Flag_13
+    2300000: Cord
+    2300002: Flag_01
+    2300004: Flag_02
+    2300006: Flag_03
+    2300008: Flag_04
+    2300010: Flag_05
+    2300012: Flag_06
+    2300014: Flag_07
+    2300016: Flag_08
+    2300018: Flag_09
+    2300020: Flag_10
+    2300022: Flag_11
+    2300024: Flag_12
+    2300026: Flag_13
+    3300000: Cord
+    3300002: Flag_01
+    3300004: Flag_02
+    3300006: Flag_03
+    3300008: Flag_04
+    3300010: Flag_05
+    3300012: Flag_06
+    3300014: Flag_07
+    3300016: Flag_08
+    3300018: Flag_09
+    3300020: Flag_10
+    3300022: Flag_11
+    3300024: Flag_12
+    3300026: Flag_13
+    4300000: Cord
+    4300002: Flag_01
+    4300004: Flag_02
+    4300006: Flag_03
+    4300008: Flag_04
+    4300010: Flag_05
+    4300012: Flag_06
+    4300014: Flag_07
+    4300016: Flag_08
+    4300018: Flag_09
+    4300020: Flag_10
+    4300022: Flag_11
+    4300024: Flag_12
+    4300026: Flag_13
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cord
+        weight: 1
+      - path: Flag_01
+        weight: 1
+      - path: Flag_02
+        weight: 1
+      - path: Flag_03
+        weight: 1
+      - path: Flag_04
+        weight: 1
+      - path: Flag_05
+        weight: 1
+      - path: Flag_06
+        weight: 1
+      - path: Flag_07
+        weight: 1
+      - path: Flag_08
+        weight: 1
+      - path: Flag_09
+        weight: 1
+      - path: Flag_10
+        weight: 1
+      - path: Flag_11
+        weight: 1
+      - path: Flag_12
+        weight: 1
+      - path: Flag_13
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -42,10 +42,10 @@ Material:
     m_Ints: []
     m_Floats:
     - DissolveAmount: 0.75
-    - Distortion: 0.05
-    - VoronoiScale: 10
+    - Distortion: 0.12
+    - VoronoiScale: 8
     m_Colors:
-    - ScrollSpeed: {r: 0, g: 0.2, b: 0, a: 0}
-    - VoronoiSpeed: {r: 0, g: 0.1, b: 0, a: 0}
-    - _Color: {r: 4, g: 4, b: 4, a: 1}
+    - ScrollSpeed: {r: 0, g: 0.4, b: 0, a: 0}
+    - VoronoiSpeed: {r: 0, g: 0.2, b: 0, a: 0}
+    - _Color: {r: 1.9999998, g: 1.9999998, b: 1.9999998, a: 1}
   m_BuildTextureStacks: []

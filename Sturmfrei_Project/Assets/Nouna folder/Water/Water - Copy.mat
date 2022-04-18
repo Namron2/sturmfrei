@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - DissolvePower: 0
+    - DissolvePower: -4.66
     - MaskPower: 0
     - NoiseScale: 30
     - WobbleAmount: 0.02
@@ -49,7 +49,7 @@ Material:
     - WobbleFrequency: -7
     - WobbleSpeed: 0.2
     m_Colors:
-    - BaseColor: {r: 0.08021983, g: 0.3967553, b: 0.79129815, a: 1}
+    - BaseColor: {r: 0.039215688, g: 0.19803922, b: 0.39607844, a: 1}
     - NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
     - NoiseTiling: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
