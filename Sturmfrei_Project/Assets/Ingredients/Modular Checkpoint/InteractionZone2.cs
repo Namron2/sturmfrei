@@ -22,6 +22,8 @@ public class InteractionZone2 : MonoBehaviour
     public float intensity;
     private float t;
 
+    public GameObject lightbeam;
+
     public bool shrineActive = false;
 
     //private GameObject controllerY;
@@ -34,7 +36,7 @@ public class InteractionZone2 : MonoBehaviour
         CPDetectionPoint = CPDetectionPointObject.transform;
         //controllerY = this.transform.parent.transform.Find("YController").gameObject;
         //keyboardF = this.transform.parent.transform.Find("FKeyboard").gameObject;
-
+        //lightbeam = this.transform.parent.transform.Find("LightBeam").gameObject;
        // controllerY.SetActive(false);
        // keyboardF.SetActive(false);
     }
@@ -72,6 +74,7 @@ public class InteractionZone2 : MonoBehaviour
                 shrine.GetComponent<Animator>().SetTrigger("SetCheckpoint");
                 Instantiate(crystalToSpawn, spawnPoint.position, spawnPoint.rotation);
                 StartCoroutine(Aether());
+                StartCoroutine(RemoveLightBeam());
                 if (!shrineActive) StartCoroutine(ActivateLook());
                 shrineActive = true;
             }
@@ -134,4 +137,37 @@ public class InteractionZone2 : MonoBehaviour
         }
     }
     */
+
+
+    /*    private float progressRemoveFadeWhite = 1;
+public IEnumerator RemoveFadeToWhite()
+    {
+        while (progressRemoveFadeWhite > 0)
+        {
+            elapsedTimeRemoveFadeWhite -= Time.unscaledDeltaTime;
+            progressRemoveFadeWhite = elapsedTimeRemoveFadeWhite * 2;
+
+            Color c = FadeWhite.color;
+            c.a = progressRemoveFadeWhite;
+            FadeWhite.color = c;
+            yield return null;
+        }
+    }
+    }*/
+
+    private float progressScale = 1;
+    private float elapsedTimeScale = 1;
+    IEnumerator RemoveLightBeam()
+    {
+        while (progressScale > 0)
+        {
+            elapsedTimeScale -= Time.unscaledDeltaTime/2;
+            progressScale = elapsedTimeScale;
+
+            Vector3 tempoScale = new Vector3(1, progressScale, 1);
+            lightbeam.transform.localScale = tempoScale;
+            yield return null;
+        }
+
+    }
 }
