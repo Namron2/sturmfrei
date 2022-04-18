@@ -32,6 +32,7 @@ public class CristalBrise : MonoBehaviour
     }
     IEnumerator Brise()
     {
+        this.gameObject.GetComponent<ObjectSoundTrigger>().PlaySound();
         cristal.transform.parent.GetComponent<Animator>().enabled = false;
         cristal.SetActive(false);
         cristalBriser.SetActive(true);

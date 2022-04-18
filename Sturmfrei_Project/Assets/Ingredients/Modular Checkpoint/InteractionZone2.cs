@@ -88,6 +88,7 @@ public class InteractionZone2 : MonoBehaviour
 
     IEnumerator Aether()
     {
+        this.gameObject.GetComponent<ObjectSoundTrigger>().PlaySound();
         aetherFX.Play();
         yield return new WaitForSeconds(2f);
         //aetherFX.Stop();

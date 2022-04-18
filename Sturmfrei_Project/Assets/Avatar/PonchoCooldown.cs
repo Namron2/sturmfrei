@@ -79,12 +79,18 @@ public class PonchoCooldown : MonoBehaviour
             intensity = recharge * 1.0f + 0.0f;
         }
     }
-   
-   void ParticleDash()
+
+    public void CheckMat()
+    {
+        ponchoMaterial = poncho.GetComponent<Renderer>().material;
+    }
+
+    void ParticleDash()
     {
         if (dashFull == true)
         {
             aetherBurst.GetComponent<ParticleSystem>().Play();
+            this.gameObject.GetComponent<ObjectSoundTrigger>().PlaySound();
 
         }
     }

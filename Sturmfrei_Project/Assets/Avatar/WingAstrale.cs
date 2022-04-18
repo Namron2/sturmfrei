@@ -16,6 +16,7 @@ public class WingAstrale : MonoBehaviour
     public bool dansPollution;
     public GameObject particuleCloud;
     public bool toxicCheck;
+    public bool soundEnabled;
 
     private void Awake()
     {
@@ -43,19 +44,39 @@ public class WingAstrale : MonoBehaviour
 
         if (playerMovement.isTainted && toxicCheck == false)
         {
-            toxicCheck = true;
+            Pollute();
+            /*toxicCheck = true;
             astral.SetColor("_EmissionColor", Color.Lerp(coulIni, coulPollution, 0.8f) * 2f);
-            particuleCloud.GetComponent<ParticleSystem>().Play();
+            particuleCloud.GetComponent<ParticleSystem>().Play();*/
         }
         if (!playerMovement.isTainted && toxicCheck == true)
         {
-            toxicCheck = false;
+            Heal();
+            /*toxicCheck = false;
             astral.SetColor("_EmissionColor", Color.Lerp(coulPollution, coulIni, 0.5f) * 2f);
             particuleCloud.GetComponent<ParticleSystem>().Pause();
-            StartCoroutine(ColorSwitch());
+            StartCoroutine(ColorSwitch());*/
         }
     }
 
+    void Pollute()
+    {
+        if (soundEnabled)
+        {
+            pono.GetComponent<ObjectSoundTrigger>().PlaySound();
+        }
+        toxicCheck = true;
+        astral.SetColor("_EmissionColor", Color.Lerp(coulIni, coulPollution, 0.8f) * 2f);
+        particuleCloud.GetComponent<ParticleSystem>().Play();
+    }
+
+    void Heal()
+    {
+        toxicCheck = false;
+        astral.SetColor("_EmissionColor", Color.Lerp(coulPollution, coulIni, 0.5f) * 2f);
+        particuleCloud.GetComponent<ParticleSystem>().Pause();
+        StartCoroutine(ColorSwitch());
+    }
     IEnumerator ColorSwitch()
     {
         yield return new WaitForSeconds(2.5f);

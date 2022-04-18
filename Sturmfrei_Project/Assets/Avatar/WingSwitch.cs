@@ -39,5 +39,6 @@ public class WingSwitch : MonoBehaviour
             ponchos[i].GetComponent<Renderer>().material = ponchoMat[0];
         }
         pono.radius = radiusIni;
+        ponchos[0].gameObject.GetComponent<PonchoCooldown>().CheckMat();
     }
 }

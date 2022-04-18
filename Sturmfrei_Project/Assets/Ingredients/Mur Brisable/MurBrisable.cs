@@ -7,14 +7,14 @@ public class MurBrisable : MonoBehaviour
     public bool isDashing;
     public GameObject MurBrise;
     public GameObject MurSolide;
-    public AudioSource bedingbedang;
+    //public AudioSource bedingbedang;
     public PlayerCollisionSphere playMov; 
     List<GameObject> childObjects = new List<GameObject>();
 
 
 private void Start()
     {
-        bedingbedang = this.gameObject.GetComponent<AudioSource>();
+        //bedingbedang = this.gameObject.GetComponent<AudioSource>();
         MurSolide = this.gameObject.transform.GetChild(0).gameObject;
         MurBrise = this.gameObject.transform.GetChild(1).gameObject;
         MurBrise.SetActive(false);
@@ -41,6 +41,7 @@ private void Start()
     //Not sure we need to put this in a enumerator, talk to Oli
     IEnumerator Brise()
     {
+        this.gameObject.GetComponent<ObjectSoundTrigger>().PlaySound();
         MurSolide.SetActive(false);
         MurBrise.SetActive(true); 
         foreach(GameObject childObjects in childObjects)
@@ -49,7 +50,7 @@ private void Start()
             childObjects.GetComponent<Rigidbody>().AddForce(new Vector3 (0,flyup,0), ForceMode.Impulse);
             Debug.Log(flyup.ToString());
         }
-        bedingbedang.Play();
+        //bedingbedang.Play();
         yield return new WaitForSeconds(1.3f);
     }
 
