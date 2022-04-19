@@ -5662,8 +5662,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.90326, y: 63.94905}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: -63.2, y: 21.5}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6311980170760121252
 CanvasRenderer:
@@ -5695,10 +5695,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5706,10 +5706,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'L''Aether
-
-
-    Il faut y aller'
+  m_Text: "Slate #1 : The Aether\n\n\u201CIt\u2019s around us\nIt\u2019s part of
+    us\nBut more importantly, it connects us\u201D\n\nThe Aether is the energie that
+    links everything in the valley from the smallest flower to the tallest mountain.
+    Moving like the wind, the Aether takes the form of little blue and pink shards
+    flowing endlessly through time and space.\n"
 --- !u!1 &9019633664182816486
 GameObject:
   m_ObjectHideFlags: 0
@@ -5736,7 +5737,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9019633664182816486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000045776367}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7645092323005269010}
@@ -5744,8 +5745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47.09674, y: 13.949066}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 2.8, y: -12.7}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5271998756881621906
 CanvasRenderer:
@@ -5788,7 +5789,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'L''Aether
-
-
-    Il faut y aller'
+  m_Text: "Slate #1 : The Aether\n\n\u201CIt\u2019s around us\nIt\u2019s part of
+    us\nBut more importantly, it connects us\u201D\n\nThe Aether is the energie that
+    links everything in the valley from the smallest flower to the tallest mountain.
+    Moving like the wind, the Aether takes the form of little blue and pink shards
+    flowing endlessly through time and space.\n"
